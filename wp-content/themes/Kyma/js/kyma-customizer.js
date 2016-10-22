@@ -1,0 +1,6 @@
+jQuery(document).ready(function () {
+    jQuery('.wp-full-overlay-sidebar-content').prepend('<img style="width: 50%; margin: 20px auto 20px auto; display: block; text-align: center;" src="http://localhost/wordpress_dev/wp-content/themes/Kyma-Premium-Latest/images/Logo.png">{logo}</a>'.replace('{logo}', kyma_button.logo));
+    jQuery('.wp-full-overlay-sidebar-content').prepend('<a style="width: 80%; background-color:#02b7b7; color: #fff; margin: 10px auto 5px auto; display: block; text-align: center;" href="https://wordpress.org/support/view/theme-reviews/kyma?filter=5" class="button" target="_blank">' + kyma_button.review + '</a>');
+    jQuery('.wp-full-overlay-sidebar-content').prepend('<a style="width: 80%; background-color:#02b7b7; color: #fff; margin: 10px auto 5px auto; display: block; text-align: center;" href="https://www.webhuntinfotech.com/documentation/kyma?filter=5" class="button" target="_blank">' + kyma_button.documentation + '</a>');
+    jQuery('.wp-full-overlay-sidebar-content').prepend('<a style="width: 80%; background-color:#02b7b7; color: #fff; margin: 10px auto 5px auto; display: block; text-align: center;" href="https://www.webhuntinfotech.com/support/kyma?filter=5" class="button" target="_blank">' + kyma_button.support + '</a>');
+});
