@@ -1,0 +1,42 @@
+***Version 1.4.6
+1. Testimonial Shortcode description issue fixed.
+2. Home feature style two background color issue fixed.
+3. Home extra section title option added.
+4. "Contact us Two" template address issue fixed.
+5. Remove dual page title(bredcrumbs) from contact us 1, 2, & 3 templates.
+6. Other minor bug fixed. 
+***Version 1.4.5
+1. Added custom URL(Slug) option for custom cpt's.
+***Version 1.4.4
+1. FontAwesome Librery updated.
+2. Kirki Librery updated.
+3. Shortcodes Position Fixed.
+4. Extra Content section Updated.
+5. Some Other Minor bug fixed.
+***Version 1.4.3
+1. FontAwesom Icon update
+2. Minor bug fixed.
+***Version 1.4.2
+1. Footer contact widget update.
+2. Portfolio details social sharing issue fixed.
+3. Portfolio details slider image(Repeated image) issue fixed.  
+***Version 1.4.1
+1. Service Style 3 icon issue fixed.
+2. WooCommerce sidebar issue fixed
+***Version 1.4
+1. Testimonial Shortcode added.
+2. Featured Shortcode issue fixed.
+3. Update woo-commerce template with left sidebar.
+4. Check translation strings.
+5. Add new social icons in header like: YouTube, Pinterest.
+6. Service template issue fixed.
+7. Update home client image size.
+***Version 1.3
+1. Now you can choose category for home blog posts.
+2. Portfolio Shortcode added
+***Version 1.2
+1. Typography added
+2. Video Background sectiond Added
+3. Twitter Feed Section Added
+***Version 1.0
+ * First public release

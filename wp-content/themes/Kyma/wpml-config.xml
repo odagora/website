@@ -1,0 +1,43 @@
+<wpml-config>
+    <admin-texts>
+        <key name="kyma_theme_options">
+            <!---- Service Section ---->
+            <key name="home_service_heading"/>
+            <!---- Feature Section ---->
+            <key name="home_feature_heading"/>
+            <key name="home_feature_heading1"/>
+            <!---- Portfolio Section ---->
+            <key name="port_heading"/>
+            <!---- Testimonial Section ---->
+            <key name="testimonial_heading"/>
+            <!---- Partners Section ---->
+            <key name="home_client_title"/>
+            <key name="home_client_description"/>
+            <!---- Blog Section ---->
+            <key name="blog_title"/>
+            <key name="home_blog_title"/>
+            <key name="related_post_text"/>
+            <key name="about_author_text"/>
+            <!---- Team Section ---->
+            <key name="home_team_heading"/>
+            <!---- Footer Call-Out Section ---->
+            <key name="callout_title"/>
+            <key name="callout_description"/>
+            <key name="callout_btn_text"/>
+            <!---- Extra Section ---->
+            <key name="home-shortcode"/>
+            <!---- Contact Section ---->
+            <key name="address_info_title"/>
+            <key name="contact_form_title"/>
+            <key name="google_map_title"/>
+            <!---- Copyright Section ---->
+            <key name="footer_copyright"/>
+            <key name="developed_by_text"/>
+            <key name="developed_by_link_text"/>
+            <!---- Home Cart Section ---->
+            <key name="home_product_title"/>
+            <!---- Home Pricing Plan Section ---->
+            <key name="home_plan_heading"/>
+        </key>
+    </admin-texts>
+</wpml-config>

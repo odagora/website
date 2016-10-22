@@ -1,0 +1,13 @@
+﻿===================================================
+Kyma Advanced THEME
+===================================================
+
+Kyma – Responsive Multi-Purpose (HTML5 / CSS3) Theme for (Desktop, tablet, mobile phone…) – 100% Multi Pages Template. Kyma is Created with Twitter Bootstrap 3.3.2 Framework. Kyma is a great design idea for website of Creative Corporate, Corporation, Company Profile, Personal Portfolio, and more … Create Outstanding Website or Blog in Minutes!. everything is possible with Kyma. Awesome Design, Unique Concepts, Scalable Responsive, Amazing flexibility, Dark and Light Scheme. Kyma has static and fixed header feature. it’s developed with lots of care and love. theme has two, three, four footer layout feature.We focused on usability across various devices, starting with smart phones.it is compatible with various devices. Kyma is a Cross-Browser Compatible theme that works on All leading web browsers. Kyma is easy to use and user friendly theme. Kyma is Retina-Ready theme. Kyma has boxed and full-width layout feature. powerful but simple Kyma theme content customized through customizer. It has a typography control feature for change the styling of the theme. to make your site attractive it has two widget sections first for “sidebar widget section” and second for “Footer widget section” where you can show you widgets. To make your website in two column use sidebar widget section. to set custom menu in header set primary location and for the footer section set secondary section. we added social media links to added your social links. It boasts of more than 50 beautifully designed page templates , Home, Blog and Default Page Template(page with right sidebar), Page Full-Width, Page Left Sidebar etc. Kyma theme has more advanced feature to make your site awesome like: it has header top bar dark & lite color feature. you can also changed header color dark and lite styling. Theme compatible with woo-commerce. Kyam is a fully woo-commerce tested theme you just add woo-commerce plugin and product and its other required contents. Kyma is translation ready theme with WPML compatible & Many More…..
+
+This theme is compatible with Wordpress Version 4.4 and above and it supports the new theme customization API (https://codex.wordpress.org/Theme_Customization_API).
+
+Kirki toolkit (https://wordpress.org/plugins/kirki/) is used in to build customizer.
+
+Supported browsers: Firefox, Opera, Chrome, Safari and IE10+ (Some css3 styles like shadows, rounder corners and 2D transform are not supported by IE8 and below).
+
+Copyright (c) 2015 by WebHunt Infotech (http://www.webhuntinfotech.com/)
