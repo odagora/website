@@ -894,15 +894,6 @@ Kirki::add_field('kyma_theme', array(
     'sanitize_callback' => 'esc_url'
 ));
 Kirki::add_field('kyma_theme', array(
-    'settings' => 'social_instagram_link',
-    'label' => __('Instagram URL', 'kyma'),
-    'section' => 'social_sec',
-    'type' => 'url',
-    'priority' => 10,
-    'default' => $kyma_theme_options['social_instagram_link'],
-    'sanitize_callback' => 'esc_url'
-));
-Kirki::add_field('kyma_theme', array(
     'settings' => 'social_youtube_link',
     'label' => __('YouTube URL', 'kyma'),
     'section' => 'social_sec',
@@ -956,6 +947,7 @@ Kirki::add_field('kyma_theme', array(
     'default' => $kyma_theme_options['contact_address'],
     'sanitize_callback' => 'kyma_sanitize_text'
 ));
+
 Kirki::add_field('kyma_theme', array(
     'settings' => 'address_info_title',
     'label' => __('Contact Address Heading', 'kyma'),

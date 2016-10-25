@@ -2588,10 +2588,6 @@
         display: block;
     }
 
-    .topbar > .content {
-        display: none;
-    }
-
     .half_full_con {
         width: 100%;
         padding-right: 15px;
@@ -3348,10 +3344,6 @@
 
     .topbar.topbar_small {
         padding: 7px 0 8px;
-    }
-
-    .top_details > span:not(.top_login):not(.languages-select) {
-        display: none;
     }
 
     .top-socials > a {

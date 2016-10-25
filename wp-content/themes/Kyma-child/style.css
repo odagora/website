@@ -1,0 +1,137 @@
+/*
+ Theme Name:     Kyma Child Theme
+ Theme URI:      http://www.webhuntinfotech.com/kyma-advanced/
+ Description:    Kyma Child Theme
+ Author:         WebHunt Infotech
+ Author URI:     http://www.webhuntinfotech.com/
+ Template:       Kyma
+ Version:        1.4.6
+*/
+ 
+@import url("../Kyma/style.css");
+ 
+/* =Theme customization starts here
+------------------------------------------------------- */
+/*Header topbar customization*/
+.top_details > span {
+	padding: 7px 0;
+	margin-right: 0px;
+}
+
+.top_details >span a {
+	text-transform: none;
+}
+
+.top-socials > a {
+	margin-top: 0px;
+	height: 33px;
+	line-height: 33px;
+	border-radius: 0px;
+}
+
+.top-socials > a > span.soc_icon_bg {
+	height: 33px;
+	line-height: 33px;
+}
+
+.topbar .top_details span a:before {
+	position: relative;
+	content: "|";
+	font-size: 13px;
+	margin: 0 3px;
+	top: -1px;
+	color: #ddd;
+}
+
+.topbar .top_details span:first-child a:before {
+	display: none;
+}
+
+.topbar .top-socials a i {
+	margin-right: 0px;
+	width: 32px;
+	height: 33px;
+	line-height: 33px;
+	text-align: center;
+	display: block;
+}
+
+.topbar_colored .top_details span a,
+.topbar_colored .top-socials a {
+	color: rgba(255,255,255,.6);
+}
+
+.topbar_colored .top_details span a:hover,
+.topbar_colored .top-socials a:hover {
+	color: rgba(255,255,255,1) !important;
+}
+
+.top-socials > a:hover > span.soc_icon_bg {
+    top: 0px;
+    left: 0px;
+    opacity: 0;
+}
+
+.topbar .top-socials a.facebook:hover {
+	background-color: #507CBE;
+}
+
+.topbar .top-socials a.twitter:hover {
+	background-color: #63CDF1;
+}
+
+.topbar .top-socials a.youtube:hover {
+	background-color: #B31217;
+}
+
+/*Main menu responsive customization*/
+@media only screen and (max-width: 992px) {
+	.mobile_menu_trigger{
+		display: inline-block;
+	}
+
+	#navy > li > a > span {
+		padding: 12px 0;
+	}
+
+	.f_left {
+		float: left;
+	} 
+}
+
+/*Header topbar responsive customization*/
+@media only screen and (max-width: 768px) {
+	.top-socials {
+		text-align: center;
+	}
+
+	.f_left {
+		float: none;
+	}
+}
+
+@media only screen and (max-width: 630px) {
+	.top-socials {
+		display: none;
+	}
+
+	.topbar .fa {
+		font-size: 30px;
+		display: inline-block !important;
+		margin-right: 20px;
+	}
+
+	.topbar .top_details span a:before {
+		display: none;
+	}
+
+	.topbar_colored .top_details span a {
+		line-height: 0;
+		font-size: 0;
+	}
+
+	.topbar_colored .top_details span:last-child .fa  {
+		margin-right: 0;
+	}
+}
+
