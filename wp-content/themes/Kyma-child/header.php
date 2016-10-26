@@ -153,10 +153,10 @@ if ($kyma_theme_options['topbar']) {
                     <a href="<?php echo esc_url(home_url('/')); ?>"
                        title="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>" rel="home">
                         <?php
-                        if (isset($kyma_theme_options['upload_image_logo']) && is_array($kyma_theme_options['upload_image_logo']) && $kyma_theme_options['upload_image_logo']['url'] != "") {
+                        if (isset($kyma_theme_options['upload_image_logo'])) {
                             ?>
                             <img id="logoimg"
-                                 src="<?php echo esc_url($kyma_theme_options['upload_image_logo']['url']); ?>"
+                                 src="<?php echo get_template_directory_uri() . '/../Kyma-child/images/logo_servitalleres.png'; ?>"
                                  alt="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>"
                                  style="height:<?php echo intval($kyma_theme_options['logo_height']) ?>px;"/>
                         <?php } else { ?>

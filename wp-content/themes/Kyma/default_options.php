@@ -2,6 +2,7 @@
 /* General Options */
 function kyma_theme_options()
 {
+    $ImageUrl7 = get_template_directory_uri() . "/images/webhunt_infotech_logo.jpg";
     $ImageUrl = get_template_directory_uri() . "/images/sliders/slide1.jpg";
     $ImageUrl2 = get_template_directory_uri() . "/images/sliders/slide2.jpg";
     $ImageUrl3 = get_template_directory_uri() . "/images/sliders/slide3.jpg";
@@ -18,8 +19,8 @@ function kyma_theme_options()
         'site_layout' => '',
         'site_color' => 0,
         'upload_image_logo' => '',
-        'logo_height' => 50,
-        'logo_width' => 150,
+        'logo_height' => 40,
+        'logo_width' => 250,
         'logo_text_width' => 35,
         'logo_layout' => 'left',
         'logo_spacing' => 0,
