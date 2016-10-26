@@ -44,7 +44,7 @@ Kirki::add_field('kyma_theme', array(
     'priority' => 10,
     'default' => $kyma_theme_options['logo_width'],
     'choices' => array(
-        'max' => 250,
+        'max' => 300,
         'min' => 35,
         'step' => 1
     ),
@@ -66,7 +66,7 @@ Kirki::add_field('kyma_theme', array(
     'default' => $kyma_theme_options['logo_height'],
     'choices' => array(
         'max' => 250,
-        'min' => 50,
+        'min' => 30,
         'step' => 1
     ),
     'output' => array(

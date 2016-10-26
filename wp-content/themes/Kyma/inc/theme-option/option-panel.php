@@ -162,6 +162,9 @@ class Redux_Framework_Kyma_config
                     'url' => true,
                     'title' => __('Logo', 'kyma'),
                     'subtitle' => __('Upload your Logo. If left blank theme will use site name.', 'kyma'),
+                    'default' => array(
+                        'url' => get_template_directory_uri() . '/images/Logo.png',
+                    ),
                 ),
                 array(
                     'id' => 'x2_kyma_logo_upload',

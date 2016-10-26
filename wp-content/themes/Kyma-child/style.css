@@ -135,3 +135,12 @@
 	}
 }
 
+/*Main menu customization*/
+#logo {
+	margin-right: 30px;
+}
+
+#logo > a {
+	margin-top: 18px;
+}
+
