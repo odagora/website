@@ -1111,7 +1111,7 @@
     }
 
     #main_nav {
-        float: left;
+        float: right;
     }
 
     #main_nav.f_right {
@@ -1126,7 +1126,7 @@
     }
 
     .menu_button_mode:not(.header_on_side) #navy > li > a {
-        padding: 10px 15px;
+        padding: 10px 10px;
         margin-right: 10px;
     }
 

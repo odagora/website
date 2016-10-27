@@ -137,10 +137,15 @@
 
 /*Main menu customization*/
 #logo {
-	margin-right: 30px;
+	margin-right: 20px;
 }
 
 #logo > a {
 	margin-top: 18px;
+	padding: 0 !important;
 }
 
+#navy > li > a > span {
+	font-weight: 600 !important;
+	font-size: 14px !important;
+}
