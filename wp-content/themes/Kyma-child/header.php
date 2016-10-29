@@ -245,6 +245,7 @@ if ($kyma_theme_options['topbar']) {
 						</span>
                             <?php wp_nav_menu(array(
                                     'theme_location' => 'primary',
+                                    'container_class' => 'primary_nav_menu',
                                     'menu_class' => 'clearfix horizontal_menu',
                                     'menu_id' => 'navy',
                                     'fallback_cb' => 'kyma_fallback_page_menu',
@@ -253,6 +254,7 @@ if ($kyma_theme_options['topbar']) {
                                     'walker' => new kyma_nav_walker(),
                                 )
                             ); ?>
+                        <div class="popup_button"><button class"#">COTIZAR AHORA</button></div>
                         </div>
                         <?php if (($kyma_theme_options['logo_layout'] == "right") && (!$kyma_theme_options['side_header'])){ ?>
                     </div>
