@@ -235,6 +235,7 @@ if ($kyma_theme_options['topbar']) {
                     } if (($kyma_theme_options['logo_layout'] == "right") && (!$kyma_theme_options['side_header'])) { ?>
                 </div>
             <?php } ?>
+                <div class="popup_button"><button class"#">COTIZAR AHORA</button></div>
                 <nav id="main_nav">
                     <?php if (($kyma_theme_options['logo_layout'] == "right") && (!$kyma_theme_options['side_header'])) { ?>
                     <div <?php //echo 'style="float:left; position:relative;"'; ?> >
@@ -254,12 +255,12 @@ if ($kyma_theme_options['topbar']) {
                                     'walker' => new kyma_nav_walker(),
                                 )
                             ); ?>
-                        <div class="popup_button"><button class"#">COTIZAR AHORA</button></div>
-                        </div>
+                        
                         <?php if (($kyma_theme_options['logo_layout'] == "right") && (!$kyma_theme_options['side_header'])){ ?>
                     </div>
                 <?php } ?>
                 </nav>
+                </div>
                 <!-- End Nav -->
                 <div class="clear"></div>
             </div>

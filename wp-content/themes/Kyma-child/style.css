@@ -129,6 +129,33 @@
 	}
 }
 
+@media only screen and (min-width: 600px) and (max-width: 992px) {
+	.popup_button {
+		margin-top: 21px;
+		margin-right: 60px;
+	}
+
+	#navigation_bar button {
+		font-family: "Open Sans";
+		font-weight: 600;
+		padding: 5px 5px;
+		color: #fff;
+		border-radius: 3px;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.popup_button {
+		display: none;
+	}
+}
+
+@media only screen and (max-width: 480px) {
+	#main_nav.has_mobile_menu {
+		padding: 120px 0 0;
+	}
+
+}
 /*Header topbar responsive customization*/
 @media only screen and (max-width: 768px) {
 	.top-socials {
@@ -160,7 +187,7 @@
 		font-size: 0;
 	}
 
-	.topbar_colored .top_details span:last-child .fa  {
+	.topbar_colored .top_details span:last-child .fa {
 		margin-right: 0;
 	}
 }
@@ -171,7 +198,7 @@
 }
 
 #logo > a {
-	margin-top: 18px;
+	margin-top: 21px;
 	padding: 0 !important;
 }
 
