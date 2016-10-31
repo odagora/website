@@ -3154,10 +3154,6 @@
         margin-right: 0;
     }
 
-    .mobile_menu_trigger {
-        right: 32px;
-    }
-
     .hm_new_bar_slider {
         padding-left: 0;
     }
@@ -3487,9 +3483,7 @@
         right: 50%;
         top: 107px;
     }
-	.mobile_menu_trigger {
-		right: 44%;
-	}
+
 	#top_cart + #main_nav .nav_trigger {
 		right: 0px;
 	}
