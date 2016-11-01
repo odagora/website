@@ -153,10 +153,10 @@ if ($kyma_theme_options['topbar']) {
                     <a href="<?php echo esc_url(home_url('/')); ?>"
                        title="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>" rel="home">
                         <?php
-                        if (isset($kyma_theme_options['upload_image_logo'])) {
+                        if (isset($kyma_theme_options['upload_image_logo']) && is_array($kyma_theme_options['upload_image_logo']) && $kyma_theme_options['upload_image_logo']['url'] != "") {
                             ?>
                             <img id="logoimg"
-                                 src="<?php echo get_template_directory_uri() . '/../Kyma-child/images/logo_servitalleres.png'; ?>"
+                                 src="<?php echo esc_url($kyma_theme_options['upload_image_logo']['url']); ?>"
                                  alt="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>"
                                  style="height:<?php echo intval($kyma_theme_options['logo_height']) ?>px;"/>
                         <?php } else { ?>
@@ -198,7 +198,7 @@ if ($kyma_theme_options['topbar']) {
                                                     printf('<a href="%s">%s</a>', $_product->get_permalink($cart_item), $thumbnail);
                                                 ?>
                                                 <span class="cart_top_details">
-												<span class="top_cart_title"><?php
+                                                <span class="top_cart_title"><?php
                                                     if (!$_product->is_visible())
                                                         echo apply_filters('woocommerce_cart_item_name', $_product->get_title(), $cart_item, $cart_item_key);
                                                     else
@@ -209,10 +209,10 @@ if ($kyma_theme_options['topbar']) {
                                                     ?><span class="top_cart_quantity"><?php
                                                         echo 'x ' . $cart_item['quantity'];
                                                         ?></span></span>
-												<span class="top_cart_price">
-												<?php echo apply_filters('woocommerce_cart_item_price', WC()->cart->get_product_price($_product), $cart_item, $cart_item_key); ?>
-												</span>
-											</span>
+                                                <span class="top_cart_price">
+                                                <?php echo apply_filters('woocommerce_cart_item_price', WC()->cart->get_product_price($_product), $cart_item, $cart_item_key); ?>
+                                                </span>
+                                            </span>
                                                 <?php
                                                 echo apply_filters('woocommerce_cart_item_remove_link', sprintf('<a href="%s" class="remove" title="%s"><span class="top_catt_remove"></span> </a>', esc_url(WC()->cart->get_remove_url($cart_item_key)), __('Remove this item', 'woocommerce')), $cart_item_key);
                                                 ?>
@@ -242,12 +242,11 @@ if ($kyma_theme_options['topbar']) {
                     <div <?php //echo 'style="float:left; position:relative;"'; ?> >
                         <?php } ?>
                         <div id="nav_menu">
-						<span class="mobile_menu_trigger">
-						    <a href="#" class="nav_trigger"><span></span></a>
-						</span>
+                        <span class="mobile_menu_trigger">
+                            <a href="#" class="nav_trigger"><span></span></a>
+                        </span>
                             <?php wp_nav_menu(array(
                                     'theme_location' => 'primary',
-                                    'container_class' => 'primary_nav_menu',
                                     'menu_class' => 'clearfix horizontal_menu',
                                     'menu_id' => 'navy',
                                     'fallback_cb' => 'kyma_fallback_page_menu',
@@ -256,12 +255,11 @@ if ($kyma_theme_options['topbar']) {
                                     'walker' => new kyma_nav_walker(),
                                 )
                             ); ?>
-                        
+                        </div>
                         <?php if (($kyma_theme_options['logo_layout'] == "right") && (!$kyma_theme_options['side_header'])){ ?>
                     </div>
                 <?php } ?>
                 </nav>
-                </div>
                 <!-- End Nav -->
                 <div class="clear"></div>
             </div>
