@@ -1431,13 +1431,13 @@
     }
 
     .content, .container, .site_boxed #main_wrapper {
-        max-width: 970px;
+        max-width: 1050px !important;
     }
 }
 
 @media only screen and (min-width: 1200px) {
     .content, .container, .site_boxed #main_wrapper {
-        max-width: 1170px;
+        max-width: 1170px !important;
     }
 }
 
@@ -2092,7 +2092,7 @@
     }
 
     .filter_item_block {
-        width: 50%;
+        width: 50% !important;
     }
 
     .left_sidebar.col-md-3 {
@@ -2201,7 +2201,7 @@
     }
 
     .filter_item_block {
-        width: 50%;
+        width: 50% !important;
     }
 
     .hm_blog_list .blog_grid_con {
@@ -2652,7 +2652,7 @@
     }
 
     .filter_item_block {
-        width: 100%;
+        width: 100% !important;
     }
 
     .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
