@@ -9760,7 +9760,7 @@ a.img_popup:after {
 /* ----------------------------------------------------------------
 	Sliders
 -----------------------------------------------------------------*/
-.owl-origin {
+/*.owl-origin {
     -webkit-perspective: 1200px;
     -webkit-perspective-origin-x: 50%;
     -webkit-perspective-origin-y: 50%;
@@ -9817,7 +9817,7 @@ a.img_popup:after {
     -webkit-animation: scaleUpTo .5s ease both;
     -moz-animation: scaleUpTo .5s ease both;
     animation: scaleUpTo 0.5s ease both;
-}
+}*/
 
 @-webkit-keyframes empty {
     0% {
