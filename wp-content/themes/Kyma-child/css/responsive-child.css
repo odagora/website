@@ -620,18 +620,18 @@
     }
 
     .owl_text_b > span {
-        font-size: 24px;
-        padding: 12px 16px;
+        font-size: 24px !important;
+        padding: 12px 16px !important;
     }
 
     .owl_text_c > span {
-        font-size: 17px;
-        line-height: 26px;
-        padding: 9px 16px;
+        font-size: 17px !important;
+        line-height: 26px !important;
+        padding: 9px 16px !important; 
     }
 
     #enar_owl_slider .btn_a {
-        margin: 35px 0 0;
+        margin: 35px 0 0 !important;
     }
 
     .wobbly_desc {
@@ -670,14 +670,14 @@
     }
 
     .owl_text_b > span {
-        font-size: 16px;
-        padding: 6px 12px;
+        font-size: 16px !important;
+        padding: 6px 12px !important;
     }
 
     .owl_text_c > span {
-        font-size: 13px;
-        line-height: 22px;
-        padding: 5px 12px;
+        font-size: 13px !important;
+        line-height: 22px !important;
+        padding: 5px 12px !important;
     }
 
     .owl_text_a > span {
@@ -692,8 +692,8 @@
     }
 
     #enar_owl_slider .btn_a {
-        margin: 8px 0 0;
-        font-size: 12px;
+        margin: 8px 0 0 !important;
+        font-size: 12px !important;
     }
 
     #enar_owl_slider .btn_a > span > span {
@@ -712,22 +712,23 @@
 
     #enar_owl_slider .btn_a > span > span {
         left: 30px;
-        padding: 7px 9px;
+        padding: 7px 9px !important;
+        font-size: 12px !important;
     }
 
-    #enar_owl_slider .btn_a i.in_right {
+/*    #enar_owl_slider .btn_a i.in_right {
         right: -30px;
-    }
+    }*/
 }
 
 @media only screen and (max-width: 480px) {
     .owl_text_c {
-        display: none;
+        display: none !important;
     }
 
     .owl_text_b > span {
-        font-size: 15px;
-        padding: 5px 10px;
+        font-size: 15px !important;
+        padding: 5px 10px !important;
     }
 
     .owl_text_a > span {
@@ -797,7 +798,7 @@
     }
 
     .owl_text_b > span {
-        font-size: 14px;
+        font-size: 14px !important;
     }
 }
 
