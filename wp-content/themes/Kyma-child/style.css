@@ -297,3 +297,57 @@
 .nav_trigger.nav-is-visible span:after {
 	right: 0.5px;
 }
+
+/*Slider customization*/
+.owl_text_b > span {
+	background-color: rgba(18,19,57,0.8);
+	color: #fff;
+	text-transform: none;
+}
+
+.owl_text_c > span {
+	font-family: inherit;
+	font-weight: bold;
+}
+
+.btn_a span > span {
+	font-weight: bold;
+	font-size: 16px;
+}
+
+.btn_a i.in_left,
+.btn_a i.in_right {
+	line-height: 51px;
+}
+
+@media screen and (max-width: 992px) {
+	 #enar_owl_slider .btn_a i.in_left,
+	 #enar_owl_slider .btn_a i.in_right {
+        line-height: 44px;
+    }
+
+    .btn_a span > span {
+        font-size: 14px;
+        padding: 11px 13px 12px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+	#enar_owl_slider .btn_a i.in_left,
+	#enar_owl_slider .btn_a i.in_right {
+        line-height: 32px;
+    }
+	
+	.btn_a:hover i.in_left {
+		left: -45px;
+		opacity: 0;
+	}
+
+	.btn_a:hover i.in_right {
+		
+	}
+
+    .btn_a:hover > span > span {
+    	left: -1px !important;
+    }
+}
