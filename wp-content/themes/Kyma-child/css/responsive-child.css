@@ -831,13 +831,13 @@
 
 @media only screen and (min-width: 640px) {
     .content, .container, #navy li:not(.tab_menu_con):not(.image_menu_slide), .site_boxed #main_wrapper {
-        max-width: 625px;
+        max-width: 625px !important;
     }
 }
 
 @media only screen and (min-width: 768px) {
     .content, .container, #navy li:not(.tab_menu_con):not(.image_menu_slide), .site_boxed #main_wrapper {
-        max-width: 750px;
+        max-width: 750px !important;
     }
 }
 
@@ -1494,8 +1494,8 @@
     }
 
     .row_spacer {
-        padding-bottom: 70px;
-        padding-top: 70px;
+        padding-bottom: 70px !important;
+        padding-top: 70px !important;
     }
 
     .team-col {
@@ -2218,8 +2218,8 @@
     }
 
     .row_spacer {
-        padding-bottom: 60px;
-        padding-top: 60px;
+        padding-bottom: 60px !important;
+        padding-top: 60px !important;
     }
 
     .content_spacer {
