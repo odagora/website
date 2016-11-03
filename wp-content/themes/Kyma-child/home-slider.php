@@ -425,26 +425,14 @@ switch ($kyma_theme_options['slider_type']) {
                         <img class="img-responsive" src="<?php echo esc_url($url[0]); ?>"/><?php
                     endif;?>
                     <div class="owl_slider_con">
-			<span class="owl_text_a">
-			    <span>
-					<span><?php the_title(); ?></span>
-				<a href="#"><span><i class="ico-angle-right"></i></span></a>
-			    </span>
-			</span>
                         <span
                             class="owl_text_b"><span><?php echo esc_attr(get_post_meta(get_the_ID(), 'slider_subtitle', true)); ?></span></span>
                         <span
                             class="owl_text_c"><span><?php echo esc_attr(get_post_meta(get_the_ID(), 'slider_description', true)); ?></span></span>
-            <?php if(get_post_meta(get_the_ID(), 'slider_button_link', true)!=""){?>
+            <?php if(get_post_meta(get_the_ID(), 'slider_button_text', true)!=""){?>
             <span class="owl_text_d">
-				<a href="<?php echo esc_url(get_post_meta(get_the_ID(), 'slider_button_link', true)); ?>" <?php if (get_post_meta(get_the_ID(), 'slider_button_target', true)) {
-                    echo "target='_blank'";
-                } ?>
-                   class="btn_a">
-                    <span><i
-                            class="in_left <?php echo esc_attr(get_post_meta(get_the_ID(), 'slider_btn_icon', true)); ?>"></i><span><?php echo esc_attr(get_post_meta(get_the_ID(), 'slider_button_text', true)); ?></span><i
-                            class="in_right <?php echo esc_attr(get_post_meta(get_the_ID(), 'slider_btn_icon', true)); ?>"></i></span>
-                </a>
+				<button class="btn_a"><span><i class="in_left <?php echo esc_attr(get_post_meta(get_the_ID(), 'slider_btn_icon', true)); ?>"></i><span><?php echo esc_attr(get_post_meta(get_the_ID(), 'slider_button_text', true)); ?></span><i
+                            class="in_right <?php echo esc_attr(get_post_meta(get_the_ID(), 'slider_btn_icon', true)); ?>"></i></span></button>
 			</span><?php
             } ?>
                     </div>
