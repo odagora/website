@@ -351,3 +351,33 @@
     	left: -1px !important;
     }
 }
+
+/*Features customization*/
+@media only screen and (min-width: 992px) {
+	.icon_boxes_con .col-md-6 {
+		padding: 0 80px;
+	}
+}
+
+.icon_boxes_con.style2.icon_box_no_border .service_box .icon {
+	margin: 0 auto !important;
+}
+
+.icon_boxes_con .col-md-6 .service_box > a {
+		display: inline-block;
+}
+
+.icon_boxes_con.style2.icon_box_no_border .service_box .service_box_con {
+	padding-top: 30px;
+	padding-left: 0;
+	text-align: center;
+}
+
+.icon_boxes_con.style2 .service_box h3 {
+	font-weight: 600;
+}
+
+.row_spacer {
+	padding-bottom: 30px;
+}
+
