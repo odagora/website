@@ -75,7 +75,7 @@ et dolore magna aliqua. Ut enim ad minim veniam', 'kyma'),
         'team_style' => 1,
         /* footer callout */
         'callout_title' => __('Best Wordpress Resposnive Theme Ever!', 'kyma'),
-        'callout_description' => __('There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour of this randomised words which don\'t look even slightly believable If you are going to use a passage of Lorem Ipsum.', 'kyma'),
+        'callout_description' => __('Más que prestarte un servicio de mantenimiento te brindamos soluciones, acompañamiento y asesoría a lo largo de la vida útil de tu vehículo. Estamos siempre en la búsqueda de ofrecerte valor agregado con calidad y profesionalismo.', 'kyma'),
         'callout_btn_text' => __('Purchase Now', 'kyma'),
         'callout_btn_icon' => 'ico-cart',
         'callout_btn_link' => 'http://www.webhuntinfotech.com',
