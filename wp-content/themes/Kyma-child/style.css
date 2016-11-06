@@ -308,6 +308,7 @@
 .owl_text_c > span {
 	font-family: inherit;
 	font-weight: bold;
+	background-color: rgba(70,70,66,0.8);
 }
 
 .btn_a span > span {
@@ -379,5 +380,11 @@
 
 .row_spacer {
 	padding-bottom: 30px;
+}
+
+/*Callout customization*/
+.welcome_banner.full_colored, .welcome_banner.boxed_colored {
+    background: #b2b2a8;
+    color: #fff;
 }
 
