@@ -703,7 +703,7 @@ Kirki::add_field('kyma_theme', array(
     'type' => 'textarea',
     'priority' => 10,
     'transport' => 'postMessage',
-    'default' => $kyma_theme_options['callout_description'],
+    'default' => '',
     'sanitize_callback' => 'kyma_sanitize_textarea'
 ));
 Kirki::add_field('kyma_theme', array(
