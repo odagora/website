@@ -388,3 +388,22 @@
     color: #fff;
 }
 
+@media only screen and (max-width: 992px) {
+	.welcome_banner.full_colored h3 {
+		text-align: center;
+	}
+}
+
+@media only screen and (max-width: 480px) {
+	.welcome_banner .intro_text {
+		text-align: center;
+	}
+
+	.callout_btn_a {
+		text-align: center;
+	}
+
+	.welcome_banner.full_colored .btn_a {
+		margin-left: 0;
+	}
+}
