@@ -382,6 +382,61 @@
 	padding-bottom: 30px;
 }
 
+.icon_boxes_con.style2 .more {
+	text-align: center;
+	padding-bottom: 60px;
+}
+
+.icon_boxes_con.style1 .more {
+	text-align: center;
+	padding-bottom: 40px;
+}
+
+.icon_boxes_con.style1 .more h3,
+.icon_boxes_con.style2 .more h3 {
+	margin: 0; 
+}
+
+.icon_boxes_con.style1 .more a,
+.icon_boxes_con.style2 .more a {
+	text-transform: uppercase;
+	font-size: 17px;
+}
+
+.icon_boxes_con .fa {
+	margin-left: 5px;
+}
+
+@media only screen and (max-width: 1024px) {
+	.icon_boxes_con.style2 .more {
+		padding-bottom: 40px;
+	}
+
+	.icon_boxes_con.style2 .service_box {
+		margin-bottom: 40px;
+	}
+} 
+
+@media only screen and (max-width: 768px) {
+	.icon_boxes_con.style2 .more {
+		padding-bottom: 30px;
+	}
+
+	.icon_boxes_con.style1 .more {
+		padding-bottom: 40px;
+	}
+
+	.icon_boxes_con.style2 .service_box {
+		margin-bottom: 20px;
+	}
+}
+
+@media only screen and (max-width: 480px) {
+	.icon_boxes_con.style2 .service_box {
+		margin-bottom: 15px;
+	}
+}
+
 /*Callout customization*/
 .welcome_banner.full_colored, .welcome_banner.boxed_colored {
     background: #b2b2a8;

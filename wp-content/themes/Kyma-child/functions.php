@@ -8,6 +8,7 @@ add_action('wp_print_styles', 'dequeue_kyma_unnecessary_styles');
  
 function enqueue_kyma_modified_styles(){
 	wp_enqueue_style('responsive-child', get_template_directory_uri() . '/../Kyma-child/css/responsive-child.css');
+	wp_enqueue_style('icomoon-icon-fonts', get_template_directory_uri() . '/../Kyma-child/css/icomoon-icon-fonts.css');
 }
 add_action('wp_enqueue_scripts', 'enqueue_kyma_modified_styles');
 ?>

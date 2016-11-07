@@ -1,0 +1,45 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot?5ciw2r');
+  src:  url('../fonts/icomoon.eot?5ciw2r#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?5ciw2r') format('truetype'),
+    url('../fonts/icomoon.woff?5ciw2r') format('woff'),
+    url('../fonts/icomoon.svg?5ciw2r#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-droplet:before {
+  content: "\e900";
+}
+.icon-color:before {
+  content: "\e900";
+}
+.icon-water:before {
+  content: "\e900";
+}
+.icon-steering-wheel:before {
+  content: "\e901";
+}
+.icon-drive:before {
+  content: "\e901";
+}
+.icon-tools:before {
+  content: "\f031";
+}
+

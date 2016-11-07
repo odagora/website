@@ -34,8 +34,16 @@ switch ($kyma_theme_options['feature_style']) {
                                     }?></span>
                             </div>
                             </div>
-                        </div><?php
+                        </div>
+                        <?php
                         endwhile;
+                        ?>
+                        <div class="col-md-12">
+                            <div class="more">
+                                <h3><a href="<?php echo esc_url(home_url('/')).'quienes-somos'; ?>">más sobre nosotros<i class="fa fa-chevron-circle-right"></i></a></h3>
+                            </div>
+                        </div>
+                        <?php
                         } else {
                             ?>
                             <div class="col-md-6">
