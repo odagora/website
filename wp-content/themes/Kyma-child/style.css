@@ -353,7 +353,7 @@
     }
 }
 
-/*Features customization*/
+/*Features and services customization*/
 @media only screen and (min-width: 992px) {
 	.icon_boxes_con .col-md-6 {
 		padding: 0 80px;
@@ -378,13 +378,8 @@
 	font-weight: 600;
 }
 
-.row_spacer {
-	padding-bottom: 30px;
-}
-
 .icon_boxes_con.style2 .more {
 	text-align: center;
-	padding-bottom: 60px;
 }
 
 .icon_boxes_con.style1 .more {
@@ -461,4 +456,26 @@
 	.welcome_banner.full_colored .btn_a {
 		margin-left: 0;
 	}
+}
+
+/*Testimonial customization*/
+.normal_text_slider.client_say_slider .owl-prev {
+	left: 30%;
+	top: 0;
+}
+
+.normal_text_slider.client_say_slider .owl-next {
+	right: 30%;
+	top: 0;
+}
+
+/*Clients customization*/
+.content_section.white_section .row_spacer {
+	padding-bottom: 90px;
+}
+
+@media only screen and (max-width: 1024px) {
+	.content_section.white_section .row_spacer {
+		padding-bottom: 70px !important;
+}
 }
