@@ -469,7 +469,18 @@
 	top: 0;
 }
 
+.normal_text_slider .enar_owl_p:hover,
+.normal_text_slider .enar_owl_n:hover {
+	color: #2e3092;
+	border-color: #2e3092;
+}
+
+
 /*Clients customization*/
+.bg_color3 {
+	background: #b2b2a8;
+}
+
 .content_section.white_section .row_spacer {
 	padding-bottom: 90px;
 }
@@ -477,5 +488,10 @@
 @media only screen and (max-width: 1024px) {
 	.content_section.white_section .row_spacer {
 		padding-bottom: 70px !important;
+	}
 }
+
+.our_client_slider .owl-prev,
+.our_client_slider .owl-next {
+	top: 12px;
 }
