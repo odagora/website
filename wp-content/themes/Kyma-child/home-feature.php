@@ -3,7 +3,7 @@ switch ($kyma_theme_options['feature_style']) {
     case 1:
 		$bg_color = $kyma_theme_options['feature_bg_color'] != "" ? 'white_section ' . $kyma_theme_options['feature_bg_color'] : '';   ?>
         <section class="content_section <?php echo esc_attr($bg_color); ?>">
-            <div class="content row_spacer clearfix">
+            <div id="features" class="content row_spacer clearfix">
                 <?php if ($kyma_theme_options['home_feature_heading']) { ?>
                     <div class="main_title centered upper">
                     <h2><span class="line"><span

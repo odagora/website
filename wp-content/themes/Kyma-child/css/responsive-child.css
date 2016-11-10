@@ -1494,8 +1494,8 @@
     }
 
     .row_spacer {
-        padding-bottom: 30px !important;
-        padding-top: 70px !important;
+        padding-bottom: 30px;
+        padding-top: 70px;
     }
 
     .team-col {
@@ -2218,8 +2218,8 @@
     }
 
     .row_spacer {
-        padding-bottom: 30px !important;
-        padding-top: 60px !important;
+        padding-bottom: 30px;
+        padding-top: 60px;
     }
 
     .content_spacer {
