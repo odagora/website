@@ -4,7 +4,7 @@ switch ($kyma_theme_options['testimonial_style']) {
     case 1:
         ?>
         <section class="content_section bg_gray">
-        <div class="content row_spacer clearfix"><?php
+        <div id="testimonial" class="content row_spacer clearfix"><?php
             if ($kyma_theme_options['testimonial_heading'] != "") {
                 ?>
                 <div class="main_title centered upper">

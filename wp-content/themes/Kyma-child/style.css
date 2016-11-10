@@ -410,6 +410,18 @@
 	.icon_boxes_con.style2 .service_box {
 		margin-bottom: 40px;
 	}
+
+	#features {
+		padding-bottom: 30px;
+		padding-top: 70px;
+	}
+}
+
+@media only screen and (max-width: 992px) {
+	.icons_spacer {
+		margin-bottom: 0;
+		padding-bottom: 50px;
+	}
 } 
 
 @media only screen and (max-width: 768px) {
@@ -423,6 +435,11 @@
 
 	.icon_boxes_con.style2 .service_box {
 		margin-bottom: 20px;
+	}
+
+	#features {
+		padding-bottom: 30px;
+		padding-top: 60px;
 	}
 }
 
@@ -473,6 +490,30 @@
 .normal_text_slider .enar_owl_n:hover {
 	color: #2e3092;
 	border-color: #2e3092;
+}
+
+#testimonial {
+	height: 423px;
+	padding-bottom: 70px;
+}
+
+@media only screen and (max-width: 780px) {
+	#testimonial {
+		height: 423px;
+		padding-bottom: 70px;
+	}
+}
+
+@media only screen and (max-width: 480px) {
+	#testimonial {
+		height: 451px;
+	}
+}
+
+@media only screen and (max-width: 380px) {
+	#testimonial {
+		height: 475px;
+	}
 }
 
 
