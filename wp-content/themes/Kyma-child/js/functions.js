@@ -101,7 +101,7 @@
             itemsTabletSmall: false,
             itemsMobile: false,
             itemsCustom: [
-                [320, 1],
+                [280, 1],
                 [360, 2],
                 [450, 2],
                 [786, 3],

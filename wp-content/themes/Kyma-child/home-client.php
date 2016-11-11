@@ -10,7 +10,7 @@ switch ($kyma_theme_options['home_client_type']) {
     case 1:
         ?>
         <section class="content_section white_section bg_color3">
-            <div class="content row_spacer clearfix"><?php
+            <div id="clients" class="content row_spacer clearfix"><?php
                 if ($kyma_theme_options['home_client_title'] != "") {
                 ?>
                 <div class="main_title centered upper">
@@ -50,7 +50,7 @@ switch ($kyma_theme_options['home_client_type']) {
         ?>
         <!-- Clients -->
         <section class="content_section bg_gray border_b_n">
-            <div class="content row_spacer clearfix"><?php
+            <div id="clients" class="content row_spacer clearfix"><?php
                 if ($kyma_theme_options['home_client_title'] != "") {
                 ?>
                 <div class="main_title centered upper">
