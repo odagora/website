@@ -361,7 +361,7 @@
         $(".porto_galla").owlCarousel({
             direction: site_dir,
             slideSpeed: 900,
-            autoPlay: 3000,
+            autoPlay: false,
             autoHeight: false,
             items: 1,
             itemsDesktop: false,
