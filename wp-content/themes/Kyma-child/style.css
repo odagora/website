@@ -566,4 +566,9 @@ iframe {
    	margin-top:-600px;  /* your iframe height */
 }
 
+@media only screen and (min-width: 768px) {
+	#mywaze {
+		display: none;
+	}
+} 
 
