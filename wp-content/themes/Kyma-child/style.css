@@ -572,7 +572,6 @@ iframe {
 	}
 } 
 
-<<<<<<< HEAD
 /*Footer customization*/
 
 #footer {
@@ -605,29 +604,3 @@ iframe {
 		text-align: left;
 	}
 }
-||||||| merged common ancestors
-=======
-/*Footer customization*/
-
-#footer {
-	background: #989898;
-	color: #fff;
-}
-
-.footer_title {
-	color: #324545;
-	font-weight: 600;
-}
-
-.footer-widget-col a {
-	color: #fff;
-}
-
-.footer-widget-col > .footer_row > .textwidget > ul > li {
-	padding: 7px 0;
-}
-
-.footer-widget-col > .footer_row > address:first-child p {
-	padding-top: 4px;
-}
->>>>>>> 697e24c5554d67ed6afc0e5be020fbfa7b1822e6
