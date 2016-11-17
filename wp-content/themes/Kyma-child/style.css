@@ -572,3 +572,35 @@ iframe {
 	}
 } 
 
+/*Footer customization*/
+
+#footer {
+	background: #989898;
+	color: #fff;
+}
+
+.footer_title {
+	color: #324545;
+	font-weight: 600;
+}
+
+.footer-widget-col a {
+	color: #fff;
+}
+
+.footer-widget-col > .footer_row > .textwidget > ul > li {
+	padding: 7px 0;
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+	.footer-widget-col {
+		padding-left: 3px !important;
+		padding-right: 0 !important;
+	}
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1024px) {
+	.footer_copy_text {
+		text-align: left;
+	}
+}
