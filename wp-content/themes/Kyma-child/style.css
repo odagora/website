@@ -572,3 +572,26 @@ iframe {
 	}
 } 
 
+/*Footer customization*/
+
+#footer {
+	background: #989898;
+	color: #fff;
+}
+
+.footer_title {
+	color: #324545;
+	font-weight: 600;
+}
+
+.footer-widget-col a {
+	color: #fff;
+}
+
+.footer-widget-col > .footer_row > .textwidget > ul > li {
+	padding: 7px 0;
+}
+
+.footer-widget-col > .footer_row > address:first-child p {
+	padding-top: 4px;
+}

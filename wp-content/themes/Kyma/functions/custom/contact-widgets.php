@@ -33,11 +33,11 @@ class kyma_footer_contact_widget extends WP_Widget
         ?>
         <address>
             <p><?php if ($Contact_address) { ?>
-				<i class="fa fa-map-marker"></i> 
+				<i class="fa fa-map-marker"></i><a href="https://www.google.com/maps/place/Cra.+22+%2376-57,+Bogot%C3%A1,+Colombia/@4.6660696,-74.0653563,17z/data=!3m1!4b1!4m5!3m4!1s0x8e3f9a5870e9d397:0x5c15f49ec4807d29!8m2!3d4.6660696!4d-74.0631676" target="_blank"> 
                 <?php echo esc_attr($Contact_address);
                 } else { ?> <i class="fa fa-map-marker"></i>
                 <?php echo _('25, Lorem Lis Street', 'kyma');
-                } ?></p>
+                } ?></a></p>
             <p><?php if ($Contact_phone_number) { ?><i class="fa fa-phone"></i> <a href="tel:<?php echo esc_attr($Contact_phone_number); ?>">
                 <?php echo esc_attr($Contact_phone_number);
                 } else { ?><i class="fa fa-phone"></i>
@@ -52,14 +52,22 @@ class kyma_footer_contact_widget extends WP_Widget
                     } else { ?><i class="fa fa-envelope"></i>
                 <?php echo _('myemail@gmail.com', 'kyma');
 				} ?></a></p>
-            <p><?php if ($website_add) { ?> <i class="fa fa-globe"></i>
-                <?php echo esc_attr($website_add);
-                } else { ?> <i class="fa fa-globe"></i>
-                <?php echo esc_attr('http://www.webhuntinfotech.com');
-                } ?></p>
         </address>
         <?php
+        /*Service Hours*/
+
+        echo "<h6 class='footer_title'>Horario de Atención</h6>
+            <ul>
+                <li class='page_item'>
+                    <a href='#'>Lunes a Viernes: 8:00 a.m. a 5:15p.m.</a>
+                </li>
+                <li class='page_item'>
+                    <a href='#'>Sábado: 8:00 a.m. a 2:00 p.m.</a>
+                </li>
+            </ul>
+                    ";
         echo $args['after_widget'];
+
     }
 
     public function form($instance)
