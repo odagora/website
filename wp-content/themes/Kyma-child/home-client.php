@@ -55,8 +55,7 @@ switch ($kyma_theme_options['home_client_type']) {
                 ?>
                 <div class="main_title centered upper">
                 <h2 id="client_heading"><span
-                        class="line"><span
-                            class="dot"></span></span><?php echo $kyma_theme_options['home_client_title']; ?></h2>
+                        class="line"><i class="fa fa-users"></i></span><?php echo $kyma_theme_options['home_client_title']; ?></h2>
                 </div><?php
             } ?>
                 <div class="our_client_slider">

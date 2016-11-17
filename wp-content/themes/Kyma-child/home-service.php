@@ -9,8 +9,7 @@ switch ($kyma_theme_options['home_service_type']) {
         <section class="content_section bg_gray">
             <div class="container icons_spacer">
                 <div class="main_title centered upper"><?php if ($kyma_theme_options['home_service_heading'] != ""){ ?>
-                    <h2 id="service_heading"><span class="line"><span
-                                class="dot"></span></span><?php echo esc_attr($kyma_theme_options['home_service_heading']);
+                    <h2 id="service_heading"><span class="line"><i class="fa fa-cog"></i></span><?php echo esc_attr($kyma_theme_options['home_service_heading']);
                         } ?></h2>
                 </div>
                 <?php
