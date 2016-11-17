@@ -69,7 +69,7 @@ if ($kyma_theme_options['topbar']) {
             }
             if ($kyma_theme_options['contact_phone']) {
                 ?>
-                <span><a href="tel:+5712117943"><i class="fa fa-phone"></i><?php echo esc_attr($kyma_theme_options['contact_phone']); ?></a></span><?php
+                <span><a href="tel:+5712119290"><i class="fa fa-phone"></i><?php echo esc_attr($kyma_theme_options['contact_phone']); ?></a></span><?php
             } ?>
         </div>
 		<?php } ?>

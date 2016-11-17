@@ -38,11 +38,16 @@ class kyma_footer_contact_widget extends WP_Widget
                 } else { ?> <i class="fa fa-map-marker"></i>
                 <?php echo _('25, Lorem Lis Street', 'kyma');
                 } ?></a></p>
-            <p><?php if ($Contact_phone_number) { ?><i class="fa fa-phone"></i> <a href="tel:<?php echo esc_attr($Contact_phone_number); ?>">
+            <p><?php if ($Contact_phone_number) { ?><i class="fa fa-phone"></i> <a href="tel:+5712117943">
                 <?php echo esc_attr($Contact_phone_number);
                 } else { ?><i class="fa fa-phone"></i>
 				<?php echo _('987-654-321', 'kyma');
 				} ?></a></p>
+            <p><?php if ($website_add) { ?> <i class="fa fa-mobile"></i> <a href="tel:+573184559286">
+                <?php echo esc_attr($website_add);
+                } else { ?> <i class="fa fa-mobile"></i>
+                <?php echo esc_attr('http://www.webhuntinfotech.com');
+                } ?></p>
             <p><?php if ($Contact_email_address) { ?><i class="fa fa-envelope"></i> <a href="mailto:<?php if ($Contact_email_address) {
                     echo sanitize_email($Contact_email_address);
                 } else {

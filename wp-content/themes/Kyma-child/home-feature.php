@@ -6,8 +6,7 @@ switch ($kyma_theme_options['feature_style']) {
             <div id="features" class="content row_spacer clearfix">
                 <?php if ($kyma_theme_options['home_feature_heading']) { ?>
                     <div class="main_title centered upper">
-                    <h2><span class="line"><span
-                                class="dot"></span></span><?php echo esc_attr($kyma_theme_options['home_feature_heading']); ?>
+                    <h2><span class="line"><i class="fa fa-check-circle"></i></span><?php echo esc_attr($kyma_theme_options['home_feature_heading']); ?>
                     </h2>
                     </div><?php
                 } ?>
