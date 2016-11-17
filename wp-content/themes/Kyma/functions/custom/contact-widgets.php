@@ -37,8 +37,16 @@ class kyma_footer_contact_widget extends WP_Widget
                 <?php echo esc_attr($Contact_address);
                 } else { ?> <i class="fa fa-map-marker"></i>
                 <?php echo _('25, Lorem Lis Street', 'kyma');
+<<<<<<< HEAD
                 } ?></a></p>
             <p><?php if ($Contact_phone_number) { ?><i class="fa fa-phone"></i> <a href="tel:+5712117943">
+||||||| merged common ancestors
+                } ?></p>
+            <p><?php if ($Contact_phone_number) { ?><i class="fa fa-phone"></i> <a href="tel:<?php echo esc_attr($Contact_phone_number); ?>">
+=======
+                } ?></a></p>
+            <p><?php if ($Contact_phone_number) { ?><i class="fa fa-phone"></i> <a href="tel:<?php echo esc_attr($Contact_phone_number); ?>">
+>>>>>>> 697e24c5554d67ed6afc0e5be020fbfa7b1822e6
                 <?php echo esc_attr($Contact_phone_number);
                 } else { ?><i class="fa fa-phone"></i>
 				<?php echo _('987-654-321', 'kyma');
@@ -59,6 +67,7 @@ class kyma_footer_contact_widget extends WP_Widget
 				} ?></a></p>
         </address>
         <?php
+<<<<<<< HEAD
         /*Service Hours*/
 
         echo "<h6 class='footer_title'>Horario de Atención</h6>
@@ -67,6 +76,21 @@ class kyma_footer_contact_widget extends WP_Widget
                 <li class='page_item'>Sábado: 8:00 a.m. a 2:00 p.m.</li>
             </ul>
                     ";
+||||||| merged common ancestors
+=======
+        /*Service Hours*/
+
+        echo "<h6 class='footer_title'>Horario de Atención</h6>
+            <ul>
+                <li class='page_item'>
+                    <a href='#'>Lunes a Viernes: 8:00 a.m. a 5:15p.m.</a>
+                </li>
+                <li class='page_item'>
+                    <a href='#'>Sábado: 8:00 a.m. a 2:00 p.m.</a>
+                </li>
+            </ul>
+                    ";
+>>>>>>> 697e24c5554d67ed6afc0e5be020fbfa7b1822e6
         echo $args['after_widget'];
 
     }
