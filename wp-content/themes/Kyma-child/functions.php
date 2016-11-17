@@ -25,4 +25,16 @@ function enqueue_kyma_modified_script(){
 	wp_enqueue_script('functions', get_template_directory_uri() . '/../Kyma-child/js/functions.js');
 }
 add_action('wp_footer', 'enqueue_kyma_modified_script');
+
+/*Allow parse php code to text widgets*/
+add_filter('widget_text','execute_php',100);
+function execute_php($html){
+     if(strpos($html,"<"."?php")!==false){
+          ob_start();
+          eval("?".">".$html);
+          $html=ob_get_contents();
+          ob_end_clean();
+     }
+     return $html;
+}
 ?>
