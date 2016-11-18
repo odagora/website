@@ -2136,7 +2136,7 @@
             $navigation_bar.unstick();
             var mobile_menu_len = $navigation_bar.find(".mobile_menu").length;
             var side_header = $(".header_on_side").length;
-            if (mobile_menu_len === 0 && side_header === 0 && is_sticky) {
+            if (side_header === 0 && is_sticky) {
                 $navigation_bar.sticky({
                     topSpacing: 0,
                     className: "sticky_menu",
