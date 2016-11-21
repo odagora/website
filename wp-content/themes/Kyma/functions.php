@@ -117,7 +117,7 @@ function kyma_breadcrumbs()
 {
     $delimiter = '<span class="crumbs-spacer"><i class="fa fa-angle-right"></i></span>';
     $home      = __('Home', 'kyma'); // text for the 'Home' link
-    $pre_text  = __('You are Now on: ', 'kyma');
+    $pre_text  = __('Estás en: ', 'kyma');
     $before    = ''; // tag before the current crumb
     $after     = '</li>'; // tag after the current crumb
     echo '<ul class="breadcrumbs">';
