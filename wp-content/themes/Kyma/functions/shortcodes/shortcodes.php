@@ -625,9 +625,9 @@ function kyma_banner_shortcode($atts, $content = null)
             $out .= '<span class="intro_text">' . $banner_text . '</span>';
         }
         if ($button_text != "" && $banner_color != '_banner_colored') {
-            $out .= '<a href="' . esc_url($button_url) . '" target="_self" class="btn_a btn_space">
+            $out .= '<button class="btn_a">
 			    <span><i class="in_left ' . $button_icon . '"></i><span>' . $button_text . '</span><i class="in_right ' . $button_icon . '"></i></span>
-			</a>';
+			</button>';
         }
         if ($banner_color == '_banner_colored') {
             $out .= '<span class="rotate_icon"><i class="' . $button_icon . '"></i></span>';
