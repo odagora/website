@@ -21,6 +21,6 @@ $kyma_theme_options = kyma_theme_options();
 	</div>
 </section>
 <!-- End Services Intro -->
-<?php } get_template_part('home', 'service');
-get_template_part('home', 'feature');
+<?php } get_template_part('page', 'client');
+// get_template_part('page', 'testimonial');
 get_footer(); ?>

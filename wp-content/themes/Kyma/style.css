@@ -12829,7 +12829,7 @@ a.img_popup:after {
 }
 
 .feature_inner:hover .feature_inner_ling:after {
-    opacity: .8;
+    opacity: 1;
 }
 
 /*-------------------------------------------------[ Blog Timeline ]------*/
