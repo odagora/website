@@ -7747,3 +7747,7 @@ msgstr "Cerrar sesión"
 #: wp-includes/class-wp-xmlrpc-server.php:5665
 msgid "You do not have permission to upload files."
 msgstr "No tiene permisos para cargar ficheros."
+
+#: wp-content/themes/kyma/functions.php:120
+msgid "You are Now on"
+msgstr "Estás ahora en"
