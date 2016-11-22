@@ -35,7 +35,7 @@ $serviteca = get_template_directory_uri().'/../Kyma-child/images/serviteca.jpg';
                             </div>
                             <div class="porto_desc_page">
                                 <p>Desde pequeñas intervenciones rutinarias hasta mantenimientos eléctricos y mecánicos más especializados, en Servitalleres encuentras la solución adecuada en el momento preciso.<a href="<?php
-                                        echo esc_url(home_url('/'));?>servicios/mecanica-rapida/"> Ver más</a></p>
+                                        echo esc_url(home_url('/'));?>servicios/mecanica-rapida/"> Ver más »</a></p>
                             </div>
                         </div>
                     </div>
@@ -60,7 +60,7 @@ $serviteca = get_template_directory_uri().'/../Kyma-child/images/serviteca.jpg';
                             </div>
                             <div class="porto_desc_page">
                                 <p>Para esos molestos rayones, pequeñas abolladuras o golpes más fuertes, tenemos una opción para que salgas estrenando carro. Todo con alta calidad, personal calificado y en tiempo récord.<a href="<?php
-                                        echo esc_url(home_url('/'));?>servicios/colision-expres/"> Ver más</a></p>
+                                        echo esc_url(home_url('/'));?>servicios/colision-expres/"> Ver más »</a></p>
                             </div>
                         </div>
                     </div>
@@ -85,7 +85,7 @@ $serviteca = get_template_directory_uri().'/../Kyma-child/images/serviteca.jpg';
                             </div>
                             <div class="porto_desc_page">
                                 <p>Contamos con todos los servicios para el óptimo cuidado de tus llantas, pero no solo eso, también nos hacemos cargo de los rines y otros detalles de tu carro para que luzca y funcione perfecto.<a href="<?php
-                                        echo esc_url(home_url('/'));?>servicios/serviteca/"> Ver más</a></p>
+                                        echo esc_url(home_url('/'));?>servicios/serviteca/"> Ver más »</a></p>
                             </div>
                         </div>
                     </div>
