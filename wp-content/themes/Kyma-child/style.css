@@ -625,8 +625,42 @@ iframe {
 	text-transform: uppercase;
 }
 
-.page_title .breadcrumbs li{
-	color: #324545;
-	font-weight: 600 !important;
+	.page_title .breadcrumbs li{
+		color: #324545;
+		font-weight: 600 !important;
+	}
+
+@media only screen and (max-width: 380px) {
+	.page_title .breadcrumbs li{
+		display: none;
+	}
+
+	.page_title h1 {
+		width: 100%;
+		text-align: center;
+	}
 }
 
+@media only screen and (max-width: 992px) {
+	.page_title h1 {
+		padding: 15px 0;
+	}
+
+	.page_title .breadcrumbs {
+		margin: 15px 0;
+	}
+}
+	
+/*Page content customization*/
+.porto_title_page {
+	text-align: center;
+}
+
+.porto_desc_page {
+	text-align: center;
+	margin-top: 15px;
+}
+
+.welcome_banner.full_colored .btn_a {
+	margin-left: 0;
+}
