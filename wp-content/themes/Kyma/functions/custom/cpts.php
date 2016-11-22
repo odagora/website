@@ -57,7 +57,7 @@ function kyma_register_cpts()
     register_post_type('kyma_service',
         array(
             'labels' => array(
-                'name' => __('Kyma Services', 'kyma'),
+                'name' => __('Servicios', 'kyma'),
                 'add_new' => __('Add New Service', 'kyma'),
                 'add_new_item' => __('Add New Service', 'kyma'),
                 'edit_item' => __('Edit Service', 'kyma'),

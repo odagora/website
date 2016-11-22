@@ -174,7 +174,7 @@ function kyma_breadcrumbs()
         $breadcrumbs = array();
         while ($parent_id) {
             $page          = get_page($parent_id);
-            $breadcrumbs[] = '<li><a href="' . get_permalink($page->ID) . '">' . get_the_title($page->ID) . '</a></li>';
+            $breadcrumbs[] = '<li><a href="' . get_permalink($page->ID) . '">' . get_the_title() . '</a></li>';
             $parent_id     = $page->post_parent;
         }
         $breadcrumbs = array_reverse($breadcrumbs);
