@@ -686,3 +686,73 @@ iframe {
 .welcome_banner.full_colored .btn_a {
 	margin-left: 0;
 }
+
+/*Posts page content customization*/
+.content_block {
+	background: #fbfbfb;
+}
+
+.hm_blog_full_list .blog_grid_con {
+	padding: 25px;
+}
+
+.blog_grid_con .content {
+	padding: 20px 0;
+}
+
+/*Side-bar widgets customization*/
+.widget_block > h6 {
+	font-weight: 600;
+	text-transform: none;
+}
+
+.widget_block > .textwidget {
+	font-size: 13px;
+}
+
+.textwidget .contactwidget > p > a {
+	color: #666666;
+}
+
+.textwidget .contactwidget > p > a:hover {
+	color: #2e3092;
+}
+
+.textwidget > p {
+	margin: 0 0 5px;
+	text-align: justify;
+}
+
+.widget_button,
+.contactwidget {
+	margin-top: 20px;
+}
+
+.widget_button button {
+	background: #2e3092;
+	border-color: #2e3092;
+	font-weight: 600;
+	color: #fff;
+	border-radius:3px;
+	padding: 5px 5px;
+}
+
+.widget_overlay {
+	background: transparent;
+	position: relative;
+	width: 100%;
+	height: 300px;
+	top : 300px;
+	margin-top: -300px;
+}
+
+.widget_cta {
+	text-align: center;
+	border: 1px solid #666666;
+	border-radius: 5px;
+	padding: 15px; 
+}
+
+.widget_cta h5 {
+	font-weight: 600;
+}

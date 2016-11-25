@@ -69,7 +69,7 @@ function kyma_theme_setup()
 // Read more tag to formatting in blog page
 function kyma_content_more($read_more)
 {
-    return '<div class=""><a class="main-button" href="' . get_permalink() . '">' . __('Read More', 'kyma') . '<i class="fa fa-angle-right"></i></a></div>';
+    return '<div class=""><a class="main-button" href="' . get_permalink() . '">' . __('Leer más', 'kyma') . ' ' .'<i class="fa fa-angle-double-right"></i></a></div>';
 }
 
 add_filter('the_content_more_link', 'kyma_content_more');
