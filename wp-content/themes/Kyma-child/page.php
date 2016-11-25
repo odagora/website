@@ -1,4 +1,4 @@
-post_title_con<?php get_header(); ?>
+<?php get_header(); ?>
     <!-- Page Title -->
 <?php get_template_part('breadcrumbs'); ?>
     <!-- End Page Title -->
