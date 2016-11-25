@@ -652,6 +652,7 @@ iframe {
 	.page_title .breadcrumbs li{
 		color: #324545;
 		font-weight: 600 !important;
+		display: inline-block;
 	}
 
 @media only screen and (max-width: 380px) {
