@@ -14,7 +14,7 @@ $serviteca = get_template_directory_uri().'/../Kyma-child/images/serviteca.jpg';
             <div
                 class="hm_filter_wrapper three_blocks boxed_portos has_sapce_portos project_text_nav nav_with_nums upper_title upper_title">
                 <div class="hm_filter_wrapper_con">
-                    <div class="filter_item_block All; ?>">
+                    <div class="filter_item_block All">
                         <div class="porto_block">
                             <div class="porto_title_page">
                                 <h5 class="name">Mecánica Rápida</h5>
@@ -39,7 +39,7 @@ $serviteca = get_template_directory_uri().'/../Kyma-child/images/serviteca.jpg';
                             </div>
                         </div>
                     </div>
-                    <div class="filter_item_block All; ?>">
+                    <div class="filter_item_block All">
                         <div class="porto_block">
                             <div class="porto_title_page">
                                 <h5 class="name">Colisión Exprés</h5>
@@ -64,7 +64,7 @@ $serviteca = get_template_directory_uri().'/../Kyma-child/images/serviteca.jpg';
                             </div>
                         </div>
                     </div>
-                    <div class="filter_item_block All; ?>">
+                    <div class="filter_item_block All">
                         <div class="porto_block">
                             <div class="porto_title_page">
                                 <h5 class="name">Serviteca</h5>
