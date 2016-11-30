@@ -47,13 +47,9 @@ class kyma_footer_contact_widget extends WP_Widget
                 <?php echo esc_attr($website_add);
                 } else { ?> <i class="fa fa-mobile"></i>
                 <?php echo esc_attr('http://www.webhuntinfotech.com');
-                } ?></p>
-            <p><?php if ($Contact_email_address) { ?><i class="fa fa-envelope"></i> <a href="mailto:<?php if ($Contact_email_address) {
-                    echo sanitize_email($Contact_email_address);
-                } else {
-                    echo _('mail@me.com', 'kyma');
-                } ?>">
-                <?php echo sanitize_email($Contact_email_address);
+                } ?></a></p>
+            <p><?php if ($Contact_email_address) { ?><i class="fa fa-envelope"></i><a href="<?php echo esc_url(home_url('/'));?>contactanos/">
+                <?php echo esc_attr($Contact_email_address);
                     } else { ?><i class="fa fa-envelope"></i>
                 <?php echo _('myemail@gmail.com', 'kyma');
 				} ?></a></p>

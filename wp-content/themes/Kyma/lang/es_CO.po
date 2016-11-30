@@ -7755,3 +7755,19 @@ msgstr "Estás ahora en:"
 #: wp-content/themes/kyma/searchform.php:4
 msgid "Start Searching..."
 msgstr "Buscar"
+
+#: wp-content/themes/kyma-child/contact_us_three.php:30
+msgid "Phone"
+msgstr "Teléfono"
+
+#: wp-content/themes/kyma-child/contact_us_three.php:46
+msgid "Subject"
+msgstr "Asunto"
+
+#: wp-content/themes/kyma-child/contact_us_three.php:54
+msgid "Message"
+msgstr "Mensaje"
+
+#: wp-content/themes/kyma-child/contact_us_three.php:65
+msgid "Send Your Message"
+msgstr "Enviar Mensaje"
