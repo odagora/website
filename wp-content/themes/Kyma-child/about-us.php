@@ -1,0 +1,10 @@
+<?php
+$image = get_template_directory_uri() . '/../Kyma-child/images/logo-historia.jpg';
+?>
+<div class="content about-us">
+	<p><img src="<?php echo $image?>" alt="">Servitalleres comienza su historia el 2 de septiembre de 1985 como una sociedad familiar a partir de la necesidad de administrar de forma delegada el taller de Renault Casa Toro en Puente Aranda.</p>
+	<p>En sus inicios, la sociedad recibe un taller con 5 entradas diarias, 7 empleados y con un alto índice de insatisfacción por parte de los clientes debido a la falta de buena gestión e inexperiencia de las antiguas administraciones. Gracias al empeño, buena organización y perseverancia de sus socios fundadores para responder con el compromiso adquirido, durante los 22 años de relaciones comerciales con Casa Toro, se celebraron 7 contratos de administración, se paso a 30 entradas diarias entre mecánica y colisión y su recurso humano aumento a 37 empleados.</p>
+	<p>En el año 2005, Servitalleres asume el reto propuesto por SOFASA de implementar el concepto de Renault Minuto Carrocería logrando en año y medio aumentar de manera significativa la rotación de vehículos, mejorar los índices de satisfacción de los clientes y generar mayor rentabilidad y productividad en el taller.</p>
+	<p>En el año 2007 y mediante un arreglo negociado se decide dar fin al contrato de administración delegada, pues Casa Toro muestra su interés en tomar de nuevo las riendas del taller, obedeciendo a políticas de crecimiento de su nueva Junta Directiva.</p>
+	<p>Luego de 2 años de cesación de labores, Servitalleres decide en el año 2009 emprender un nuevo reto abriendo un punto propio: <strong>Taller de mantenimiento en mecánica y colisión express multimarca</strong>, aprovechando toda la experiencia adquirida en el ramo, la energía renovada de sus socios y los deseos de seguir generando empleo, bienestar y un muy alto valor agregado a sus clientes.</p>
+</div>

@@ -747,6 +747,23 @@ iframe {
 	}
 }
 
+.faq {
+	color: #2e3092;
+}
+
+.blog_grid_con ul li.item_faq {
+	width: 100%;
+}
+
+.content .about-us {
+	padding: 0;
+}
+
+.blog_grid_con .about-us img {
+	float: left;
+	margin-right: 30px;
+}
+
 /*Side-bar widgets customization*/
 
 @media only screen and (min-width: 360px) and (max-width: 992px) {
