@@ -65,7 +65,7 @@ if ($kyma_theme_options['topbar']) {
             }
             if ($kyma_theme_options['contact_email']) {
                 ?>
-                <span><a href="mailto:contacto@servitalleres.com"><i class="fa fa-envelope-o"></i><?php echo sanitize_email($kyma_theme_options['contact_email']); ?></a></span><?php 
+                <span><a href="<?php echo esc_url(home_url('/'));?>contactanos/"><i class="fa fa-envelope-o"></i><?php echo sanitize_email($kyma_theme_options['contact_email']); ?></a></span><?php 
             }
             if ($kyma_theme_options['contact_phone']) {
                 ?>
