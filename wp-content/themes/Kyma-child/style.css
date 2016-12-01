@@ -891,3 +891,84 @@ iframe {
 		margin-left: 22%;
 	}
 }
+
+/*Discounts and coupons page customization*/
+.promo_title {
+	text-align: center;
+	padding: 10px 0;
+	background: #666666;
+}
+
+.promo_title h4 {
+	text-transform: uppercase;
+	margin-bottom: 0;
+	color: #fff;
+}
+
+.promo_desc_1,
+.promo_desc_2 {
+	text-align: center;
+	min-height: 300px;
+	border: 1px solid #eee;
+}
+
+.highlight_text {
+	color: red;
+	font-weight: bold;
+}
+
+.promo_desc_1 h4,
+.promo_desc_2 h4 {
+	padding: 50px 0 0;	
+}
+
+.promo_desc_1 p,
+.promo_desc_2 p {
+	margin: 0 !important;
+}
+
+.promo_desc_1,
+.promo_desc_2 {
+	position: relative;
+	overflow: hidden;
+}
+
+.promo_desc_1:after {
+	content: " ";
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	opacity: 0.1;
+	background-image: url(../../uploads/2016/11/mecanica.png);
+	background-repeat: no-repeat;
+	background-position: 50% 0;
+	-ms-background-size: cover;
+	-o-background-size: cover;
+	-moz-background-size: cover;
+	-webkit-background-size: cover;
+	background-size: cover;
+}
+
+.promo_desc_2:after {
+	content: " ";
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	opacity: 0.1;
+	background-image: url(../../uploads/2016/11/pintura.png);
+	background-repeat: no-repeat;
+	background-position: 50% 0;
+	-ms-background-size: cover;
+	-o-background-size: cover;
+	-moz-background-size: cover;
+	-webkit-background-size: cover;
+	background-size: cover;
+}
