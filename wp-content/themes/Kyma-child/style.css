@@ -689,6 +689,7 @@ iframe {
 
 /*Posts page content customization*/
 @media only screen and (max-width: 630px) {
+	.hm_blog_grid ul li,
 	.blog_grid_con ul li {
 		width: 100% !important;
 	}
@@ -710,15 +711,18 @@ iframe {
 	text-transform: none;
 }
 
+.hm_blog_grid ul li,
 .blog_grid_con ul li {
 	width: 50%;
 	padding: 0 15px;
 }
 
+.hm_blog_grid ul li:nth-child(odd),
 .blog_grid_con ul li:nth-child(odd) {
 	float: left;
 }
 
+.hm_blog_grid ul li:nth-child(even),
 .blog_grid_con ul li:nth-child(even) {
 	float: right;
 }
@@ -762,6 +766,21 @@ iframe {
 .blog_grid_con .about-us img {
 	float: left;
 	margin-right: 30px;
+}
+
+ul.blog_list {
+	list-style-position: inside;
+} 
+
+.blog_list_item {
+	float: none !important;
+	width: 100% !important;
+}
+
+.blog_list li.blog_list_item {
+	padding-left: 15px;
+	text-indent: -15px;
+	margin: 0 0 5px;		
 }
 
 /*Side-bar widgets customization*/
@@ -908,18 +927,12 @@ iframe {
 .promo_desc_1,
 .promo_desc_2 {
 	text-align: center;
-	min-height: 300px;
 	border: 1px solid #eee;
 }
 
 .highlight_text {
 	color: red;
 	font-weight: bold;
-}
-
-.promo_desc_1 h4,
-.promo_desc_2 h4 {
-	padding: 50px 0 0;	
 }
 
 .promo_desc_1 p,
@@ -933,7 +946,7 @@ iframe {
 	overflow: hidden;
 }
 
-.promo_desc_1:after {
+.promo_desc_1:before {
 	content: " ";
 	display: block;
 	position: absolute;
@@ -941,7 +954,7 @@ iframe {
 	top: 0;
 	width: 100%;
 	height: 100%;
-	z-index: 1;
+	z-index: -1;
 	opacity: 0.1;
 	background-image: url(../../uploads/2016/11/mecanica.png);
 	background-repeat: no-repeat;
@@ -953,7 +966,7 @@ iframe {
 	background-size: cover;
 }
 
-.promo_desc_2:after {
+.promo_desc_2:before {
 	content: " ";
 	display: block;
 	position: absolute;
@@ -961,7 +974,7 @@ iframe {
 	top: 0;
 	width: 100%;
 	height: 100%;
-	z-index: 1;
+	z-index: -1;
 	opacity: 0.1;
 	background-image: url(../../uploads/2016/11/pintura.png);
 	background-repeat: no-repeat;
@@ -971,4 +984,34 @@ iframe {
 	-moz-background-size: cover;
 	-webkit-background-size: cover;
 	background-size: cover;
+}
+
+.promo_content {
+	padding: 3em 0;
+}
+
+@media only screen and (max-width: 992px) {
+	.hm_blog_grid ul li.promo_lien,
+	.blog_grid_con ul li.promo_lien {
+		margin-bottom: 30px;
+	}
+}
+
+.promo_more {
+	margin-top: 20px;
+}
+
+.promo_more span {
+	padding: 8px;
+}
+
+.promo_more a {
+	padding: 8px;
+	color: #fff;
+	background: #666666;
+	opacity: 0.6;
+}
+
+.promo_more a:hover {
+	color: #fff;
 }
