@@ -875,6 +875,35 @@ class Redux_Framework_Kyma_config
                 ),
             )
         );
+        /* Map embed*/
+        $this->sections[] = array(
+            'title' => 'Map Options',
+            'icon_class' => 'icon-large',
+            'icon' => 'el el-pencil',
+            'customizer' => true,
+            'fields' => array(
+                array(
+                    'id' => 'home_map_title',
+                    'type' => 'text',
+                    'title' => __('Home Map Section Title', 'kyma'),
+                    'default' => __('Map Content', 'kyma'),
+                ),
+                array(
+                    'id' => 'home-map',
+                    'type' => 'editor',
+                    'title' => __('Home Map', 'kyma'),
+                    'subtitle' => __('Put Your shortcodes here', 'kyma'),
+                    'full_width' => true,
+                    'args' => array(
+                        'wpautop' => false,
+                        'media_buttons' => false,
+                        'textarea_rows' => 5,
+                        'teeny' => false,
+                        'quicktags' => true,
+                    )
+                ),
+            )
+        );
         $this->sections[] = array(
             'title' => 'Typography',
             'icon_class' => 'icon-large',
@@ -1421,6 +1450,7 @@ class Redux_Framework_Kyma_config
                         'Disabled' => array(
                             'funfacts' => 'Fun Facts',
                             'shortcodes' => 'Home ShortCodes',
+                            'map' => 'Home Map',
                             'pricing' => 'Pricing Table',
                             'tweets' => 'Twitter Feed',
                             'video' => 'Video Background'

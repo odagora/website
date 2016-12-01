@@ -760,6 +760,22 @@ Kirki::add_field('kyma_theme', array(
     'default' => $kyma_theme_options['home-shortcode'],
     'sanitize_callback' => 'kyma_sanitize_checkbox'
 ));
+/* Map Options */
+Kirki::add_section('map_sec', array(
+    'title' => __('Map Options', 'kyma'),
+    'panel' => 'kyma_option_panel',
+    'priority' => 160,
+    'capability' => 'edit_theme_options',
+));
+Kirki::add_field('kyma_theme', array(
+    'settings' => 'home-map',
+    'label' => __('You can add shortcode here', 'kyma'),
+    'section' => 'map_sec',
+    'type' => 'editor',
+    'priority' => 10,
+    'default' => $kyma_theme_options['home-map'],
+    'sanitize_callback' => 'kyma_sanitize_checkbox'
+));
 /* Basic Style Options */
 Kirki::add_section('basic_sec', array(
     'title' => __('Basic Styles', 'kyma'),
