@@ -768,19 +768,14 @@ iframe {
 	margin-right: 30px;
 }
 
-ul.blog_list {
-	list-style-position: inside;
-} 
-
 .blog_list_item {
 	float: none !important;
 	width: 100% !important;
 }
 
-.blog_list li.blog_list_item {
-	padding-left: 15px;
-	text-indent: -15px;
-	margin: 0 0 5px;		
+ul.blog_list,
+ol.blog_list {
+	line-height: 24px;
 }
 
 /*Side-bar widgets customization*/
