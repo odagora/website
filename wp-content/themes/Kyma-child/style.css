@@ -1010,3 +1010,99 @@ ol.blog_list {
 .promo_more a:hover {
 	color: #fff;
 }
+
+/*------------------------------------------------------*/
+/*-----------------------END - PAGES--------------------*/
+/*------------------------------------------------------*/
+
+/*------------------------------------------------------*/
+/*---------------------CONTACT FORM---------------------*/
+/*------------------------------------------------------*/
+
+/*---2 Columns Form Styles Start---*/
+
+.blog_grid_con #quoteForm ul li {
+	float: none;
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+.blog_grid_con #quoteForm ul li:last-child{
+	margin: 0;
+}
+
+#quoteForm h5,
+#quoteForm p:not(span) {
+	text-align: center;
+	padding: 0 15px;
+}
+
+#quoteForm span {
+	text-align: left;
+}
+
+.cf7-style input[type=tel] {
+	width: 100%;
+}
+
+#left {
+	width: 47%;
+	float: left;
+	margin-right: 6%;
+}
+
+#right {
+	width: 47%;
+	float: left;
+}
+
+.quote-clearfix ul li {
+	padding: 0;
+}
+
+#quoteForm select,
+.quote-clearfix select,
+.quote-clearfix input {
+	width: 100%;
+}
+
+.quote-clearfix:after { 
+	content:"\0020" !important; 
+	display:block !important; 
+	height:0; 
+	clear:both; 
+	visibility:hidden; 
+	overflow:hidden; 
+	margin-bottom:20px;
+}
+
+.quote-clearfix {
+	display: block;
+}
+
+#check-mark {
+	margin-top: 20px;
+}
+
+#quote-form-button {
+	margin-top: 40px;
+	padding: 0 15px;
+}
+
+#quote-form-button input {
+	background: #2e3092;
+	border-color: #2e3092;
+	font-weight: 600;
+	color: #fff;
+	border-radius: 3px;
+	padding: 5px 5px;
+}
+/*--- 2 Column Form Styles End ---*/
+
+/*Main contact form style*/
+
+.wpcf7 {
+	min-width: 300px;
+	max-width: 450px;
+	margin: 15px 0 !important;
+}
