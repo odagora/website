@@ -1,6 +1,6 @@
 <div id="quoteForm">
-    <h5>Quieres cotizar algún servicio con nosotros?</h5>
-    <p>Déjanos tus datos a continuación relacionados y un asesor de servicio se pondrá en contacto contigo lo más pronto posible<br><span class="highlight_text">* Obligatorio</span></p>
+    <h5>Quieres cotizar un servicio con nosotros?</h5>
+    <p>Déjanos tus datos y un asesor de servicio se pondrá en contacto contigo lo más pronto posible<br><span class="highlight_text">* Obligatorio</span></p>
     <ul>
         <li>
             <label for="senderName">Nombre Completo<span class="highlight_text"> *</span></label>[text* senderName id:senderName class:quoteForm] 
@@ -16,26 +16,26 @@
                 <div id="left">
                     <ul>
                         <li>
-                            <label>Marca<span class="highlight_text"> *</span></label>[select* menu-780 include_blank "Renault" "Chevrolet" "Nissan" "Volkswagen"]
+                            <label>Marca<span class="highlight_text"> *</span></label>[text* senderMake id:senderMake class:quoteForm]
                         </li>
                         <li>
-                            <label>Modelo<span class="highlight_text"> *</span></label>[number* your-model]
+                            <label>Modelo<span class="highlight_text"> *</span></label>[number* senderModel id:senderModel class:quoteForm]
                         </li>
                         <li>
-                            <label>Cilindraje<span class="highlight_text"> *</span></label>[number* your-cilinder]
+                            <label>Cilindraje<span class="highlight_text"> *</span></label>[number* senderSize id:senderSize class:quoteForm]
                         </li>
                     </ul>
                 </div>
                 <div id="right">
                     <ul>
                         <li>
-                            <label>Línea<span class="highlight_text"> *</span></label>[select* menu-780 include_blank "Renault" "Chevrolet" "Nissan" "Volkswagen"]
+                            <label>Línea<span class="highlight_text"> *</span></label>[text* senderLine id:senderLine class:quoteForm]
                         </li>
                         <li>
-                            <label>Placa<span class="highlight_text"> *</span></label>[text* your-license]
+                            <label>Placa<span class="highlight_text"> *</span></label>[text* senderLicense id:senderLicense class:quoteForm]
                         </li>
                         <li>
-                            <label>Kilometraje<span class="highlight_text"> *</span></label>[number* your-mileage]
+                            <label>Kilometraje<span class="highlight_text"> *</span></label>[number* senderMileage id:senderMileage class:quoteForm]
                         </li>
                     </ul>
                 </div>

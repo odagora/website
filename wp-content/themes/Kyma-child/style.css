@@ -89,6 +89,16 @@
 	background-color: #B31217;
 }
 
+#main_button {
+	border-color: #2e3092;
+	background: #2e3092;
+	font-family: "Open Sans" !important;
+	font-weight: 600 !important;
+	padding: 10px 10px;
+	color: #fff !important;
+	border-radius: 3px;
+}
+
 /*Main menu customization*/
 #navy > li.current_page_ancestor,
 #navy > li.current_page_ancestor > a,
@@ -130,7 +140,7 @@
 
 @media only screen and (max-width: 992px) {
 	.popup_button {
-		margin-top: 21px;
+		margin-top: 28px;
 		margin-right: 60px;
 	}
 
@@ -158,7 +168,7 @@
 	}
 
 	.popup_button {
-		margin-top: 20px;
+		margin-top: 24px;
 		margin-right: 60px;
 	}
 
@@ -216,8 +226,8 @@
 }
 
 @media only screen and (max-width: 480px) {
-	#navigation_bar button {
-		padding: 1px 8.5px;
+	#main_button {
+		padding: 4px 8.5px;
 		font-size: 16px;
 	}
 
@@ -226,7 +236,7 @@
 	}
 
 	.popup_button_icon {
-		margin-top: 20px;
+		margin-top: 22px;
 		margin-right: 50px;
 		float: right;
 	}
@@ -1021,13 +1031,23 @@ ol.blog_list {
 
 /*---2 Columns Form Styles Start---*/
 
-.blog_grid_con #quoteForm ul li {
+.blog_grid_con #quoteForm ul li,
+.pum-overlay #quoteForm ul li {
 	float: none;
 	width: 100%;
 	margin-bottom: 20px;
 }
 
-.blog_grid_con #quoteForm ul li:last-child{
+.pum-overlay #quoteForm ul {
+	margin-top: 25px;
+}
+
+.quote-clearfix ul {
+	margin: 0 !important;
+}
+
+.blog_grid_con #quoteForm ul li:last-child,
+.pum-overlay #quoteForm ul li:last-child {
 	margin: 0;
 }
 
@@ -1061,6 +1081,7 @@ ol.blog_list {
 }
 
 #quoteForm select,
+#quoteForm ul li input,
 .quote-clearfix select,
 .quote-clearfix input {
 	width: 100%;
@@ -1082,6 +1103,7 @@ ol.blog_list {
 
 #check-mark {
 	margin-top: 20px;
+	padding-left: 15px;
 }
 
 #quote-form-button {
@@ -1104,5 +1126,15 @@ ol.blog_list {
 .wpcf7 {
 	min-width: 300px;
 	max-width: 450px;
-	margin: 15px 0 !important;
+	margin: 0 auto !important;
+	padding: 15px 0 !important;
+	background: #fbfbfb;
+}
+
+textarea {
+    height: 5em;
+}
+
+span.wpcf7-list-item {
+	margin: 0;
 }

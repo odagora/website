@@ -431,8 +431,8 @@ switch ($kyma_theme_options['slider_type']) {
                             class="owl_text_c"><span><?php echo esc_attr(get_post_meta(get_the_ID(), 'slider_description', true)); ?></span></span>
             <?php if(get_post_meta(get_the_ID(), 'slider_button_text', true)!=""){?>
             <span class="owl_text_d">
-				<button class="btn_a"><span><i class="in_left <?php echo esc_attr(get_post_meta(get_the_ID(), 'slider_btn_icon', true)); ?>"></i><span><?php echo esc_attr(get_post_meta(get_the_ID(), 'slider_button_text', true)); ?></span><i
-                            class="in_right <?php echo esc_attr(get_post_meta(get_the_ID(), 'slider_btn_icon', true)); ?>"></i></span></button>
+				<a href="<?php echo esc_url(home_url('/'));?>cotizaciones/" class="btn_a"><span><i class="in_left <?php echo esc_attr(get_post_meta(get_the_ID(), 'slider_btn_icon', true)); ?>"></i><span><?php echo esc_attr(get_post_meta(get_the_ID(), 'slider_button_text', true)); ?></span><i
+                            class="in_right <?php echo esc_attr(get_post_meta(get_the_ID(), 'slider_btn_icon', true)); ?>"></i></span></a>
 			</span><?php
             } ?>
                     </div>

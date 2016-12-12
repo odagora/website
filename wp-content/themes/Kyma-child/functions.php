@@ -29,7 +29,7 @@ add_action('wp_footer', 'enqueue_kyma_modified_script');
 function hide_fields(){
 	wp_enqueue_script('hide-fields', get_template_directory_uri() . '/../Kyma-child/js/hide-fields.js');
 }
-add_action('wp_enqueue_scripts', 'hide_fields');
+add_action('wp_footer', 'hide_fields');
 
 /*Allow parse php code to text widgets*/
 add_filter('widget_text','execute_php',100);

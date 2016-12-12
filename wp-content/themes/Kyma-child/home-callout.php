@@ -9,11 +9,11 @@ switch ($kyma_theme_options['home_callout_type']) {
                         <h3 id='callout-title'><?php echo esc_attr($kyma_theme_options['callout_title']); ?></h3>
                     <?php } ?>
                     <div class="callout_btn_a">
-                        <button class="btn_a f_right">
+                        <a href="<?php echo esc_url(home_url('/'));?>cotizaciones/" class="btn_a f_right">
                     <span><i class="in_left <?php echo esc_attr($kyma_theme_options['callout_btn_icon']); ?>"></i><span
                             id='callout-btn-text'><?php echo esc_attr($kyma_theme_options['callout_btn_text']); ?></span><i
                             class="in_right <?php echo esc_attr($kyma_theme_options['callout_btn_icon']); ?>"></i></span>
-                        </button>
+                        </a>
                     </div><?php if ($kyma_theme_options['callout_description'] != "") { ?>
                             <span
                                 class="intro_text"><?php echo esc_attr($kyma_theme_options['callout_description']); ?></span><?php } ?>

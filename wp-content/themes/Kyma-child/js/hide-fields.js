@@ -1,13 +1,12 @@
-/*! jQuery script to hide certain form fields */
- 
-jQuery(document).ready(function($) {
- 
+/*! jQuery script to hide certain form fields dynamically */
+
+jQuery(function($) {
         //Hide the fields initially
         $("#otherServices").hide();
         $("#photoServices").hide();
- 
+        
         //Show the text field only when the last option is chosen for other services
-        $('#senderService').change(function() {
+        $(document).on('change', '#senderService', function() {
                 if ($("#senderService").val() == "Otro(s)") {
                         $("#otherServices").show();
                 }
@@ -22,6 +21,6 @@ jQuery(document).ready(function($) {
                         
                         $("#photoServices").hide();  
                 }
-        });
+        }).change();
 
 });
