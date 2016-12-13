@@ -839,9 +839,10 @@ ol.blog_list {
 .widget_button,
 .contactwidget {
 	margin-top: 20px;
+	margin-bottom: 10px;
 }
 
-.widget_button button {
+#widget_link {
 	background: #2e3092;
 	border-color: #2e3092;
 	font-weight: 600;
@@ -1124,6 +1125,18 @@ ol.blog_list {
 	text-align: left;
 	font-weight: bold;
 	padding: 0;
+}
+
+#quoteForm .quote-clearfix ul li.date input{
+	width: 33%;
+	line-height: 20px;
+}
+
+#quoteForm .quote-clearfix ul li.date select{
+	width: inherit;
+	margin-left: 10px;
+	padding: 10.5px 12px;
+	border-radius: 3px;
 }
 
 
