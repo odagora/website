@@ -5,4 +5,4 @@
 <p><i class= "fa fa-phone"></i><a href="tel:+5712119290">  2117943 - 2119290</a></p>
 <p><i class= "fa fa-envelope"></i><a href="<?php echo esc_url(home_url('/'));?>contactanos/">  Formulario de contacto</a></p>
 </div>
-<div class="widget_button"><button>Agendar cita</button></div>
+<div class="widget_button"><a id="widget_link" href="<?php echo esc_url(home_url('/'));?>citas/">Agendar cita</a></div>
