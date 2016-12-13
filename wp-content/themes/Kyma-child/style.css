@@ -1119,6 +1119,14 @@ ol.blog_list {
 	border-radius: 3px;
 	padding: 5px 5px;
 }
+
+#quoteForm .date-title p {
+	text-align: left;
+	font-weight: bold;
+	padding: 0;
+}
+
+
 /*--- 2 Column Form Styles End ---*/
 
 /*Main contact form style*/
@@ -1133,6 +1141,7 @@ ol.blog_list {
 
 textarea {
     height: 5em;
+    width: 100%;
 }
 
 span.wpcf7-list-item {

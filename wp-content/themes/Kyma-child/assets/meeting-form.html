@@ -1,0 +1,76 @@
+<div id="quoteForm">
+    <h5>Deseas realizarle a tu vehículo algún servicio con nosotros?</h5>
+    <p>Déjanos saber cuál es tu disponibilidad para asignarte una cita y brindarte el mejor servicio<br><span class="highlight_text">* Obligatorio</span></p>
+    <ul>
+        <li>
+            <label for="senderName">Nombre Completo<span class="highlight_text"> *</span></label>[text* senderName id:senderName class:quoteForm] 
+        </li>
+        <li>
+            <label for="senderEmail">Email<span class="highlight_text"> *</span></label>[email* senderEmail id:senderEmail class:quoteForm] 
+        </li>
+        <li>
+            <label for="senderPhone">Teléfono<span class="highlight_text"> *</span></label>[tel* senderPhone id:senderPhone class:quoteForm] 
+        </li>
+        <li>
+            <div class="quote-clearfix">
+                <div id="left">
+                    <ul>
+                        <li>
+                            <label>Marca<span class="highlight_text"> *</span></label>[text* senderMake id:senderMake class:quoteForm]
+                        </li>
+                        <li>
+                            <label>Modelo<span class="highlight_text"> *</span></label>[number* senderModel id:senderModel class:quoteForm]
+                        </li>
+                        <li>
+                            <label>Cilindraje<span class="highlight_text"> *</span></label>[number* senderSize id:senderSize class:quoteForm]
+                        </li>
+                    </ul>
+                </div>
+                <div id="right">
+                    <ul>
+                        <li>
+                            <label>Línea<span class="highlight_text"> *</span></label>[text* senderLine id:senderLine class:quoteForm]
+                        </li>
+                        <li>
+                            <label>Placa<span class="highlight_text"> *</span></label>[text* senderLicense id:senderLicense class:quoteForm]
+                        </li>
+                        <li>
+                            <label>Kilometraje<span class="highlight_text"> *</span></label>[number* senderMileage id:senderMileage class:quoteForm]
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+        <li>
+            <label for="senderService">Servicio a realizar<span class="highlight_text"> *</span></label>[select* senderService id:senderService class:quoteForm include_blank "Cambio de aceite y filtros" "Cambio pastillas de freno" "Sincronización" "Cambio correa de repartición" "Cambio de amortiguadores" "Cambio de embrague" "Revisiones de kilometraje" "Servicio de escáner" "Peritaje" "Mecánica general" "Reparación de abolladuras" "Latonería y pintura general" "Alineación y balanceo" "Otro(s)"]
+        </li>
+        <li>
+            <div class="otherServices" id="otherServices">
+                <label for="senderExtraServices">Cuál(es) servicio(s) quieres agendar?</label>[textarea senderExtraServices id:senderExtraServices class:quoteForm]
+            </div>
+        </li>
+        <li>
+            <div class="quote-clearfix">
+                <div class="date-title">
+                    <p>Qué día y hora puedes traernos el vehículo?</p>
+                </div>
+                <div id="left">
+                    <ul>
+                        <li>
+                            <label for="senderDate1">Fecha opción 1</label>[date* senderDate1 id:senderDate1 class:quoteForm]
+                        </li>
+                    </ul>
+                </div>
+                <div id="right">
+                    <ul>
+                        <li>
+                            <label for="senderDate2">Fecha opción 2</label>[date* senderDate2 id:senderDate2 class:quoteForm]
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+    </ul>
+<div id="check-mark">[checkbox* checkSend id:checkSend class:quoteForm "Acepto los términos y condiciones del servicio."]<span><a href="http://localhost/website/terminos-y-condiciones/" target="_blank">  Ver más »</a></span></div>
+<div id="quote-form-button">[submit "Enviar"]</div>
+</div>
