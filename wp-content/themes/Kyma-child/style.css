@@ -761,12 +761,18 @@ iframe {
 	}
 }
 
-.faq {
+.faq,
+.privacy {
 	color: #2e3092;
 }
 
-.blog_grid_con ul li.item_faq {
+.blog_grid_con ul li.item_faq,
+.blog_grid_con ul li.item_privacy {
 	width: 100%;
+}
+
+.blog_grid_con ul li.item_privacy {
+	padding: 0;
 }
 
 .content .about-us {
@@ -786,6 +792,69 @@ iframe {
 ul.blog_list,
 ol.blog_list {
 	line-height: 24px;
+}
+
+.main {
+	text-align: center;
+	padding: 0 15px;
+}
+
+.clear p {
+	padding: 0 15px;
+}
+
+.type1 {
+	list-style-type: lower-alpha;
+	font-size: 14px;
+	color: #666666;
+	font-weight: normal;
+	font-family: "Open Sans", sans-serif;
+}
+
+.type2 {
+	list-style-type: disc;
+	font-size: 14px;
+	color: #666666;
+	font-weight: normal;
+	font-family: "Open Sans", sans-serif; 
+}
+
+.type3 {
+	list-style-type: lower-alpha;
+	font-size: 14px;
+	color: #666666;
+	font-weight: bold;
+	font-family: "Open Sans", sans-serif;
+}
+
+ol.list_privacy {
+	list-style-type: upper-roman;
+	font-family: "Oswald", "Open Sans", sans-serif;
+	font-size: 22px;
+	font-weight: 400;
+	color: #2e3092;
+	padding: 0 15px;
+}
+
+ol.list_privacy p:not(last-child) {
+	margin-bottom: 20px !important;
+	font-family: "Open Sans", sans-serif !important;
+	font-weight: normal !important;
+	line-height: 24px !important;
+	color: #666666 !important;
+	font-size: 14px;
+}
+
+ol.list_privacy ul li:last-child p {
+	margin-bottom: 0 !important;
+}
+
+ol.list_privacy ul {
+	display: inline-block;
+}
+
+ol.list_privacy ol li ol li:last-child p {
+	margin-bottom: 0 !important;
 }
 
 /*Side-bar widgets customization*/
