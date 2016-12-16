@@ -828,6 +828,43 @@ Kirki::add_field('kyma_theme', array(
     'default' => $kyma_theme_options['custom_color'],
     'sanitize_callback' => 'kyma_sanitize_checkbox'
 ));
+/* Information Options */
+Kirki::add_section('info_sec', array(
+    'title' => __('Info Options', 'kyma'),
+    'panel' => 'kyma_option_panel',
+    'priority' => 160,
+    'capability' => 'edit_theme_options',
+));
+Kirki::add_field('kyma_theme', array(
+    'settings' => 'home_info_type',
+    'type' => 'radio-buttonset',
+    'section' => 'info_sec',
+    'label' => __('Choose a Home Information Style', 'kyma'),
+    'description' => __("to change your home information style", 'kyma'),
+    'choices' => array(1 => 'Style One', 2 => 'Style Two', 3 => 'Style Three'),
+    'default' => 1,
+));
+Kirki::add_field('kyma_theme', array(
+    'settings' => 'info_title',
+    'label' => __('Info Title', 'kyma'),
+    'section' => 'info_sec',
+    'type' => 'text',
+    'priority' => 10,
+    'transport' => 'postMessage',
+    'default' => $kyma_theme_options['info_title'],
+    'sanitize_callback' => 'kyma_sanitize_text'
+));
+Kirki::add_field('kyma_theme', array(
+    'settings' => 'info_description',
+    'label' => __('Show Info Description', 'kyma'),
+    'section' => 'info_sec',
+    'type' => 'textarea',
+    'priority' => 10,
+    'transport' => 'postMessage',
+    'default' => '',
+    'sanitize_callback' => 'kyma_sanitize_textarea'
+));
+
 /* Social Options */
 Kirki::add_section('social_sec', array(
     'title' => __('Social Options', 'kyma'),

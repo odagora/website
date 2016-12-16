@@ -904,6 +904,34 @@ class Redux_Framework_Kyma_config
                 ),
             )
         );
+        /* Information Options */
+        $this->sections[] = array(
+            'title' => 'Info Options',
+            'icon_class' => 'icon-large',
+            'icon' => 'el el-bullhorn',
+            'customizer' => true,
+            'fields' => array(
+                array(
+                    'id' => 'home_info_type',
+                    'type' => 'button_set',
+                    'title' => __('Choose a Home Information Style', 'kyma'),
+                    'subtitle' => __("to change your home information style", 'kyma'),
+                    'options' => array(1 => 'Style One (Default)', 2 => 'Style Two', 3 => 'Style Three'),
+                    'default' => 1,
+                ),
+                array(
+                    'id' => 'info_title',
+                    'type' => 'text',
+                    'title' => __('Info Title', 'kyma'),
+                    'default' => __('Best Wordpress Responsive Theme Ever!', 'kyma'),
+                ),
+                array(
+                    'id' => 'info_description',
+                    'type' => 'textarea',
+                    'title' => __('Info Description', 'kyma'),
+                    'default' => __('There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour of this randomised words which don\'t look even slightly believable If you are going to use a passage of Lorem Ipsum.', 'kyma'),
+                ),
+            ));
         $this->sections[] = array(
             'title' => 'Typography',
             'icon_class' => 'icon-large',
@@ -1453,7 +1481,8 @@ class Redux_Framework_Kyma_config
                             'map' => 'Home Map',
                             'pricing' => 'Pricing Table',
                             'tweets' => 'Twitter Feed',
-                            'video' => 'Video Background'
+                            'video' => 'Video Background',
+                            'info' => 'Information'
                         ),
                         'Enabled' => array(
                             'service' => 'Service',
