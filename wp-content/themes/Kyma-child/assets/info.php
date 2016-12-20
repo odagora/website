@@ -9,7 +9,7 @@
 		<i class="fa fa-user-secret"></i><a href="<?php echo esc_url(home_url('/'));?>politica-de-privacidad/"> Política de privacidad</a>
 	</li>
         <li>
-		<i class="fa fa-wrench"></i><a href="<?php echo esc_url(home_url('/'));?>condiciones-del-servicio/"> Condiciones del servicio</a>
+		<i class="fa fa-wrench"></i><a href="<?php echo esc_url(home_url('/'));?>politica-de-garantia/"> Política de garantía</a>
 	</li>
         <li>
 		<i class="fa fa-sitemap"></i><a href="#"> Mapa del sitio</a>
