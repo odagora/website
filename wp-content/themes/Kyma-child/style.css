@@ -1229,3 +1229,45 @@ textarea {
 span.wpcf7-list-item {
 	margin: 0;
 }
+
+/*------------------------------------------------------*/
+/*-------------------END CONTACT FORM-------------------*/
+/*------------------------------------------------------*/
+
+/*------------------------------------------------------*/
+/*--------------------------BLOG------------------------*/
+/*------------------------------------------------------*/
+
+.post_main {
+	background: #fbfbfb;
+}
+
+.post_content {
+	width: 80%;
+	margin: 0 auto;
+}
+
+@media only screen and (max-width: 992px){
+	article {
+		margin-bottom: 1.7em; 
+	}
+}
+
+@media only screen and (min-width: 992px){
+	article {
+		margin-bottom: 2.25em; 
+	}
+}
+
+
+img {
+	height: auto;
+}
+
+#comments .comment-respond {
+	margin-top: 0; 
+}
+
+.post_next_prev_con {
+	margin-bottom: 0;
+}
