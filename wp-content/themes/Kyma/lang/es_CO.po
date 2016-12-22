@@ -7789,3 +7789,7 @@ msgstr "Comentario..."
 #: wp-content/themes/kyma-child/comments.php:53
 msgid "Submit Message"
 msgstr "Enviar Comentario"
+
+#:wp-content/themes/kyma-child/comments.php:24
+msgid "Leave Comment"
+msgstr "Comentarios"

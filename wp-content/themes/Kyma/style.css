@@ -16086,7 +16086,7 @@ ol.comments-list li {
 }
 
 .hm_blog_list td, .hm_blog_list th {
-    text-align: center !important;
+   /* text-align: center !important;*/
     border: 1px solid #000;
 }
 

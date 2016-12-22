@@ -794,6 +794,14 @@ ol.blog_list {
 	line-height: 24px;
 }
 
+ol.blog_list {
+	margin: 0 0 1.75em 1.25em;
+}
+
+ol.terms_conditions {
+	margin: 0 0 1.75em 1.75em;
+}
+
 .main {
 	text-align: center;
 	padding: 0 15px;
@@ -834,6 +842,7 @@ ol.list_privacy {
 	font-weight: 400;
 	color: #2e3092;
 	padding: 0 15px;
+	margin: 0 0 1.75em 1.25em;
 }
 
 ol.list_privacy p:not(last-child) {
@@ -1259,9 +1268,59 @@ span.wpcf7-list-item {
 	}
 }
 
+.post_text ul li {
+	width: 100% !important;
+	padding: 0;
+}
+
+.post_content ul {
+	display: inline-block;
+	list-style: disc;
+	margin: 0 0 1.75em 1.25em;
+	line-height: 24px;
+}
+
+.post_content ul li,
+.post_content ol li {
+	text-align: left;
+}
+
+.post_content li ul {
+	margin-left: 1.25em;
+	margin-bottom: 0;
+}
+
+.post_content .post_text li ul li {
+	padding-left: 0 !important;
+}
+
+.post_content .post_text li span {
+	text-align: none;
+}
+
+.post_content ol {
+	margin: 0 0 1.75em 1.25em;
+	line-height: 24px;
+}
 
 img {
 	height: auto;
+}
+
+.aligncenter {
+	margin: 0 auto 1.75em !important;
+	clear: both;
+	display: block;
+}
+
+.post_content td {
+	padding: 0.4375em !important;
+	border-width: 0 1px 1px 0 !important;
+	border: 1px solid #d1d1d1 !important;
+}
+
+.clear_table {
+	display: inline-table;
 }
 
 #comments .comment-respond {
@@ -1270,4 +1329,5 @@ img {
 
 .post_next_prev_con {
 	margin-bottom: 0;
+	margin-top: 20px;
 }
