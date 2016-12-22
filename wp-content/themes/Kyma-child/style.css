@@ -1313,6 +1313,10 @@ span.wpcf7-list-item {
 	height: auto;
 }
 
+.hm_blog_list .blog_list {
+	margin: 0 0 1.75em 1.25em;
+}
+
 .aligncenter {
 	margin: 0 auto 1.75em !important;
 	clear: both;
