@@ -24,9 +24,9 @@ the_post(); ?>
             <!-- All Content -->
             <div class="content_spacer clearfix">
                 <?php if ($blog_layout == "leftsidebar" || $blog_layout == "rightsidebar"){ ?>
-                <div class="content_block col-md-9 <?php echo esc_attr($float); ?> ">
+                <div class="content_block col-md-9 post_main <?php echo esc_attr($float); ?> ">
                     <?php } ?>
-                    <div class="hm_blog_list clearfix"><?php
+                    <div class="hm_blog_list post_content clearfix"><?php
                         get_template_part('blog', 'content');
                         ?>
                         <!-- End blog post detail -->
