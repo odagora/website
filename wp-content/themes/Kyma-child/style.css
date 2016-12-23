@@ -1268,12 +1268,14 @@ span.wpcf7-list-item {
 	}
 }
 
-.post_text ul li {
+.post_text ul li,
+.content_text ul li {
 	width: 100% !important;
 	padding: 0;
 }
 
-.post_content ul:not(.form_list) {
+.post_content ul:not(.form_list),
+.content_text ul:not(.form_list) {
 	display: inline-block;
 	list-style: disc;
 	margin: 0 0 1.75em 1.25em;
@@ -1287,29 +1289,47 @@ span.wpcf7-list-item {
 }
 
 .post_content ul li,
-.post_content ol li {
+.post_content ol li,
+ {
 	text-align: left;
 }
 
-.post_content li ul {
+.post_content li ul,
+.content_text li ul {
 	margin-left: 1.25em;
 	margin-bottom: 0;
 }
 
-.post_content .post_text li ul li {
+.post_content .post_text li ul li,
+.content_text li ul li {
 	padding-left: 0 !important;
 }
 
-.post_content .post_text li span {
+.post_content .post_text ol li ul,
+.post_content .post_text ol li ol,
+.content_text ol li ul,
+.content_text ol li ol {
+	display: block;
+}
+
+.post_content .post_text ol li ol,
+.content_text ol li ol {
+	margin-bottom: 0;
+}
+
+.post_content .post_text li span,
+.content_text li span {
 	text-align: none;
 }
 
-.post_content ol {
+.post_content ol,
+.content_text ol {
 	margin: 0 0 1.75em 1.25em;
 	line-height: 24px;
 }
 
-.post_content img {
+.post_content img,
+.content_text img {
 	height: auto;
 }
 
@@ -1323,7 +1343,8 @@ span.wpcf7-list-item {
 	display: block;
 }
 
-.post_content td {
+.post_content td,
+.content_text td {
 	padding: 0.4375em !important;
 	border-width: 0 1px 1px 0 !important;
 	border: 1px solid #d1d1d1 !important;
@@ -1331,6 +1352,21 @@ span.wpcf7-list-item {
 
 .clear_table {
 	display: inline-table;
+}
+
+.content_text .list_privacy li ul {
+	list-style: none;
+	margin: 0;
+}
+
+.content_text .promo_lien .promo_item {
+	width: 50% !important;
+	padding: 0 15px;
+}
+
+.content_text .promo_lien {
+	list-style: none !important;
+	display: list-item !important;
 }
 
 #comments .comment-respond {

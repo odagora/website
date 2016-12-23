@@ -28,7 +28,7 @@ the_post(); ?>
                     <?php } ?>
                     <div class="hm_blog_list clearfix">
                         <div <?php post_class('blog_grid_block clearfix'); ?>>
-                            <div class="blog_grid_con">
+                            <div class="blog_grid_con content_text">
                                 <?php the_content(); ?>
                             </div>
                         </div>
