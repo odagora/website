@@ -1223,7 +1223,6 @@ ol.list_privacy ol li ol li:last-child p {
 /*Main contact form style*/
 
 .wpcf7 {
-	min-width: 300px;
 	max-width: 450px;
 	margin: 0 auto !important;
 	padding: 15px 0 !important;
@@ -1359,9 +1358,13 @@ span.wpcf7-list-item {
 	margin: 0;
 }
 
-.content_text .promo_lien .promo_item {
-	width: 50% !important;
-	padding: 0 15px;
+
+
+@media only screen and (min-width: 630px) {
+	.content_text .promo_lien .promo_item {
+		width: 50% !important;
+		padding: 0 15px;
+	}
 }
 
 .content_text .promo_lien {
