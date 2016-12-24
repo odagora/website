@@ -392,6 +392,22 @@
     }
 }
 
+/*Information customization*/
+@media only screen and (max-width: 768px) {
+	.welcome_banner h3 {
+		font-size: 20px;
+	}
+
+	.welcome_banner .content {
+		padding: 20px 15px;
+	}
+
+	.welcome_banner.full_banner_colored .intro_text {
+		font-size: 14px;
+		line-height: 24px;
+	}
+}
+
 /*Features and services customization*/
 @media only screen and (min-width: 992px) {
 	.icon_boxes_con .col-md-6 {
@@ -753,12 +769,6 @@ iframe {
 
 .content_spacer {
 	padding: 0;
-}
-
-@media only screen and (max-width: 992px) {
-	.blog {
-		padding-top: 50px;
-	}
 }
 
 .faq,
@@ -1357,8 +1367,6 @@ span.wpcf7-list-item {
 	list-style: none;
 	margin: 0;
 }
-
-
 
 @media only screen and (min-width: 630px) {
 	.content_text .promo_lien .promo_item {
