@@ -1029,6 +1029,11 @@ ol.list_privacy ol li ol li:last-child p {
 	font-weight: bold;
 }
 
+.bold_text {
+	color: black;
+	font-weight: bold;
+}
+
 .promo_desc_1 p,
 .promo_desc_2 p {
 	margin: 0 !important;
@@ -1368,6 +1373,13 @@ span.wpcf7-list-item {
 	margin: 0;
 }
 
+/*---------Promo 1 column layout----------*/
+.content_text .promo_lien_full .promo_item_full {
+	width: 100% !important;
+	padding: 0 15px;
+}
+
+/*---------Promo 2 columns layout----------*/
 @media only screen and (min-width: 630px) {
 	.content_text .promo_lien .promo_item {
 		width: 50% !important;
@@ -1375,7 +1387,8 @@ span.wpcf7-list-item {
 	}
 }
 
-.content_text .promo_lien {
+.content_text .promo_lien,
+.content_text .promo_lien_full {
 	list-style: none !important;
 	display: list-item !important;
 }
@@ -1388,3 +1401,4 @@ span.wpcf7-list-item {
 	margin-bottom: 0;
 	margin-top: 20px;
 }
+

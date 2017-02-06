@@ -42,4 +42,10 @@ function execute_php($html){
      }
      return $html;
 }
+/*Disable automatic p tag in html content*/
+function remove_the_wpautop_function() {
+    remove_filter( 'the_content', 'wpautop' );
+    remove_filter( 'the_excerpt', 'wpautop' );
+}
+add_action( 'after_setup_theme', 'remove_the_wpautop_function' );
 ?>
