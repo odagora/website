@@ -1374,9 +1374,11 @@ span.wpcf7-list-item {
 }
 
 /*---------Promo 1 column layout----------*/
+.hm_blog_grid .promo_lien_full .promo_item_full,
 .content_text .promo_lien_full .promo_item_full {
 	width: 100% !important;
 	padding: 0 15px;
+	float: none !important;
 }
 
 /*---------Promo 2 columns layout----------*/
