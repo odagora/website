@@ -7793,3 +7793,11 @@ msgstr "Enviar Comentario"
 #:wp-content/themes/kyma-child/comments.php:24
 msgid "Leave Comment"
 msgstr "Comentarios"
+
+#:wp-content/themes/kyma-child/category.php:5
+msgid "Category Archives: %s"
+msgstr "Archivos de Categoría: %s"
+
+#:wp-content/themes/kyma/functions.php:137
+msgid "Category "
+msgstr "Categoría "
