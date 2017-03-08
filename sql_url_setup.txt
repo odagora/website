@@ -1,0 +1,26 @@
+LOCALHOST:
+
+wp_blogs -> domain: localhost | path: /website/
+         -> domain: localhost | path: /website/st-blog/
+
+wp_options -> siteurl: http://localhost/website
+           -> home: http://localhost/website
+
+wp_site -> domain: localhost | path: /website/
+
+wp_2_options -> siteurl: http://localhost/website/st-blog
+             -> home: http://localhost/website
+
+-------
+WEBSITE:
+
+wp_blogs -> domain: servitalleres.com | path: /
+         -> domain: servitalleres.com | path: /st-blog/
+
+wp_options -> siteurl: http://servitalleres.com/
+           -> home: http://servitalleres.com/
+
+wp_site -> domain: servitalleres.com | path: /
+
+wp_2_options -> siteurl: http://servitalleres.com/st-blog
+             -> home: http://servitalleres.com/
