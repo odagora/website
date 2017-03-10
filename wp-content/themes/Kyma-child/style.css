@@ -1404,3 +1404,9 @@ span.wpcf7-list-item {
 	margin-top: 20px;
 }
 
+/*---------Social share--------------------*/
+.social_share {
+	border-top: 1px solid #eee; 
+	border-bottom: 1px solid #eee; 
+	padding:20px 0 20px 0;
+}
