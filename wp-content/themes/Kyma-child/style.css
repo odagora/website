@@ -1410,3 +1410,10 @@ span.wpcf7-list-item {
 	border-bottom: 1px solid #eee; 
 	padding:20px 0 20px 0;
 }
+
+
+/*---------Home blog posts----------------*/
+.filter_item_block {
+	width: 33.33333% !important;
+	float:left !important;
+}

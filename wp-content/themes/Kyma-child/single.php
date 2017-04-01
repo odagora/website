@@ -50,7 +50,7 @@
 								<span class="meta_part">
 									<a href="#">
                                         <i class="fa fa-comment-o"></i>
-                                        <?php comments_popup_link('Dejar comentario &#187;', '1 Commentario', '% Commentarios'); ?> <?php edit_post_link('Editar', ' &#124; ', ''); ?>
+                                        <?php comments_popup_link('Dejar comentario &#187;', '1 Comentario', '% Comentarios'); ?> <?php edit_post_link('Editar', ' &#124; ', ''); ?>
                                     </a>
 								</span>
                                 <?php if (get_the_category_list() != '') { ?>
