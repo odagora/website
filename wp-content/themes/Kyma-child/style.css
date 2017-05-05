@@ -89,7 +89,8 @@
 	background-color: #B31217;
 }
 
-#main_button {
+#main_button,
+.landing_button {
 	border-color: #2e3092;
 	background: #2e3092;
 	font-family: "Open Sans" !important;
@@ -1411,9 +1412,60 @@ span.wpcf7-list-item {
 	padding:20px 0 20px 0;
 }
 
+/*-----------Landing page----------------- */
+.promo-content {
+	padding: 15px;
+}
 
-/*---------Home blog posts----------------*/
-.filter_item_block {
-	width: 33.33333% !important;
-	float:left !important;
+.promo-title,
+.promo-feature {
+	font-family: "Oswald", "Open Sans", sans-serif;
+	font-size: 22px;
+	font-weight: 400;
+	padding: 0 40px;
+	text-transform: uppercase;
+}
+
+@media only screen and (max-width: 992px) {
+.promo-title {
+	text-align: center;
+}
+}
+
+#promo-text {
+	font-size: 18px;
+	text-align: center;
+	margin: 0;
+	font-weight: 500; 
+}
+
+.post_promo {
+	padding: 30px 0;
+}
+
+#quoteForm ul li input.landing_button  {
+	width: auto;
+}
+
+.promo-feature {
+	text-transform: none;
+	padding: 0;
+}
+
+.post_feature {
+	padding: 15.5px 0;
+}
+
+.feature-list {
+	list-style: none !important;
+	margin: 0 !important;
+}
+
+.landing {
+	background: #fbfbfb;
+}
+
+.landing_cta {
+	text-align: center;
+	margin: 30px 0;
 }
