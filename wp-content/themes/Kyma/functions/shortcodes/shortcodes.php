@@ -615,7 +615,7 @@ function kyma_banner_shortcode($atts, $content = null)
     $button_url = $atts['button_url'];
     $button_icon = $atts['button_icon'];
 
-    $out = '<div class="welcome_banner ' . $banner_widht . $banner_color . ' ' . $banner_centered . '">
+    $out = '<div class="welcome_banner inner_page ' . $banner_widht . $banner_color . ' ' . $banner_centered . '">
 		    <div class="content clearfix">';
     if ($banner_title != "") {
         $out .= '<h3>' . $banner_title . '</h3>';
