@@ -1492,3 +1492,12 @@ span.wpcf7-list-item {
 	text-align: center;
 	margin: 30px 0;
 }
+
+/*-----------Shortcodes changes----------------- */
+.inner_page .content {
+	padding: 30px 50px;
+}
+
+.welcome_banner .btn_a {
+	margin-top: 0 !important;
+}
