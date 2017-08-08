@@ -1498,6 +1498,6 @@ span.wpcf7-list-item {
 	padding: 30px 50px;
 }
 
-.welcome_banner .btn_a {
-	margin-top: 0 !important;
+.inner_page .btn_a {
+	margin-top: 0;
 }
