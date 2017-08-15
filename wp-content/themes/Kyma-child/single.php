@@ -39,12 +39,12 @@
         while (have_posts()): the_post(); ?>
         <div id="<?php echo get_the_id(); ?>" <?php post_class('clearfix'); ?> >
             <div class="post_title_con">
-                <h6 class="title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h6>
+                <h6 class="title entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h6>
 							<span class="meta">
 								<span class="meta_part">
 									<a href="#">
                                         <i class="fa fa-clock-o"></i>
-                                        <span><?php echo esc_attr(get_the_date(get_option('date_format')), true); ?></span>
+                                        <span class="post-date updated"><?php echo esc_attr(get_the_date(get_option('date_format')), true); ?></span>
                                     </a>
 								</span>
 								<span class="meta_part">
@@ -62,7 +62,8 @@
                                 <span class="meta_part">
 									<a href="<?php echo esc_url(get_author_posts_url(get_the_author_meta('ID'))); ?>">
                                         <i class="fa fa-user"></i>
-                                        <span><?php esc_attr(the_author()); ?></span>
+                                        <span class="vcard author post-author"><span class="fn"><?php esc_attr(the_author()); ?></span>
+                                        </span>
                                     </a>
 								</span>
 							</span>
