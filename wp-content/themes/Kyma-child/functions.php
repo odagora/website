@@ -71,4 +71,13 @@ if ( ! function_exists( 'multipage_title' ) ){
    }
    add_filter( 'wpseo_title', 'multipage_title', 100, 1 );
 }
+
+/* Remove the "hentry" class from pages and archives (prevents structured data errors) */
+function remove_hentry( $classes ) {
+if (is_page() || is_archive()){
+  $classes = array_diff( $classes, array('hentry'));
+  }
+  return $classes;
+}
+add_filter( 'post_class','remove_hentry' );
 ?>
