@@ -88,46 +88,37 @@ if ($kyma_theme_options['topbar']) {
                 </a><?php
             }
             if ($kyma_theme_options['social_google_plus_link'] != '') { ?>
-            <a href="<?php echo esc_url($kyma_theme_options['social_google_plus_link']); ?>" target="_blank">
-                <span class="soc_name"><?php _e('Google+', 'kyma'); ?></span>
+            <a class="google-plus" href="<?php echo esc_url($kyma_theme_options['social_google_plus_link']); ?>" target="_blank">
                 <span class="soc_icon_bg"></span>
                 <i class="fa fa-google-plus"></i>
                 </a><?php
             }
             if ($kyma_theme_options['social_skype_link'] != '') { ?>
-            <a href="skype:<?php echo esc_attr($kyma_theme_options['social_skype_link']); ?>?call">
-                <span class="soc_name"><?php _e('Skype', 'kyma'); ?></span>
+            <a class="skype" href="skype:<?php echo esc_attr($kyma_theme_options['social_skype_link']); ?>?call">
                 <span class="soc_icon_bg"></span>
                 <i class="fa fa-skype"></i>
                 </a><?php
             }
             if ($kyma_theme_options['social_vimeo_link'] != '') { ?>
-            <a href="<?php echo esc_url($kyma_theme_options['social_vimeo_link']); ?>" target="_blank">
-                <span class="soc_name"><?php _e('Vimeo', 'kyma'); ?></span>
+            <a class="vimeo" href="<?php echo esc_url($kyma_theme_options['social_vimeo_link']); ?>" target="_blank">
                 <span class="soc_icon_bg"></span>
                 <i class="fa fa-vimeo-square"></i>
                 </a><?php
             }
             if ($kyma_theme_options['social_picasa_link'] != '') { ?>
-            <a href="<?php echo esc_url($kyma_theme_options['social_picasa_link']); ?>" target="_blank">
-                <span class="soc_name"><?php _e('Picassa', 'kyma'
-                    ); ?></span>
+            <a class="picasa" href="<?php echo esc_url($kyma_theme_options['social_picasa_link']); ?>" target="_blank">
                 <span class="soc_icon_bg"></span>
-                <i class="ico ico-picassa"></i>
+                <i class="fa fa-picassa"></i>
                 </a><?php
             }
             if ($kyma_theme_options['social_instagram_link'] != '') { ?>
-            <a href="<?php echo esc_url($kyma_theme_options['social_instagram_link']); ?>" target="_blank">
-                <span class="soc_name"><?php _e('Instagram', 'kyma'
-                    ); ?></span>
+            <a class="instagram" href="<?php echo esc_url($kyma_theme_options['social_instagram_link']); ?>" target="_blank">
                 <span class="soc_icon_bg"></span>
-                <i class="ico ico-instagram"></i>
+                <i class="fa fa-instagram"></i>
                 </a><?php
             }
 			if ($kyma_theme_options['social_pinterest_link'] != '') { ?>
             <a href="<?php echo esc_url($kyma_theme_options['social_pinterest_link']); ?>" target="_blank">
-                <span class="soc_name"><?php _e('Pinterest', 'kyma'
-                    ); ?></span>
                 <span class="soc_icon_bg"></span>
                 <i class="fa fa-pinterest"></i>
                 </a><?php

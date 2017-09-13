@@ -89,6 +89,10 @@
 	background-color: #B31217;
 }
 
+.topbar .top-socials a.instagram:hover {
+	background-color: #444444;
+}
+
 #main_button,
 .landing_button {
 	border-color: #2e3092;
