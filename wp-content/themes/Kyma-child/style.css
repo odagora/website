@@ -729,7 +729,7 @@ iframe {
 
 /*Posts page content customization*/
 @media only screen and (max-width: 630px) {
-	.hm_blog_grid ul li,
+	/*.hm_blog_grid ul li,*/
 	.blog_grid_con ul li {
 		width: 100% !important;
 	}
@@ -751,7 +751,7 @@ iframe {
 	text-transform: none;
 }
 
-.hm_blog_grid ul li,
+/*.hm_blog_grid ul li,*/
 .blog_grid_con ul li {
 	width: 50%;
 	padding: 0 15px;
