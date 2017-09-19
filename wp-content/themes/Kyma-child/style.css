@@ -316,6 +316,14 @@
 	.topbar_colored .top_details span:last-child .fa {
 		margin-right: 0;
 	}
+
+	#navy li ul li ul li a {
+	line-height: 30px !important;
+	}
+
+	#navy li ul li ul li a span {
+	font-size: 97%;
+	}
 }
 
 /*Main menu customization*/
@@ -332,6 +340,7 @@
 	font-weight: 600 !important;
 	font-size: 14px !important;
 }
+
 
 .nav_trigger.nav-is-visible span:before {
 	top: -6px;
