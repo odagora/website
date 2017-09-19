@@ -2110,6 +2110,12 @@
         padding: 0;
         float: none;
     }
+
+    .languages-select, .top_details, .top-socials {
+        float: none;
+        text-align: center;
+        margin: 0;
+    }
 }
 
 @media only screen and (max-width: 768px) {
@@ -2171,12 +2177,6 @@
 
     .top_details > span:last-child {
         margin-right: 0;
-    }
-
-    .languages-select, .top_details, .top-socials {
-        float: none;
-        text-align: center;
-        margin: 0;
     }
 
     .languages-select .languages-panel-con::after, .languages-drop .languages-panel {
