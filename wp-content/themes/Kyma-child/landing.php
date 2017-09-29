@@ -41,7 +41,7 @@ the_post(); ?>
     </section>
     <!-- End Our Blog Grids -->
 <?php
-    get_template_part('page', 'testimonial');
-    get_template_part('page', 'client');
+    // get_template_part('page', 'testimonial');
+    // get_template_part('page', 'client');
     get_footer();
 ?>
