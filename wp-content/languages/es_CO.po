@@ -7751,3 +7751,7 @@ msgstr "No tiene permisos para cargar ficheros."
 #: wp-content/themes/kyma/functions.php:120
 msgid "You are Now on"
 msgstr "Estás ahora en"
+
+#: wp-content/plugins/multi-step-form/trunk/includes/lib/class-mondula-multistep-forms-block-file.php:32
+msgid "Choose a file"
+msgstr "Seleccione un archivo"
