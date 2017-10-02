@@ -62,7 +62,7 @@
 #multi-step-form [data-type=fw-checkbox].fw-step-block{margin-bottom:10px}#multi-step-form .fw-choice.fw-input-container{margin-bottom:8px}
 #multi-step-form .fw-text-input,#multi-step-form .fw-text-input[type="text"],#multi-step-form .fw-textarea{width:100%;border:1px solid #ddd;outline:0;line-height:1.6em;font-size:13px;background-color:#fff;color:#555;box-sizing:border-box;position:relative}
 #multi-step-form .fw-text-input:focus,#multi-step-form .fw-text-input[type="text"]:focus,#multi-step-form .fw-textarea:focus{color:#555;box-sizing:border-box}
-#multi-step-form .fw-text-input{height:40px}#multi-step-form .fw-textarea{padding:10px 20px 10px 60px}
+#multi-step-form .fw-text-input{height:40px}#multi-step-form .fw-textarea{padding:10px 20px 10px 20px}
 #multi-step-form .fa.form-control-feedback{border-right:1px solid #ddd;box-sizing:border-box;color:#bbb;float:left;font-size:18px;height:20px;left:35px;margin-top:10px;padding:0 10px 0 0;position:absolute;width:30px}
 #multi-step-form .fa.t-area{margin-top:13px}#multi-step-form .fa.fa-user{font-size:25px;margin-top:5px;padding-top:0}
 #multi-step-form .fa-spinner{-webkit-animation:spin 1s linear infinite;-moz-animation:spin 1s linear infinite;animation:spin 1s linear infinite}
@@ -110,7 +110,7 @@
 }@media all and (max-width:480px){#multi-step-form .fw-progress-bar .fw-progress-step{padding:10px 20px 0 60px !important;min-height:50px;font-size:16px}
 }@media all and (min-width:769px){#multi-step-form.fw-large-container .fw-progress-bar-container{margin-bottom:80px;width:125%;padding:0}
 #multi-step-form.fw-large-container .fw-progress-bar{border-radius:15px;height:15px;margin:0 auto;padding:0;position:absolute;width:100%}
-#multi-step-form.fw-large-container .fw-progress-bar .fw-progress-step{display:inline-block;margin:50px 0 0;padding:10px 20px 10px 0;text-align:left;width:33% !important;float:none;}
+#multi-step-form.fw-large-container .fw-progress-bar .fw-progress-step{display:inline-block;margin:50px 0 0;padding:10px 20px 10px 0;text-align:left;width:20% !important;float:none;}
 #multi-step-form.fw-large-container .fw-progress-bar .fw-progress-step:before{height:65px;line-height:56px;top:-75px;width:65px;font-size:44px;position:absolute;z-index:1}
 #multi-step-form.fw-large-container .fw-progress-bar .fw-progress-step:after{content:"";background-size:35px 35px;margin:0 auto;padding:0;height:17px;width:100%;left:6%;position:absolute;top:-52px;z-index:0}
 #multi-step-form.fw-large-container .fw-progress-bar .fw-progress-step:last-child:before{font-size:35px;padding-top:5px}
