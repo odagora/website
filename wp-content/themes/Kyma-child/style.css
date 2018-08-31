@@ -674,6 +674,23 @@ iframe {
 		text-align: left;
 	}
 }
+
+/*
+whatshelp whatsapp and scroll to top customization
+ */
+.hm_go_top {
+	bottom: 100px;
+}
+
+@media only screen and (min-width: 414px){
+	#wh-widget-send-button {
+		display: none;
+	}
+	.hm_go_top {
+		bottom: 20px;
+	}	
+}
+
 /*------------------------------------------------------*/
 /*------------------------END-HOME----------------------*/
 /*------------------------------------------------------*/
