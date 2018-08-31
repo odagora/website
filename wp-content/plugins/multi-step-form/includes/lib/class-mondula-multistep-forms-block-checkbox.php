@@ -23,22 +23,20 @@ class Mondula_Form_Wizard_Block_Checkbox extends Mondula_Form_Wizard_Block {
       return $this->_required;
     }
 
-    public function get_type( ) {
-        return self::$_type;
-    }
-
     public function set_label ( $label ) {
         $this->_label = $label;
     }
 
     public function render ( $ids ) {
-      ?>
-      <div class="fw-input-container">
-        <input id="<?php echo $this->generate_id($ids) ?>" type="checkbox" class="fw-checkbox" name="<?php echo substr($this->generate_id($ids) , 0 , -2) ?>" data-id="checkbox">
-        <label for="<?php echo $this->generate_id($ids) ?>"><?php echo $this->_label ?></label>
-      </div>
-      <div class="fw-clearfix"></div>
-      <?php
+		?>
+		<div class="fw-step-block" data-blockId="<?php echo $ids; ?>" data-type="<?php echo $this->_type; ?>" data-required="<?php echo $this->_required; ?>">
+			<div class="fw-input-container">
+				<input id="<?php echo $this->generate_id($ids) ?>" type="checkbox" class="fw-checkbox" name="<?php echo substr($this->generate_id($ids) , 0 , -2) ?>" data-id="checkbox">
+				<label for="<?php echo $this->generate_id($ids) ?>"><?php echo $this->_label ?></label>
+			</div>
+			<div class="fw-clearfix"></div>
+		</div>
+		<?php
     }
 
     public function render_mail ( $data ) {

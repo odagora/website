@@ -129,8 +129,10 @@ class Mondula_Form_Wizard {
 		$this->load_plugin_textdomain();
 		add_action( 'init', array( $this, 'load_localisation' ), 0 );
 
-                // Setup shortcode
-                $this->shortcode = new Mondula_Form_Wizard_Shortcode( $this, $this->_token, $this->_wizard_service );
+		// Setup shortcode
+		$this->shortcode = new Mondula_Form_Wizard_Shortcode( $this, $this->_token, $this->_wizard_service );
+		/* Notify other plugins that Multi Step Form has loaded */
+		do_action( 'msf_loaded' );
 	} // End __construct ()
 
 	/**
@@ -140,13 +142,54 @@ class Mondula_Form_Wizard {
 	 * @return void
 	 */
 	public function enqueue_styles () {
-		wp_register_style( $this->_token . 'jquery-ui', '//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/flick/jquery-ui.css');
-		wp_enqueue_style( $this->_token . 'jquery-ui' );
-		wp_register_style( $this->_token . '-vendor-frontend', esc_url( $this->assets_url ) . 'vendor-frontend.min.css', array(), $this->_version );
+		wp_register_style( $this->_token . '-vendor-frontend', esc_url( $this->assets_url ) . 'styles/vendor-frontend.min.css', array(), $this->_version );
 		wp_enqueue_style( $this->_token . '-vendor-frontend' );
-		wp_register_style( $this->_token . '-frontend', esc_url( $this->assets_url ) . 'frontend.min.css', array(), $this->_version );
+		wp_register_style( $this->_token . '-frontend', esc_url( $this->assets_url ) . 'styles/frontend.min.css', array(), $this->_version );
 		wp_enqueue_style( $this->_token . '-frontend' );
-		wp_enqueue_style('font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+	}
+
+	/**
+	 * Allows other plugins to get translations
+	 */
+	public static function get_translation() {
+		return array(
+			'sending' => __( 'sending data', 'multi-step-form' ),
+			'submitSuccess' => __( 'success', 'multi-step-form' ),
+			'submitError' => __( 'submit failed', 'multi-step-form' ),
+			'uploadingFile' => __( 'Uploading file', 'multi-step-form' ),
+			'chooseFile' => __( 'Choose a file', 'multi-step-form' ),
+			'showSummary' => __( 'show summary', 'multi-step-form' ),
+			'hideSummary' => __( 'hide summary', 'multi-step-form' ),
+			'registration' => __( 'Registration', 'multi-step-form' ),
+			'registrationAs' => __( 'You are registering as', 'multi-step-form' ),
+			'registrationFailed' => __( 'You will not be registered', 'multi-step-form' ),
+			'errors' => array(
+				'requiredFields' => __( 'Please fill all the required fields!', 'multi-step-form' ),
+				'requiredField' => __( 'This field is required', 'multi-step-form' ),
+				'someRequired' => __( 'Some required Fields are empty', 'multi-step-form' ),
+				'checkFields' => __( 'Please check the highlighted fields.', 'multi-step-form' ),
+				'noEmail' => __( 'No email address provided', 'multi-step-form' ),
+				'invalidEmail' => __( 'Invalid email address', 'multi-step-form' ),
+				'takenEmail' => __( 'Email is already registered', 'multi-step-form' ),
+				'noUsername' => __( 'No username provided', 'multi-step-form' ),
+				'invalidUsername' => __( 'Invalid username', 'multi-step-form' ),
+				'takenUsername' => __( 'Username is already registered', 'multi-step-form' ),
+			),
+		);
+	}
+
+	/**
+	 * Logs MSF-Specific Errors.
+	 */
+	public static function log( $message, $data ) {
+		$pre = 'Multi Step Form: ';
+		if ( WP_DEBUG === true ) {
+			if ( is_array( $data ) || is_object( $data ) ) {
+				error_log( $pre . $message . ' Data: ' . print_r( $data, true ) );
+			} else {
+				error_log( $pre . $message . ' Data: ' . $data );
+			}
+		}
 	}
 
 	/**
@@ -155,30 +198,16 @@ class Mondula_Form_Wizard {
 	 * @since   1.0.0
 	 * @return  void
 	 */
-	public function enqueue_scripts () {
-		$i18n = array(
-			'sending' => __('sending data', 'multi-step-form'),
-			'submitSuccess' => __('success', 'multi-step-form'),
-			'submitError' => __('submit failed', 'multi-step-form'),
-			'uploadingFile' => __('Uploading file', 'multi-step-form'),
-			'chooseFile' => __('Choose a file', 'multi-step-form'),
-			'showSummary' => __('show summary', 'multi-step-form'),
-			'hideSummary' => __('hide summary', 'multi-step-form'),
-			'errors' => array(
-				'requiredFields' => __('Please fill all the required fields!', 'multi-step-form'),
-				'requiredField' => __('This field is required', 'multi-step-form'),
-				'someRequired' => __('Some required Fields are empty', 'multi-step-form'),
-				'checkFields' => __('Please check the highlighted fields.', 'multi-step-form')
-			)
-		);
-		wp_register_script( $this->_token . '-vendor-frontend', esc_url( $this->assets_url ) . 'vendor-frontend' . $this->script_suffix . '.js', array( 'jquery' ), $this->_version );
+	public function enqueue_scripts() {
+		$i18n = $this->get_translation();
+		wp_register_script( $this->_token . '-vendor-frontend', esc_url( $this->assets_url ) . 'scripts/vendor-frontend' . $this->script_suffix . '.js', array( 'jquery' ), $this->_version );
 		wp_enqueue_script( $this->_token . '-vendor-frontend' );
-		wp_register_script( $this->_token . '-frontend', esc_url( $this->assets_url ) . 'frontend' . $this->script_suffix . '.js', array( 'jquery', 'jquery-ui-datepicker' ), $this->_version );
+		wp_register_script( $this->_token . '-frontend', esc_url( $this->assets_url ) . 'scripts/frontend' . $this->script_suffix . '.js', array( 'jquery', 'jquery-ui-datepicker' ), $this->_version );
 		wp_enqueue_script( $this->_token . '-frontend' );
 		$ajax = array(
-				'i18n' => $i18n,
-				'ajaxurl' => admin_url( 'admin-ajax.php' ),
-				'nonce' => wp_create_nonce( $this->_token ),
+			'i18n' => $i18n,
+			'ajaxurl' => admin_url( 'admin-ajax.php' ),
+			'nonce' => wp_create_nonce( $this->_token ),
 		);
 		wp_localize_script( $this->_token . '-frontend', 'ajax', $ajax );
 	}
@@ -191,8 +220,6 @@ class Mondula_Form_Wizard {
 	 */
 	public function admin_enqueue_styles ( $hook = '' ) {
 		wp_enqueue_style( $this->_token . '-admin' );
-    wp_register_style( $this->_token . '-fa', '//netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' );
-    wp_enqueue_style( $this->_token . '-fa' );
 	}
 
 	/**

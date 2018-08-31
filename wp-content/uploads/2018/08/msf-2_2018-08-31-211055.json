@@ -1,0 +1,161 @@
+{
+    "wizard": {
+        "title": "Rims Painting Form",
+        "steps": [
+            {
+                "title": "Fotos",
+                "headline": "",
+                "copy_text": "",
+                "parts": [
+                    {
+                        "title": "Fotos de los detalles",
+                        "blocks": [
+                            {
+                                "type": "paragraph",
+                                "text": "Puedes agregar m\u00e1ximo 3 fotos. Evita el flash y las fotos con poca luz. "
+                            },
+                            {
+                                "type": "file",
+                                "label": "Adjunta la primera foto",
+                                "required": "true",
+                                "multi": false
+                            },
+                            {
+                                "type": "file",
+                                "label": "Adjunta la segunda foto (opcional)",
+                                "required": "false",
+                                "multi": false
+                            },
+                            {
+                                "type": "file",
+                                "label": "Adjunta la tercera foto (opcional)",
+                                "required": "false",
+                                "multi": false
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "Informaci\u00f3n del veh\u00edculo",
+                "headline": "",
+                "copy_text": "",
+                "parts": [
+                    {
+                        "title": "Datos del veh\u00edculo ",
+                        "blocks": [
+                            {
+                                "type": "text",
+                                "label": "Marca",
+                                "required": "true"
+                            },
+                            {
+                                "type": "text",
+                                "label": "Modelo",
+                                "required": "true"
+                            },
+                            {
+                                "type": "text",
+                                "label": "A\u00f1o",
+                                "required": "true"
+                            },
+                            {
+                                "type": "text",
+                                "label": "Placa",
+                                "required": "true"
+                            },
+                            {
+                                "type": "text",
+                                "label": "Kilometraje",
+                                "required": "true"
+                            },
+                            {
+                                "type": "radio",
+                                "elements": [
+                                    {
+                                        "type": "header",
+                                        "value": "Tama\u00f1o del rin"
+                                    },
+                                    {
+                                        "type": "option",
+                                        "value": "R13 a R15"
+                                    },
+                                    {
+                                        "type": "option",
+                                        "value": "R16 y R17"
+                                    },
+                                    {
+                                        "type": "option",
+                                        "value": "Mayor a R17"
+                                    }
+                                ],
+                                "required": "true",
+                                "multichoice": "false"
+                            },
+                            {
+                                "type": "textarea",
+                                "label": "Observaciones (ej. colores especiales, tipo de rin, cantidad, etc.)",
+                                "required": "false"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "Informaci\u00f3n personal",
+                "headline": "",
+                "copy_text": "",
+                "parts": [
+                    {
+                        "title": "Datos personales",
+                        "blocks": [
+                            {
+                                "type": "text",
+                                "label": "Nombre Completo",
+                                "required": "true"
+                            },
+                            {
+                                "type": "text",
+                                "label": "C\u00e9dula ",
+                                "required": "true"
+                            },
+                            {
+                                "type": "text",
+                                "label": "Tel\u00e9fono ",
+                                "required": "true"
+                            },
+                            {
+                                "type": "email",
+                                "label": "Email",
+                                "required": "true"
+                            },
+                            {
+                                "type": "radio",
+                                "elements": [
+                                    {
+                                        "type": "header",
+                                        "value": "T\u00e9rminos y condiciones"
+                                    },
+                                    {
+                                        "type": "option",
+                                        "value": "Acepto los <a href=\"servitalleres.com\/politica-de-privacidad\" target=\"_blank\">t\u00e9rminos y condiciones<\/a>"
+                                    }
+                                ],
+                                "required": "false",
+                                "multichoice": "false"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "settings": {
+            "thankyou": "http:\/\/servitalleres.com\/landing\/mensaje-gracias\/",
+            "to": "contacto@servitalleres.com",
+            "frommail": "",
+            "fromname": "Admin Servitalleres",
+            "subject": "Cotizaci\u00f3n pintura de rines",
+            "header": ""
+        }
+    }
+}

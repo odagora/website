@@ -1,18 +1,16 @@
 # Copyright (C) 2014 Multi Step Form
 # This file is distributed under the same license as the Multi Step Form package.
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Multi Step Form 1.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/WordPress-Plugin-Template\n"
-"POT-Creation-Date: 2017-09-28 11:17-0500\n"
+"POT-Creation-Date: 2014-04-07 11:28:06+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"X-Generator: Poedit 2.0.4\n"
 
 #: classes/post-types/class-mondula-multistep-forms-post_type.php:52
 #: includes/post-types/class-mondula-multistep-forms-post_type.php:42
@@ -171,6 +169,7 @@ msgid "Post updated."
 msgstr ""
 
 #. translators: %s: date and time of the revision
+
 #: classes/post-types/class-mondula-multistep-forms-post_type.php:185
 #: includes/post-types/class-mondula-multistep-forms-post_type.php:175
 msgid "Post restored to revision from %s."
@@ -270,9 +269,7 @@ msgid "Some Secret Text"
 msgstr ""
 
 #: includes/class-mondula-multistep-forms-settings.php:133
-msgid ""
-"This is a secret text field - any data saved here will not be displayed "
-"after the page has reloaded, but it will be saved."
+msgid "This is a secret text field - any data saved here will not be displayed after the page has reloaded, but it will be saved."
 msgstr ""
 
 #: includes/class-mondula-multistep-forms-settings.php:140
@@ -292,9 +289,7 @@ msgid "An Option"
 msgstr ""
 
 #: includes/class-mondula-multistep-forms-settings.php:149
-msgid ""
-"A standard checkbox - if you save this option as checked then it will store "
-"the option as 'on', otherwise it will be an empty string."
+msgid "A standard checkbox - if you save this option as checked then it will store the option as 'on', otherwise it will be an empty string."
 msgstr ""
 
 #: includes/class-mondula-multistep-forms-settings.php:155
@@ -326,8 +321,7 @@ msgid "Extra"
 msgstr ""
 
 #: includes/class-mondula-multistep-forms-settings.php:182
-msgid ""
-"These are some extra input fields that maybe aren't as common as the others."
+msgid "These are some extra input fields that maybe aren't as common as the others."
 msgstr ""
 
 #: includes/class-mondula-multistep-forms-settings.php:186
@@ -335,9 +329,7 @@ msgid "A Number"
 msgstr ""
 
 #: includes/class-mondula-multistep-forms-settings.php:187
-msgid ""
-"This is a standard number field - if this field contains anything other than "
-"numbers then the form will not be submitted."
+msgid "This is a standard number field - if this field contains anything other than numbers then the form will not be submitted."
 msgstr ""
 
 #: includes/class-mondula-multistep-forms-settings.php:190
@@ -349,9 +341,7 @@ msgid "Pick a colour"
 msgstr ""
 
 #: includes/class-mondula-multistep-forms-settings.php:195
-msgid ""
-"This uses WordPress' built-in colour picker - the option is stored as the "
-"colour's hex code."
+msgid "This uses WordPress' built-in colour picker - the option is stored as the colour's hex code."
 msgstr ""
 
 #: includes/class-mondula-multistep-forms-settings.php:201
@@ -359,10 +349,7 @@ msgid "An Image"
 msgstr ""
 
 #: includes/class-mondula-multistep-forms-settings.php:202
-msgid ""
-"This will upload an image to your media library and store the attachment ID "
-"in the option field. Once you have uploaded an imge the thumbnail will "
-"display above these buttons."
+msgid "This will upload an image to your media library and store the attachment ID in the option field. Once you have uploaded an imge the thumbnail will display above these buttons."
 msgstr ""
 
 #: includes/class-mondula-multistep-forms-settings.php:209
@@ -403,16 +390,18 @@ msgstr ""
 #: includes/class-mondula-multistep-forms.php:216
 msgid "Cheatin&#8217; huh?"
 msgstr ""
-
 #. Plugin Name of the plugin/theme
 msgid "Multi Step Form"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-#. Author URI of the plugin/theme
 msgid "http://www.hughlashbrooke.com/"
 msgstr ""
 
 #. Author of the plugin/theme
 msgid "Hugh Lashbrooke"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://www.hughlashbrooke.com/"
 msgstr ""

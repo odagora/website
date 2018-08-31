@@ -96,3 +96,8 @@ if ( !defined('ABSPATH') )
 
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');
+
+/*
+Allow json and unfiltered uploads
+ */
+define( 'ALLOW_UNFILTERED_UPLOADS', true );
