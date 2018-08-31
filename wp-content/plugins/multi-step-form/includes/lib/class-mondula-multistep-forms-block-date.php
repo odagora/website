@@ -15,15 +15,15 @@ class Mondula_Form_Wizard_Block_Date extends Mondula_Form_Wizard_Block {
 
     protected static $type = "fw-date";
 
-    public function __construct ( $label, $required, $format ) {
-        $this->_label = $label;
-        $this->_required = $required;
-				if (empty($format)) {
-        	$this->_format = $format;
-				} else {
-					$this->_format = 'dd/mm/yy';
-				}
-    }
+	public function __construct ( $label, $required, $format ) {
+		$this->_label = $label;
+		$this->_required = $required;
+		if ( ! empty( $format ) ) {
+			$this->_format = $format;
+		} else {
+			$this->_format = 'yy-mm-dd';
+		}
+	}
 
     public function get_required( ) {
         return $this->_required;
@@ -32,10 +32,12 @@ class Mondula_Form_Wizard_Block_Date extends Mondula_Form_Wizard_Block {
     public function render( $ids ) {
         $locale = substr( get_locale(), 0, 2) === 'de' ? 'de' : 'en'; // TODO this is possibly not a good idea
         ?>
-        <div class="fw-input-container">
-            <h3><?php echo $this->_label ?></h3><input type="text" class="fw-text-input fw-datepicker-here" data-id="date" data-language="<?php echo $locale; ?>" data-dateformat="<?php echo $this->_format ?>"><span class="fa fa-calendar form-control-feedback" aria-hidden="true"></span>
-        </div>
-        <div class="fw-clearfix"></div>
+		<div class="fw-step-block" data-blockId="<?php echo $ids[0]; ?>" data-type="fw-date" data-required="<?php echo $this->_required; ?>">
+			<div class="fw-input-container">
+				<h3><?php echo $this->_label ?></h3><input type="text" class="fw-text-input fw-datepicker-here" data-id="date" data-language="<?php echo $locale; ?>" data-dateformat="<?php echo $this->_format ?>"><span class="fa fa-calendar form-control-feedback" aria-hidden="true"></span>
+			</div>
+			<div class="fw-clearfix"></div>
+		</div>
         <?php
     }
 

@@ -1609,6 +1609,17 @@ span.wpcf7-list-item {
 	}
 }
 
+/*
+Mondula multistep form plugin
+ */
+@media (min-width: 769px){
+	#multi-step-form.fw-large-container .fw-progress-bar .fw-progress-step {
+		width: 16% !important;
+		float: none;
+	}
+}
+
+
 /*-----------Shortcodes changes----------------- */
 .inner_page .content {
 	padding: 30px 50px;
