@@ -682,7 +682,7 @@ whatshelp whatsapp and scroll to top customization
 	bottom: 100px;
 }
 
-@media only screen and (min-width: 414px){
+@media only screen and (min-width: 814px){
 	#wh-widget-send-button {
 		display: none;
 	}
