@@ -1,19 +1,24 @@
 === Contact Form 7 MailChimp Extension ===
 Contributors: rnzo
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=NLNDA3PGPMPRN
-Tags: contact form 7, email, mailing list, createsend, mandrill, renzo, renzo johnson, cme, contact, form, contact form, mail chimp, newsletter, mailchimp, chimpmail
+Donate link: http://bit.ly/2HdTzmO
+Tags: mailchimp, chimpmail, mailchimp form, mailchimp list, newsletter
 Requires at least: 4.0
-Tested up to: 4.6.1
+Tested up to: 4.9
 Stable tag: 4.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Simple way to integrate MailChimp mailing lists to Contact Form 7. Save your subscribers in a proper mailing list.
+MailChimp for Wordpress. Simple way to integrate MailChimp mailing lists to Contact Form 7. Save your subscribers in a proper mailing list.
 
 == Description ==
 
-Integrate Contact Form 7 with [MailChimp](http://renzojohnson.com/contributions/contact-form-7-mailchimp-extension). Automatically add form submissions to predetermined lists in MailChimp, using its latest API. This MailChimp Extension supports multiple mailing lists and API Keys.
+MailChimp for Wordpress. Integrate Contact Form 7 with [MailChimp](http://renzojohnson.com/contributions/contact-form-7-mailchimp-extension). Automatically add form submissions to predetermined lists in MailChimp, using its latest API. This MailChimp Extension supports multiple mailing lists and API Keys.
 
+> <strong>Mailchimp Extension Support</strong><br>
+> Active support is not always provided for the <a href="http://renzojohnson.com/contributions/contact-form-7-mailchimp-extension" rel="friend">Contact Form 7 MailChimp Extension</a> on the WordPress.org forums. One-on-one email support is available to people who email the <a href="http://renzojohnson.com/contributions/contact-form-7-mailchimp-extension" rel="friend">Mailchimp Extension developer</a>.
+>
+> <strong>Bug Reports</strong><br>
+> Bug reports for the Contact Form 7 MailChimp Extension are welcome in the <a href="http://renzojohnson.com/contributions/contact-form-7-mailchimp-extension" rel="friend">Wordpress developers</a> website.
 
 = Key Features =
 
@@ -23,7 +28,7 @@ Integrate Contact Form 7 with [MailChimp](http://renzojohnson.com/contributions/
 * Double opt-in - confirmation email send to subscribers
 * [Opt-in checkbox](http://renzojohnson.com/contributions/contact-form-7-mailchimp-extension/mailchimp-opt-in-checkbox) - add the chance to opt-in/opt-out
 * Support for [custom fields](http://renzojohnson.com/contributions/contact-form-7-mailchimp-extension/mailchimp-custom-fields)
-* Latest MailChimp API
+* Latest MailChimp API V3
 * Constantly updated
 
 = Please note*** =
@@ -69,46 +74,40 @@ Do you have questions or issues with Contact Form 7 MailChimp Extension? Use the
 10. [Mailchimp Contact Form](http://renzojohnson.com/contributions/contact-form-7-mailchimp-extension)
 11. [MailChimp Custom fields](http://renzojohnson.com/contributions/contact-form-7-mailchimp-extension/mailchimp-custom-fields)
 
-== Screenshots ==
-
-1. mailchimp-contact-form-screenshot-1.png
-2. mailchimp-contact-form-screenshot-2.png
-
 == Changelog ==
 
 For more information, see [Releases](http://renzojohnson.com/contributions/contact-form-7-mailchimp-extension).
 
-= 0.4.31 =
+= 0.4.50 =
 
-* Updated Tested up to version
+* Updated API methods
 
-= 0.4.29 =
+= 0.4.42 =
 
-* Updated help docs
+* Fixed TagsManager error
 
-= 0.4.28 =
+= 0.4.41 =
 
-* Updated help docs
+* Fixed reported PHP error
 
-= 0.4.26 =
+= 0.4.38 =
 
-* Fixed 'Notice: Undefined index:'
+* Added [mail-tag] list to help users
 
-= 0.4.25 =
+= 0.4.36 =
 
-* Fixed a conflict with Contact Form 7 AutoResponder Addon Plugin
+* Updated doc links
 
-= 0.4.22 =
+= 0.4.34 =
 
-* Added a debug feature.
+* Tested up to WP 4.8
+* killed a bug generated in the last release
 
-= 0.4.21 =
 
-* Preping for new features
+= 0.4.33 =
 
-= 0.4.20 =
+* Improved debugger
 
-* Updated documentation for [MailChimp Custom fields](http://renzojohnson.com/contributions/contact-form-7-mailchimp-extension/mailchimp-custom-fields).
 
 = 0.4.8 =
 
@@ -131,3 +130,7 @@ For more information, see [Releases](http://renzojohnson.com/contributions/conta
 
 * Release version
 
+== Screenshots ==
+
+1. mailchimp-contact-form-screenshot-1.png
+2. mailchimp-contact-form-screenshot-2.png

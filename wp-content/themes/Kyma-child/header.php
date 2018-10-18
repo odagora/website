@@ -44,12 +44,31 @@
       src="https://www.facebook.com/tr?id=200143707159934&ev=PageView&noscript=1"
     /></noscript>
     <!-- End Facebook Pixel Code -->
-
-
     <meta http-equiv="Content-Type" content="text/html"; charset="<?php bloginfo('charset'); ?>"/>
     <meta name="viewport" content="width=device-width", initial-scale="1">
     <?php wp_head(); ?>
     <link id="switcher-css" rel="stylesheet" type="text/css" href="#" media="screen"/>
+    <!-- Contact Form 7 submit message activation -->
+    <script>
+        // (function($) {
+        //     var wpcf7Elm = document.querySelector( '.wpcf7' );
+
+        //     wpcf7Elm.addEventListener( 'wpcf7mailsent', function( event ) {
+        //         $('#quotation-success-msg').fadeIn();
+        //         setTimeout( function() {
+        //             $('#quotation-success-msg').fadeOut();
+        //         },5000);
+        //     }, false );
+        // })
+    //     jQuery(function($) {
+    //         var wpcf7Elm = document.querySelector(".wpcf7");
+    //         wpcf7Elm.addEventListener("wpcf7submit", function( event ) {
+    //             alert( "Fire!" );
+    //         }, 
+    //     false );
+
+    // })
+    </script>
 </head>
 <?php
 global $kyma_theme_options;
