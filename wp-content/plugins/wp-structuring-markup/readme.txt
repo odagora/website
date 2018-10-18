@@ -2,8 +2,8 @@
 Contributors: miiitaka
 Tags: schema, schema.org, json, json-ld, seo, post, posts, google, shortcode, breadcrumb
 Requires at least: 4.3.1
-Tested up to: 4.8.0
-Stable tag: 4.1.1
+Tested up to: 4.9.8
+Stable tag: 4.6.0
 
 Allows you to include schema.org JSON-LD syntax markup on your website
 
@@ -23,6 +23,7 @@ Base knowledge is "https://schema.org/" and "https://developers.google.com/struc
 * Organization: https://schema.org/Organization
 * Person: https://schema.org/Person
 * SiteNavigation: https://schema.org/SiteNavigationElement
+* Speakable: https://pending.schema.org/speakable
 * Video: https://schema.org/Video
 * Website: https://schema.org/WebSite
 
@@ -53,6 +54,67 @@ if ( shortcode_exists( 'wp-structuring-markup-breadcrumb' ) ) {
 * Open 'Schema.org Setting' menu.
 
 == Changelog ==
+
+= 4.6.1 (2018-09-19) =
+* Fixed : Typo Error.
+
+= 4.6.0 (2018-09-19) =
+* Updated : Schema type Breadcrumbs: Added switching between home_url () and site_url ().
+* Updated : Organization schema.org type subdivision.
+
+= 4.5.3 (2018-09-07) =
+* Fixed : Fixed broken links.
+* Fixed : Fixed bug when displaying Config menu.
+
+= 4.5.2 (2018-09-03) =
+* Fixed : Changed title fixing of breadcrumbs on page 404.
+
+= 4.5.0 (2018-08-17) =
+* Checked : WordPress version 4.9.8 operation check.
+* Added : Speakable structured markup is implemented in "Article", "BlogPosting", "NewsArticle".
+* Added : Added function to compress output data.
+
+= 4.4.0 (2018-07-10) =
+* Checked : WordPress version 4.9.7 operation check.
+* Updated : Schema.ory Type "Image", "BlogPosting", "NewsArticle" image property added so that default image URL can be set.
+
+= 4.3.0 (2018-06-16) =
+* Checked : WordPress version 4.9.6 operation check.
+* Updated : Enable / disable function of link setting of current page of breadcrumbs.
+
+= 4.2.2 (2018-05-15) =
+* Checked : WordPress version 4.9.5 operation check.
+* Fixed : If there is a child element on that page in the top fixed page, the parent element duplicates.
+* Fixed : Taxonomy name of custom posting is not displayed in a custom taxonomy archive page.
+
+= 4.2.1 (2018-03-23) =
+* Fixed : Taxonomy name of custom posting is not displayed.
+
+= 4.1.8 (2018-02-16) =
+* Checked : WordPress version 4.9.4 operation check.
+* Checked : WordPress version 4.9.3 operation check.
+
+= 4.1.7 (2018-01-22) =
+* Checked : WordPress version 4.9.2 operation check.
+
+= 4.1.6 (2017-12-12) =
+* Checked : WordPress version 4.9.1 operation check.
+* Fixed : Hidden if addressRegion and telephone is empty.
+
+= 4.1.5 (2017-11-22) =
+* Checked : WordPress version 4.9.0 operation check.
+
+= 4.1.4 (2017-11-01) =
+* Checked : WordPress version 4.8.3 operation check.
+* Fixed : Error setting aria-label.
+
+= 4.1.3 (2017-09-27) =
+* Checked : WordPress version 4.8.2 operation check.
+* Updated : Stop setting the default value.
+* Fixed : availableLanguage and area_served array setting ( Organization )
+
+= 4.1.2 (2017-08-23) =
+* Checked : WordPress version 4.8.1 operation check.
 
 = 4.1.1 (2017-07-26) =
 * Added : Correct to display / hide the current page.(BreadcrumbList schema.org)

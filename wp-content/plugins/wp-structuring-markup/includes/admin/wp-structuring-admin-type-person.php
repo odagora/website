@@ -3,11 +3,11 @@
  * Schema.org Type Person
  *
  * @author  Kazuya Takami
- * @version 3.1.2
+ * @version 4.5.3
  * @since   2.4.0
  * @see     wp-structuring-admin-db.php
  * @link    https://schema.org/Person
- * @link    https://developers.google.com/search/docs/data-types/social-profile-links
+ * @link    https://developers.google.com/search/docs/data-types/social-profile
  */
 class Structuring_Markup_Type_Person {
 
@@ -52,7 +52,7 @@ class Structuring_Markup_Type_Person {
 	/**
 	 * Form Layout Render
 	 *
-	 * @version 3.1.2
+	 * @version 4.5.3
 	 * @since   2.4.0
 	 * @param   array $option
 	 */
@@ -62,11 +62,9 @@ class Structuring_Markup_Type_Person {
 		$html .= '<caption>Basic Settings</caption>';
 		$html .= '<tr><th class="require"><label for="name">Name :</label></th><td>';
 		$html .= '<input type="text" name="option[' . "name" . ']" id="name" class="regular-text" required value="' . esc_attr( $option['name'] ) . '">';
-		$html .= '<small>Default : bloginfo("name")</small>';
 		$html .= '</td></tr>';
 		$html .= '<tr><th class="require"><label for="url">url :</label></th><td>';
 		$html .= '<input type="text" name="option[' . "url" . ']" id="url" class="regular-text" required value="' . esc_attr( $option['url'] ) . '">';
-		$html .= '<small>Default : bloginfo("url")</small>';
 		$html .= '</td></tr>';
 		$html .= '</table>';
 		echo $html;
@@ -75,8 +73,7 @@ class Structuring_Markup_Type_Person {
 		$html  = '<table class="schema-admin-table">';
 		$html .= '<caption>Place Settings</caption>';
 		$html .= '<tr><th class="require"><label for="addressCountry">addressCountry :</label></th><td>';
-		$html .= '<input type="text" name="option[' . "addressCountry" . ']" id="addressCountry" class="regular-text" required value="' . esc_attr( $option['addressCountry'] ) . '">';
-		$html .= '<small>e.g. Japan</small>';
+		$html .= '<input type="text" name="option[' . "addressCountry" . ']" id="addressCountry" class="regular-text" required value="' . esc_attr( $option['addressCountry'] ) . '" placeholder="e.g. Japan">';
 		$html .= '</td></tr>';
 		$html .= '</table>';
 		echo $html;
@@ -92,20 +89,28 @@ class Structuring_Markup_Type_Person {
 		$html .= '</table>';
 		echo $html;
 
-		echo '<p>Setting Knowledge : <a href="https://developers.google.com/search/docs/data-types/social-profile-links" target="_blank">https://developers.google.com/search/docs/data-types/social-profile-links</a></p>';
+		$html  = '<table class="schema-admin-table">';
+		$html .= '<caption>Setting Knowledge</caption>';
+		$html .= '<tr><th>schema.org Person :</th>';
+		$html .= '<td><a href="https://schema.org/Person" target="_blank">https://schema.org/Person</a></td></tr>';
+		$html .= '<tr><th>Google Search Social Profile :</th>';
+		$html .= '<td><a href="https://developers.google.com/search/docs/data-types/social-profile" target="_blank">https://developers.google.com/search/docs/data-types/social-profile</a></td></tr>';
+		$html .= '</table>';
+		echo $html;
+
 		submit_button();
 	}
 
 	/**
 	 * Return the default options array
 	 *
-	 * @since   3.1.2
+	 * @since   4.1.3
 	 * @version 2.4.0
 	 * @return  array $args
 	 */
 	private function get_default_options () {
-		$args['name']           = get_bloginfo('name');
-		$args['url']            = get_bloginfo('url');
+		$args['name']           = '';
+		$args['url']            = '';
 		$args['addressCountry'] = '';
 
 		foreach ( $this->social_array as $value ) {

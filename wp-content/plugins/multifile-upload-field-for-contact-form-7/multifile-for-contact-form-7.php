@@ -1,10 +1,11 @@
 <?php
 /**
 * Plugin Name: Multifile Upload Field for Contact Form 7
-* Plugin URI: http://www.nitroweb.gr/
+* Plugin URI: https://wordpress.org/plugins/multifile-upload-field-for-contact-form-7/
 * Description: Adds multiple file field for contact form 7
-* Version: 1.0.0
+* Version: 1.0.1
 * Author: Spyros Vlachopoulos
+* Contributors: KacperSzarek
 * Author URI: https://codeable.io/developers/spyros-vlachopoulos/
 * License: GPL2
 */
@@ -66,7 +67,7 @@ function wpcf7_multifile_shortcode_handler( $tag ) {
 	$atts = wpcf7_format_atts( $atts );
 
 	$html = sprintf(
-		'<span class="wpcf7-form-control-wrap %1$s"><input %2$s />%3$s</span>',
+		apply_filters('cf7_multifile_input', '<span class="wpcf7-form-control-wrap %1$s"><input %2$s />%3$s</span>', $atts),
 		sanitize_html_class( $tag->name ), $atts, $validation_error );
 
 	return $html;

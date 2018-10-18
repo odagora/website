@@ -1,9 +1,9 @@
 === Multifile Upload Field for Contact Form 7 ===
-Contributors: spyrosvl
+Contributors: spyrosvl,hoody_pl
 Tags: contact, form, contact form, contact form 7 multiple files upload, 
 Requires at least: 4.3
-Tested up to: 4.5
-Stable tag: 1.0.0
+Tested up to: 4.7.4
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -32,6 +32,10 @@ You can not, I am sorry.
 1. screenshot-1.png
 
 == Changelog ==
+
+= 1.0.1 =
+
+* Added a filter on the frontend input field
 
 = 1.0.0 =
 
