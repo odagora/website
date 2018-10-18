@@ -11,6 +11,41 @@
 <html class="no-js" <?php language_attributes(); ?>><!--<![endif]-->
 <!-- the "no-js" class is for Modernizr. -->
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-63583607-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-63583607-1');
+    </script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-W4JHBMV');</script>
+    <!-- End Google Tag Manager -->
+    <!-- Facebook Pixel Code -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '200143707159934');
+      fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=200143707159934&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Facebook Pixel Code -->
+
+
     <meta http-equiv="Content-Type" content="text/html"; charset="<?php bloginfo('charset'); ?>"/>
     <meta name="viewport" content="width=device-width", initial-scale="1">
     <?php wp_head(); ?>
@@ -37,6 +72,10 @@ if ($kyma_theme_options['dark_sub_menu']) {
 ?>
 <!-- Class ( site_boxed - dark - preloader1 - preloader2 - preloader3 - light_header - dark_sup_menu - menu_button_mode - transparent_header - header_on_side ) -->
 <body <?php body_class("menu_button_mode " . $class); ?>>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W4JHBMV"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 <span id="stickymenu"
       style="display:none;"><?php echo isset($kyma_theme_options['headersticky']) ? esc_attr($kyma_theme_options['headersticky']) : 1; ?></span>
 
@@ -61,7 +100,7 @@ if ($kyma_theme_options['topbar']) {
         <div class="top_details clearfix f_left"><?php
             if ($kyma_theme_options['contact_address']) {
                 ?>
-                <span><a href="https://www.google.com/maps/place/Cra.+22+%2376-57,+Bogot%C3%A1,+Colombia/@4.6660696,-74.0653563,17z/data=!3m1!4b1!4m5!3m4!1s0x8e3f9a5870e9d397:0x5c15f49ec4807d29!8m2!3d4.6660696!4d-74.0631676" target="_blank"><i class="fa fa-map-marker"></i><?php echo esc_attr($kyma_theme_options['contact_address']); ?></a></span><?php
+                <span><a id="home-address" href="https://www.google.com/maps/place/Cra.+22+%2376-57,+Bogot%C3%A1,+Colombia/@4.6660696,-74.0653563,17z/data=!3m1!4b1!4m5!3m4!1s0x8e3f9a5870e9d397:0x5c15f49ec4807d29!8m2!3d4.6660696!4d-74.0631676" target="_blank"><i class="fa fa-map-marker"></i><?php echo esc_attr($kyma_theme_options['contact_address']); ?></a></span><?php
             }
             if ($kyma_theme_options['contact_email']) {
                 ?>
