@@ -31,6 +31,12 @@ function hide_fields(){
 }
 add_action('wp_footer', 'hide_fields');
 
+function ddd_menus(){
+  wp_enqueue_script('ddd-menus', get_template_directory_uri() . '/../Kyma-child/js/ddd-menus.js');
+  wp_localize_script('ddd-menus', 'ajax_object', array('ajax_url' => admin_url( 'admin-ajax.php' ), 'home_url'  =>  home_url('/')));
+}
+add_action('wp_footer', 'ddd_menus');
+
 /*Allow parse php code to text widgets*/
 add_filter('widget_text','execute_php',100);
 function execute_php($html){
@@ -80,4 +86,61 @@ if (is_page() || is_archive()){
   return $classes;
 }
 add_filter( 'post_class','remove_hentry' );
+
+/* Server side CF7 dropdown dependent menus */
+function ajax_cf7_populate_values() {
+
+        // read the CSV file in the $makes_models array
+
+  $makes_models = array();
+  $uploads_folder = wp_upload_dir()['basedir'];
+  $file = fopen($uploads_folder.'/make-model.csv', 'r');
+
+  $firstline = true;
+  while (($line = fgetcsv($file)) !== FALSE) {
+    if ($firstline) {
+      $firstline = false;
+      continue;
+    }
+    $makes_models[$line[0]][$line[1]][] = $line[2];
+
+  }
+  fclose($file);
+
+        // setup the initial array that will be returned to the the client side script as a JSON object.
+
+  $return_array = array(
+            'makes' => array_keys($makes_models),
+            'models' => array(),
+            'current_make' => false,
+            'current_model' => false
+        );
+
+        // collect the posted values from the submitted form
+
+  $make = key_exists('senderMake', $_POST) ? $_POST['senderMake'] : false;
+  $model = key_exists('senderLine', $_POST) ? $_POST['senderLine'] : false;
+
+        // populate the $return_array with the necessary values
+
+  if ($make) {
+    $return_array['current_make'] = $make;
+    $return_array['models'] = array_keys($makes_models[$make]);
+      if ($model) {
+        $return_array['current_model'] = $model;
+      }
+  }
+
+        // encode the $return_array as a JSON object and echo it
+        
+        echo json_encode($return_array);
+        wp_die();
+
+}
+
+// These action hooks are needed to tell WordPress that the cf7_populate_values() function needs to be called
+// if a script is POSTing the action : 'cf7_populate_values'
+
+add_action( 'wp_ajax_cf7_populate_values', 'ajax_cf7_populate_values' );
+add_action( 'wp_ajax_nopriv_cf7_populate_values', 'ajax_cf7_populate_values' );
 ?>
