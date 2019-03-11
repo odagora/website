@@ -1110,7 +1110,7 @@ ol.list_privacy ol li ol li:last-child p {
 	height: 100%;
 	z-index: -1;
 	opacity: 0.1;
-	background-image: url(../../uploads/2017/07/camioneta.jpg);
+	background-image: url(../../uploads/2019/03/promocion-marzo-2019.jpg);
 	background-repeat: no-repeat;
 	background-position: 50% 0;
 	-ms-background-size: cover;
@@ -1627,4 +1627,12 @@ Mondula multistep form plugin
 
 .inner_page .btn_a {
 	margin-top: 0;
+}
+
+/*
+Contact Form 7
+ */
+
+#quoteForm ul:not(.form_list) {
+	display: block;
 }
