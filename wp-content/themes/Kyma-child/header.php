@@ -78,6 +78,11 @@
 
     // })
     </script>
+    <!-- Mailchimp Connection to Enable Pop-up Forms -->
+    <script id="mcjs">
+        !function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/7f3e393a1a68abba32f17f73c/e77acb6b491b817f05f776b20.js");
+    </script>
+    <!-- End of Mailchimp Connection to Enable Pop-up Forms -->
 </head>
 <?php
 global $kyma_theme_options;
