@@ -143,4 +143,41 @@ function ajax_cf7_populate_values() {
 
 add_action( 'wp_ajax_cf7_populate_values', 'ajax_cf7_populate_values' );
 add_action( 'wp_ajax_nopriv_cf7_populate_values', 'ajax_cf7_populate_values' );
+
+/* Contact Form 7 Event Handler */
+add_action( 'wp_footer', 'mycustom_wp_footer' );
+ 
+function mycustom_wp_footer() {
+?>
+<script type="text/javascript">
+var wpcf7Elm = document.querySelector( '.wpcf7' );
+ wpcf7Elm.addEventListener( 'keyup', function( event ) {
+  jQuery(function($){
+    $.fn.capitalize = function() {
+      $(this).val($(this).val().replace(/\w\S*/g, function(txt){
+        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+      }));
+      return this;
+    }
+    $('.mc4wp-FNAME input').capitalize();
+    $('.senderLastname input').capitalize();
+  });
+  jQuery(function($){
+    $.fn.lowercase = function() {
+      $(this).val($(this).val().toLowerCase());
+      return this;
+    }
+    $('.senderEmail input').lowercase();
+  });
+  jQuery(function($){
+    $.fn.uppercase = function() {
+      $(this).val($(this).val().toUpperCase());
+      return this;
+    }
+    $('.senderLicense input').uppercase();
+  });
+ }, false );
+</script>
+<?php
+}
 ?>
