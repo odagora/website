@@ -3,8 +3,8 @@ Contributors: WhatsHelp
 Donate link: https://whatshelp.io/
 Tags: whatsapp, facebook messenger, viber, whatshelp, messaging, chating, zopim live chat, customer service, livechat, olark, online support, zendesk, facebook chat, facebook help desk, whatsapp helpdesk, facebook live chat for business, whatsapp crm integration, whatsapp support, zotabox, beeketing
 Requires at least: 2.7
-Tested up to: 4.9.6
-Stable tag: 1.2.0
+Tested up to: 5.2.0
+Stable tag: 1.4.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -80,6 +80,12 @@ Adding WhatsHelp Chat Button to your Wordpress site is really easy, follow these
 
 
 == Changelog ==
+
+= 1.4.0 =
+Added support for Wordpress version 5.2.
+
+= 1.3.0 =
+Added support for Wordpress version 5.1.
 
 = 1.2.0 =
 Added ability to disable branding. A behavior of Viber button for desktop and mobile was changed.

@@ -2,7 +2,7 @@
 /**
  * Plugin Name: WhatsHelp Chat Button
  * Description: The Chat button by WhatsHelp takes website visitor directly to the messaging app such as Facebook Messenger or WhatsApp and allows them to initiate a conversation with you. After that, both you and your customer can follow up the conversation anytime and anywhere!
- * Version: 1.2.0
+ * Version: 1.4.0
  * Author: Whatshelp
  * Author URI: https://whatshelp.io
  */

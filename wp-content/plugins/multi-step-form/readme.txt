@@ -1,16 +1,16 @@
 === Multi Step Form ===
 Contributors: mondula2016
-Tags: multi, step, forms, multi-step, steps, feedback, email, contact form, progress bar, form builder, dynamic, ajax, formular
-Requires at least: 3.9
-Tested up to: 4.9.1
-Stable tag: 1.2.9
+Tags: multi, step, forms, multi step form, multi-step, steps, feedback, email, contact form, progress bar, form builder, dynamic, ajax, formular
+Requires at least: 4.8
+Tested up to: 5.2
+Stable tag: 1.5.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 Guide your customers with the animated progress bar. Generate dynamic multi step forms. Divide longer forms into small steps for better usability.
 
 == Description ==
-Multi Step Form has a drag & drop enabled form builder for quick and intuitive creation of nice-looking multi step forms. Forms can be embedded on any page or post with shortcodes.
+Multi Step Form has a drag & drop enabled form builder for quick and intuitive creation of nice-looking multi step forms. Forms can be embedded on any page or post with shortcodes or with Gutenberg blocks.
 
 ### Getting started
 **[Read our documentation](https://mondula.com/multi-step-form-documentation/ "Multi Step Form | Beginners Tutorial")**
@@ -22,7 +22,7 @@ Multi Step Form has a drag & drop enabled form builder for quick and intuitive c
 **[Visit our landing page](http://multi-step-form.mondula.com/ "Multi Step Form")**
 
 ### Contribute
-**[The "Multi Step Form" base plugin is OPEN SOURCE](https://github.com/leweohlsen/multi-step-form "Multi Step Form | GitHub Repository")**
+**[The "Multi Step Form" base plugin is OPEN SOURCE](https://github.com/mlooft/multi-step-form "Multi Step Form | GitHub Repository")**
 
 
 **KEY FEATURES:**
@@ -48,6 +48,7 @@ The backend's structure is simple. Even less technical users can quickly underst
 *   **Calendar item**- Styled datepicker included.
 *   **Show summary**- At the end of each form you can display a short summary.
 *   **Multisite compatibility**- The plugin works on WordPress multisite installs.
+*   **reCAPTCHA v3**- You can enable reCAPTCHA v3 validation for your forms. 
 
 ### Watch the video
 [youtube http://www.youtube.com/watch?v=2hyF1SDewok]
@@ -58,11 +59,11 @@ The backend's structure is simple. Even less technical users can quickly underst
 **Plus features:**
 
 *   **Up to 10 steps**- You can now divide your formular in up to 10 Steps
-*   **Save form data**- The Forms will now be saved in the backend. Easily make some evaluations
-*   **Conditional fields**- You want to bring more variety to your forms. You conditional fields.
-*   **Export as CSV-List**- You want to use ther form data in e.g. Excell. Export your forms as CSV.
+*   **Save form data**- The forms will now be saved in the backend. Easily make some evaluations.
+*   **Conditional fields**- You want to bring more variety to your forms. Use conditional fields.
+*   **Export as CSV-List**- You want to use the form data in e.g. Excel. Export your forms as CSV.
 
-**[UPGRADE NOW ](https://mondula.com/en/shop/ "Multi Step Form Plus")**
+**[UPGRADE NOW](https://mondula.com/en/shop/ "Multi Step Form Plus")**
 
 == Installation ==
 Installing the plugin can be done either by searching for "Multi Step Form" via the "Plugins > Add New" screen in your WordPress dashboard, or by using the following steps:
@@ -80,6 +81,46 @@ A.  **[Find them here](https://mondula.com/en/multi-step-form-faqs/ "Multi Step 
 2. Use our customizable and animated progress bar to guide your users through your forms. Change the colors to match your CI.
 
 == Changelog ==
+
+= 1.5.2 =
+* JS Media Bugfix
+
+= 1.5.1 =
+* New, more stable core
+* More translations
+* Media block
+* Embed shortcode in paragraph
+* Form upload bugfix
+
+= 1.4.1 =
+* Captcha Bugfix
+
+= 1.4.0 =
+* Gutenberg support
+* reCAPTCHA v3 support
+* JavaScript Bugfixes
+* Code cleanup
+
+= 1.3.3 =
+* HTML email header span changed
+* Bugfix: Backend i-icons were misplaced
+* CSS Chrome icon fix
+* Datepicker year range resized
+* Removed need for Google Fonts
+
+= 1.3.2 =
+* Sanitazation changed: Restricted HTML in paragraphs and radio buttons
+* JavaScript gets only loaded on pages using the form
+* Custom HTML ids for the most input fields
+
+= 1.3.1 =
+* Bugfix: email validation on android
+* Bugfix: linebreaks in emails
+* Other small changes
+
+= 1.3.0 =
+* Added numeric input field
+* Many small bugfixes
 
 = 1.2.9 =
 * Small fixes
@@ -101,7 +142,6 @@ A.  **[Find them here](https://mondula.com/en/multi-step-form-faqs/ "Multi Step 
 * Custom Email Headers (Reply-To, BCC...)
 * Relevant error message for invalid Email
 * Small Bugfixes
-
 
 = 1.2.3 =
 * Upload multiple files with a single form element
@@ -162,34 +202,27 @@ A.  **[Find them here](https://mondula.com/en/multi-step-form-faqs/ "Multi Step 
 * Display progress bar differently when there is less space
 
 = 1.0.6 =
-
 * fixed progress-bar style importance
 * you can now choose to send a cc mail to the user (optional)
 
 = 1.0.5 =
-
 * redirect to a custom URL after submit (optional)
 * search functionality in select boxes (optional)
 * backend side menu is sticky now
 
 = 1.0.4 =
-
 * Make plugin multisite compatible
 
 = 1.0.3 =
-
 * Step title rendering bugfix
 
 = 1.0.2 =
-
 * WordPress 4.7 compatibility
 * E-mail validation bugfix
 
 = 1.0.1 =
-
 * Modify default colors
 * Change wording in settings
 
 = 1.0.0 =
-
 * Initial release
