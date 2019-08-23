@@ -28,11 +28,10 @@ class Mondula_Form_Wizard_Admin {
 	}
 
 	private function init() {
-			add_action( 'admin_menu', array( $this, 'setup_menu' ) );
-			add_action( 'admin_init', array( $this, 'download_form_json' ) );
+			add_action('admin_menu', array($this, 'setup_menu'));
+			add_action('admin_init', array($this, 'download_form_json'));
 
-			add_action( 'wp_ajax_fw_wizard_save', array( $this, 'save' ) );
-			add_action( 'wp_ajax_nopriv_fw_wizard_save', array( $this, 'save' ) );
+			add_action('wp_ajax_fw_wizard_save', array($this, 'save'));
 	}
 
 	public function setup_menu() {
@@ -63,12 +62,14 @@ class Mondula_Form_Wizard_Admin {
 				'noStepTitle' => __( 'WARNING: You need to provide a title for each step', 'multi-step-form' ),
 				'noSectionTitle' => __( 'WARNING: You need to provide a title for each section', 'multi-step-form' ),
 				'noFormTitle' => __( 'WARNING: You need to provide title for the form', 'multi-step-form' ),
+				'noBlockTitle' => __( 'WARNING: Every block needs a label/title.', 'multi-step-form' ),
 				'onlyFive' => __( 'ERROR: only 5 steps are allowed in the free version', 'multi-step-form' ),
 				'onlyTen' => __( 'ERROR: only 10 steps are possible', 'multi-step-form' ),
 				'reallyDeleteStep' => __( 'Do you really want to delete this step?', 'multi-step-form' ),
 				'reallyDeleteSection' => __( 'Do you really want to delete this section?', 'multi-step-form' ),
 				'reallyDeleteBlock' => __( 'Do you really want to delete this block?', 'multi-step-form' ),
 				'onlyOneRegistration' => __( 'Only one registration block allowed!', 'multi-step-form' ),
+				'ajaxSendError' => __( 'Form couldn\'t be saved. Check your internet connection.', 'multi-step-form' ),
 			),
 			'title' => __( 'Step Title', 'multi-step-form' ),
 			'headline' => __( 'Step Headline', 'multi-step-form' ),
@@ -149,6 +150,9 @@ class Mondula_Form_Wizard_Admin {
 
 			wp_register_style( $this->_token . '-backend', esc_url( $this->_assets_url ) . 'styles/msf-backend' . $this->_script_suffix . '.css', array(), $this->_version );
 			wp_enqueue_style( $this->_token . '-backend' );
+
+			wp_enqueue_style( $this->_token . '-vendor' );
+			wp_enqueue_script($this->_token . '-vendor');
 
 			wp_enqueue_media();
 		}
@@ -297,18 +301,18 @@ class Mondula_Form_Wizard_Admin {
 		foreach ( $data['wizard']['settings'] as $key => &$setting ) {
 			switch ( $key ) {
 				case 'thankyou':
-					$setting = esc_url( $setting );
+					$setting = esc_url($setting);
 					break;
 				case 'to':
 				case 'frommail':
-					$setting = sanitize_email( $setting );
+					$setting = sanitize_email($setting);
 					break;
 				case 'header':
-					$setting = sanitize_textarea_field( $setting );
+					$setting = sanitize_textarea_field($setting);
 					break;
 				case 'fromname':
 				case 'subject':
-					$setting = sanitize_text_field( $setting );
+					$setting = sanitize_text_field($setting);
 					break;
 			}
 		}
@@ -321,26 +325,29 @@ class Mondula_Form_Wizard_Admin {
 		$_POST = stripslashes_deep( $_POST );
 		$id = isset( $_POST['id'] ) ? intval($_POST['id']) : '';
 		$nonce = isset( $_POST['nonce'] ) ? $_POST['nonce'] : '';
-		$data = isset( $_POST['data'] ) ? $_POST['data'] : array();
+		$data = isset( $_POST['data'] ) ? $_POST['data'] : '{}';
+		$data = json_decode($data, true);
 
-		$this->sanitize_form_data( $data );
+		$this->sanitize_form_data($data);
 
-		if ( wp_verify_nonce( $nonce, $this->_token . $id ) ) {
-			if ( ! empty( $data ) ) {
-				$new_id = $this->_wizard_service->save( $id, $data );
+		if (wp_verify_nonce($nonce, $this->_token . $id)) {
+			if (!empty($data)) {
+				$new_id = $this->_wizard_service->save($id, $data);
 				if ($new_id != $id) {
 					$id = $new_id;
-					$response['nonce'] = wp_create_nonce( $this->_token . $id );
+					$response['nonce'] = wp_create_nonce($this->_token . $id);
 				}
-				$response['msg'] = __('Success. Wizard saved.', 'multi-step-form');
+				$response['msg'] = __('Success. Form saved.', 'multi-step-form');
 				$response['id'] = $id;
 				wp_send_json_success( $response );
+				return;
 			} else {
 				wp_send_json_error(
 					array(
 						'msg' => 'Data is empty.',
 					)
 				);
+				return;
 			}
 		} else {
 			wp_send_json_error(
@@ -348,7 +355,9 @@ class Mondula_Form_Wizard_Admin {
 					'msg' => 'Nonce failed to verify.',
 				)
 			);
+			return;
 		}
+
 		wp_send_json_error(
 			array(
 				'msg' => 'error',

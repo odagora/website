@@ -1,210 +1,244 @@
 <?php
-	/**
-	 * Admin boot
-	 * @author Alex Kovalev <alex.kovalevv@gmail.com>
-	 * @copyright Alex Kovalev 05.06.2018
-	 * @version 1.0
-	 */
+/**
+ * Admin boot
+ *
+ * @author    Alex Kovalev <alex.kovalevv@gmail.com>
+ * @copyright Alex Kovalev 05.06.2018
+ * @version   1.0
+ */
 
-	/**
-	 * Admin warning notices
-	 */
-	function wbcr_inp_admin_conflict_notices_error($notices, $plugin_name)
-	{
-		if( $plugin_name != WINP_Plugin::app()->getPluginName() ) {
-			return $notices;
-		}
+// Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
-		if( isset($_COOKIE['wbcr-php-snippets-safe-mode']) ) {
-			$disable_safe_mode_url = add_query_arg(array('wbcr-php-snippets-disable-safe-mode' => 1));
+/**
+ * Добавляет подсказку и кнопку в сообщение фатальной ошибки.
+ *
+ * С версии Wordpress 5.2, нам доступен специальный режим, перехвата php ошибок.
+ * Если пользователь например допустит синтаксическую ошибку при редактировании
+ * сниппета, то он вместо белого экрана (если php ошибки отключены на сервере)
+ * увидит сообщение от Wordpress сгенерированное классом WP_Fatal_Error_Handler.
+ *
+ * Мы решили добавить в это сообщение кнопку для перехода в безопасный режим.
+ */
+add_filter( 'wp_php_error_message', function ( $message ) {
+	$safe_mode_url    = admin_url( 'edit.php?post_type=' . WINP_SNIPPETS_POST_TYPE . '&wbcr-php-snippets-safe-mode' );
+	$safe_mode_button = '<div style="margin:20px 0;padding:20px; background:#ffe8e8;">' . __( 'If you see this message after saving the snippet to the Woody ad snippets plugin, please enable safe mode in the Woody plugin. Safe mode will allow you to continue working in the admin panel of your site and change the snippet in which you made a php error.', 'insert_php' ) . '</div>';
+	$safe_mode_button .= '<a href="' . $safe_mode_url . '" class="button">' . __( 'Enable safe mode in Woody ad snippets', 'insert_php' ) . '</a>';
 
-			$safe_mode_notice = WINP_Plugin::app()
-					->getPluginTitle() . ': ' . __('Running in safe mode. This mode your snippets will not be started.', 'insert-php');
-			$safe_mode_notice .= ' <a href="' . $disable_safe_mode_url . '" class="button button-default">Disable Safe Mode</a>';
+	return $message . $safe_mode_button;
+} );
 
-			$notices[] = array(
-				'id' => 'inp_safe_mode',
-				'type' => 'success',
-				'dismissible' => false,
-				'dismiss_expires' => 0,
-				'text' => '<p>' . $safe_mode_notice . '</p>'
-			);
-		}
+/**
+ * Инициализации метабоксов и страницы "о плагине".
+ *
+ * Этот хук реализует условную логику, при которой пользователь переодически будет
+ * видет страницу "О плагине", а конкретно при активации и обновлении плагина.
+ */
+add_action( 'admin_init', function () {
 
-		$create_notice_url = admin_url('edit.php?post_type=' . WINP_SNIPPETS_POST_TYPE);
+	$plugin = WINP_Plugin::app();
 
-		$upgrade_plugin_notice = '<b>' . WINP_Plugin::app()
-				->getPluginTitle() . '</b>: ' . __('Attention! This new 2.0 plugin version, we added the ability to insert php code using snippets. This is a more convenient and secure way than using shortcodes [insert_php] code execute [/ insert_php]. However, for compatibility reasons, we left support for [insert_php] shortcodes, but we will depreciate them in the next versions of the plugin.', 'insert-php');
+	// Register metaboxes
+	require_once( WINP_PLUGIN_DIR . '/admin/metaboxes/base-options.php' );
+	WINP_Helper::register_factory_metaboxes( new WINP_BaseOptionsMetaBox( $plugin ), WINP_SNIPPETS_POST_TYPE, $plugin );
 
-		$upgrade_plugin_notice .= '<br><br>' . __('We strongly recommend you to transfer your php code to snippets and call them in your posts/pages and widgets using [wbcr_php_snippet id = "000"] shortcodes.', 'insert-php');
-
-		//$upgrade_plugin_notice .= '<br><br><span style="color:red">' . __('If you have updated from version 1.3 of the plugin (Insert php). Please deactivate and activate the plugin to update the settings.', 'insert-php') . '</span>';
-
-		$upgrade_plugin_notice .= '<br><br><a href="' . $create_notice_url . '" class="button button-default">' . __('Create new php snippet', 'insert-php') . '</a> ';
-
-		$upgrade_plugin_notice .= '<a href="https://downloads.wordpress.org/plugin/insert-php.1.3.zip" class="button button-default">' . __('Download old version', 'insert-php') . '</a><br><br>';
-		$upgrade_plugin_notice .= sprintf(__('If you have issues with the plugin new version or any suggestions, please contact us on <a href="%s" target="_blank">our forum</a>.', 'insert-php'), 'https://wordpress.org/support/plugin/insert-php');
-		$upgrade_plugin_notice .= '<br>' . sprintf(__('We tried to make the plugin better and more convenient. If you like the new version, feel free to <a href="%s" target="_blank">leave your feedback</a>. It will give us motivation for further improvements.', 'insert-php'), 'https://wordpress.org/support/plugin/insert-php/reviews/#new-post');
-
-		$notices[] = array(
-			'id' => 'inp_upgrade_plugin',
-			'type' => 'warning',
-			'dismissible' => true,
-			'dismiss_expires' => 0,
-			'text' => '<p>' . $upgrade_plugin_notice . '</p>'
-		);
-
-		/**
-		 * Show error notification after saving snippet. We can also show this message when the snippet is activated.
-		 * We must warn the user that we can not perform the spippet due to an error.
-		 */
-		if( isset($_GET['wbcr_inp_save_snippet_result']) && $_GET['wbcr_inp_save_snippet_result'] == 'code-error' ) {
-
-			$post_id = isset($_GET['post'])
-				? intval($_GET['post'])
-				: null;
-
-			if( $post_id && $error = WINP_Plugin::app()->getSnippetError($post_id) ) {
-
-				$error_message = sprintf('<p>%s</p><p><strong>%s</strong></p>', sprintf(__('The snippet has been deactivated due to an error on line %d:', 'insert-php'), $error['line']), $error['message']);
-
-				$notices[] = array(
-					'id' => 'inp_result_error',
-					'where' => array('post', 'post-new', 'edit'),
-					'type' => 'error',
-					'dismissible' => false,
-					'dismiss_expires' => 0,
-					'text' => $error_message
-				);
-			}
-		}
-
-		return $notices;
+	//if ( current_user_can( 'install_plugins' ) && ! is_plugin_active( 'robin-image-optimizer/robin-image-optimizer.php' ) ) {
+	if ( ! WINP_Plugin::app()->premium->is_activate() ) {
+		require_once( WINP_PLUGIN_DIR . '/admin/metaboxes/info.php' );
+		WINP_Helper::register_factory_metaboxes( new WINP_InfoMetaBox( $plugin ), WINP_SNIPPETS_POST_TYPE, $plugin );
 	}
 
-	add_filter('wbcr_factory_admin_notices', 'wbcr_inp_admin_conflict_notices_error', 10, 2);
+	$snippet_type = WINP_Helper::get_snippet_type();
 
-	function wbcr_inp_admin_init()
-	{
-		$plugin = WINP_Plugin::app();
-
-		// Disable safe mode
-
-		if( isset($_COOKIE['wbcr-php-snippets-safe-mode']) && isset($_REQUEST['wbcr-php-snippets-disable-safe-mode']) && $plugin->currentUserCan() ) {
-			unset($_COOKIE['wbcr-php-snippets-safe-mode']);
-			setcookie('wbcr-php-snippets-safe-mode', null, -1);
-			wp_safe_redirect(remove_query_arg(array('wbcr-php-snippets-disable-safe-mode')));
-			exit;
-		}
-
-		// Register metaboxes
-
-		require_once(WINP_PLUGIN_DIR . '/admin/metaboxes/base-options.php');
-		Wbcr_FactoryMetaboxes403::registerFor(new WINP_BaseOptionsMetaBox($plugin), WINP_SNIPPETS_POST_TYPE, $plugin);
-
-		require_once(WINP_PLUGIN_DIR . '/admin/metaboxes/info.php');
-		Wbcr_FactoryMetaboxes403::registerFor(new WINP_InfoMetaBox($plugin), WINP_SNIPPETS_POST_TYPE, $plugin);
-
-		// Upgrade up to new version
-		if( !$plugin->getOption('upgrade_up_to_201', false) ) {
-			$role = get_role('administrator');
-			if( !$role ) {
-				return;
-			}
-
-			$role->add_cap('edit_' . WINP_SNIPPETS_POST_TYPE);
-			$role->add_cap('read_' . WINP_SNIPPETS_POST_TYPE);
-			$role->add_cap('delete_' . WINP_SNIPPETS_POST_TYPE);
-			$role->add_cap('edit_' . WINP_SNIPPETS_POST_TYPE . 's');
-			$role->add_cap('edit_others_' . WINP_SNIPPETS_POST_TYPE . 's');
-			$role->add_cap('publish_' . WINP_SNIPPETS_POST_TYPE . 's');
-			$role->add_cap('read_private_' . WINP_SNIPPETS_POST_TYPE . 's');
-
-			$plugin->updateOption('upgrade_up_to_201', 1);
-		}
+	if ( $snippet_type !== WINP_SNIPPET_TYPE_PHP ) {
+		require_once( WINP_PLUGIN_DIR . '/admin/metaboxes/view-options.php' );
+		WINP_Helper::register_factory_metaboxes( new WINP_ViewOptionsMetaBox( $plugin ), WINP_SNIPPETS_POST_TYPE, $plugin );
 	}
 
-	add_action('admin_init', 'wbcr_inp_admin_init');
+	do_action( 'wbcr/inp/boot/metaboxes/revisions', '' );
 
-	// ---
-	// Editor
-	//
-
-	/**
-	 * Asset scripts for the tinymce editor
-	 *
-	 * @param string $hook
-	 */
-	function wbcr_inp_enqueue_tinymce_assets($hook)
-	{
-		$pages = array(
-			'post.php',
-			'post-new.php',
-			'widgets.php'
-		);
-
-		if( !in_array($hook, $pages) || !current_user_can('manage_options') ) {
-			return;
+	// If the user has updated the plugin or activated it for the first time,
+	// you need to show the page "What's new?"
+	if ( ! WINP_Plugin::app()->isNetworkAdmin() ) {
+		$about_page_viewed = WINP_Plugin::app()->request->get( 'wbcr_inp_about_page_viewed', null );
+		if ( is_null( $about_page_viewed ) ) {
+			if ( WINP_Helper::is_need_show_about_page() ) {
+				try {
+					$redirect_url = '';
+					if ( class_exists( 'Wbcr_FactoryPages419' ) ) {
+						$redirect_url = WINP_Plugin::app()->getPluginPageUrl( 'about', [ 'wbcr_inp_about_page_viewed' => 1 ] );
+					}
+					if ( $redirect_url ) {
+						wp_safe_redirect( $redirect_url );
+						die();
+					}
+				} catch( Exception $e ) {
+				}
+			}
+		} else {
+			if ( WINP_Helper::is_need_show_about_page() ) {
+				delete_option( $plugin->getOptionName( 'what_new_210' ) );
+			}
 		}
+	}
+} );
 
-		wp_enqueue_script('wbcr-inp-tinymce-button-widget', WINP_PLUGIN_URL . '/admin/assets/js/tinymce4.4.js', array('jquery'), WINP_Plugin::app()
-			->getPluginVersion(), true);
+function wbcr_inp_admin_revisions() {
+	$plugin = WINP_Plugin::app();
+
+	require_once( WINP_PLUGIN_DIR . '/admin/metaboxes/revisions.php' );
+	WINP_Helper::register_factory_metaboxes( new WINP_RevisionsMetaBox( $plugin ), WINP_SNIPPETS_POST_TYPE, $plugin );
+}
+
+add_action( 'wbcr/inp/boot/metaboxes/revisions', 'wbcr_inp_admin_revisions' );
+
+// ---
+// Editor
+//
+
+/**
+ * Enqueue scripts
+ */
+function wbcr_inp_enqueue_scripts() {
+	global $pagenow;
+
+	$screen = get_current_screen();
+
+	if ( ( 'post-new.php' == $pagenow || 'post.php' == $pagenow ) && WINP_SNIPPETS_POST_TYPE == $screen->post_type ) {
+		wp_enqueue_script( 'wbcr-inp-admin-scripts', WINP_PLUGIN_URL . '/admin/assets/js/scripts.js', [
+			'jquery',
+			'jquery-ui-tooltip'
+		], WINP_Plugin::app()->getPluginVersion() );
+	}
+}
+
+/**
+ * Asset scripts for the tinymce editor
+ *
+ * @param string $hook
+ */
+function wbcr_inp_enqueue_tinymce_assets( $hook ) {
+	$pages = [
+		'post.php',
+		'post-new.php',
+		'widgets.php'
+	];
+
+	if ( ! in_array( $hook, $pages ) || ! current_user_can( 'manage_options' ) ) {
+		return;
 	}
 
-	add_action('admin_enqueue_scripts', 'wbcr_inp_enqueue_tinymce_assets');
+	wp_enqueue_script( 'wbcr-inp-tinymce-button-widget', WINP_PLUGIN_URL . '/admin/assets/js/tinymce4.4.js', [ 'jquery' ], WINP_Plugin::app()->getPluginVersion(), true );
+}
 
-	/**
-	 * Adds js variable required for shortcodes.
-	 *
-	 * @see before_wp_tiny_mce
-	 * @since 1.1.0
-	 */
-	function wbcr_inp_tinymce_data($hook)
-	{
-		if( !current_user_can('manage_options') ) {
-			return;
-		}
+add_action( 'admin_enqueue_scripts', 'wbcr_inp_enqueue_tinymce_assets' );
+add_action( 'admin_enqueue_scripts', 'wbcr_inp_enqueue_scripts' );
 
-		// styles for the plugin shorcodes
-		$shortcode_icon = WINP_PLUGIN_URL . '/admin/assets/img/shortcode-icon.png';
-		$shortcode_title = __('PHP snippets', 'insert-php');
+/**
+ * Adds js variable required for shortcodes.
+ *
+ * @since 1.1.0
+ * @see   before_wp_tiny_mce
+ */
+function wbcr_inp_tinymce_data( $hook ) {
+	if ( ! current_user_can( 'manage_options' ) ) {
+		return;
+	}
 
-		$snippets = get_posts(array(
-			'post_type' => WINP_SNIPPETS_POST_TYPE,
-			'meta_key' => WINP_Plugin::app()->getPrefix() . 'snippet_scope',
-			'meta_value' => 'shortcode',
-			'post_status' => 'publish',
-			'numberposts' => -1
-		));
+	// styles for the plugin shorcodes
+	$shortcode_icon  = WINP_PLUGIN_URL . '/admin/assets/img/shortcode-icon5.png';
+	$shortcode_title = __( 'Woody ad snippets', 'insert-php' );
 
-		$result = array();
-		foreach((array)$snippets as $snippet) {
-			$result[] = array(
-				'id' => $snippet->ID,
-				'title' => empty($snippet->post_title)
-					? '(no titled, ID=' . $snippet->ID . ')'
-					: $snippet->post_title
-			);
-		}
-
-		$shortcode_snippets_json = json_encode($result);
-
-		?>
-		<!-- <?= WINP_Plugin::app()->getPluginTitle() ?> for tinymce -->
-		<style>
-			i.wbcr-inp-shortcode-icon {
-				background: url("<?php echo $shortcode_icon ?>") center no-repeat;
-			}
-		</style>
-		<script>
-			var wbcr_inp_tinymce_snippets_button_title = '<?php echo $shortcode_title ?>';
-			var wbcr_inp_post_tinymce_nonce = '<?php echo wp_create_nonce('wbcr_inp_tinymce_post_nonce') ?>';
-			var wbcr_inp_shortcode_snippets = <?= $shortcode_snippets_json ?>;
-		</script>
-		<!-- /end <?= WINP_Plugin::app()->getPluginTitle() ?> for tinymce -->
+	$result                  = WINP_Helper::get_shortcode_data( true );
+	$shortcode_snippets_json = json_encode( $result );
+	?>
+    <!-- <?php echo WINP_Plugin::app()->getPluginTitle() ?> for tinymce -->
+    <style>
+        i.wbcr-inp-shortcode-icon {
+            background: url("<?php echo $shortcode_icon ?>") center no-repeat;
+        }
+    </style>
+    <script>
+		var wbcr_inp_tinymce_snippets_button_title = '<?php echo $shortcode_title ?>';
+		var wbcr_inp_post_tinymce_nonce = '<?php echo wp_create_nonce( 'wbcr_inp_tinymce_post_nonce' ) ?>';
+		var wbcr_inp_shortcode_snippets = <?php echo $shortcode_snippets_json ?>;
+    </script>
+    <!-- /end <?php echo WINP_Plugin::app()->getPluginTitle() ?> for tinymce -->
 	<?php
+}
+
+add_action( 'admin_print_scripts-post.php', 'wbcr_inp_tinymce_data' );
+add_action( 'admin_print_scripts-post-new.php', 'wbcr_inp_tinymce_data' );
+add_action( 'admin_print_scripts-widgets.php', 'wbcr_inp_tinymce_data' );
+
+/**
+ * Deactivate snippet on trashed
+ *
+ * @since 2.0.6
+ *
+ * @param $post_id
+ *
+ */
+function wbcr_inp_trash_post( $post_id ) {
+	$post_type = get_post_type( $post_id );
+	if ( $post_type == WINP_SNIPPETS_POST_TYPE ) {
+		WINP_Helper::updateMetaOption( $post_id, 'snippet_activate', 0 );
+	}
+}
+
+add_action( 'wp_trash_post', 'wbcr_inp_trash_post' );
+
+/**
+ * Removes the default 'new item' from the admin menu to add own page 'new item' later.
+ *
+ * @param $menu
+ *
+ * @return mixed
+ * @see menu_order
+ *
+ */
+function wbcr_inp_remove_new_item( $menu ) {
+	global $submenu;
+
+	if ( ! isset( $submenu[ 'edit.php?post_type=' . WINP_SNIPPETS_POST_TYPE ] ) ) {
+		return $menu;
+	}
+	unset( $submenu[ 'edit.php?post_type=' . WINP_SNIPPETS_POST_TYPE ][10] );
+
+	return $menu;
+}
+
+add_filter( 'custom_menu_order', '__return_true' );
+add_filter( 'admin_menu', 'wbcr_inp_remove_new_item' );
+
+/**
+ * If the user tried to get access to the default 'new item',
+ * redirects forcibly to our page 'new item'.
+ *
+ * @see current_screen
+ */
+function wbcr_inp_redirect_to_new_item() {
+	$screen = get_current_screen();
+
+	if ( empty( $screen ) ) {
+		return;
+	}
+	if ( 'add' !== $screen->action || 'post' !== $screen->base || WINP_SNIPPETS_POST_TYPE !== $screen->post_type ) {
+		return;
 	}
 
-	add_action('admin_print_scripts-post.php', 'wbcr_inp_tinymce_data');
-	add_action('admin_print_scripts-post-new.php', 'wbcr_inp_tinymce_data');
-	add_action('admin_print_scripts-widgets.php', 'wbcr_inp_tinymce_data');
+	$winp_item = WINP_Plugin::app()->request->get( 'winp_item', null );
+	if ( ! is_null( $winp_item ) ) {
+		return;
+	}
+
+	$url = admin_url( 'edit.php?post_type=' . WINP_SNIPPETS_POST_TYPE . '&page=new-item-' . WINP_Plugin::app()->getPluginName() );
+
+	wp_safe_redirect( $url );
+
+	exit;
+}
+
+add_action( 'current_screen', 'wbcr_inp_redirect_to_new_item' );

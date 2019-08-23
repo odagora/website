@@ -29,9 +29,9 @@
 		exit;
 	}
 
-	if( !class_exists('Wbcr_FactoryForms405_TextboxControl') ) {
+	if( !class_exists('Wbcr_FactoryForms417_TextboxControl') ) {
 
-		class Wbcr_FactoryForms405_TextboxControl extends Wbcr_FactoryForms405_Control {
+		class Wbcr_FactoryForms417_TextboxControl extends Wbcr_FactoryForms417_Control {
 
 			public $type = 'textbox';
 

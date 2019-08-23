@@ -3,7 +3,7 @@ Contributors: mondula2016
 Tags: multi, step, forms, multi step form, multi-step, steps, feedback, email, contact form, progress bar, form builder, dynamic, ajax, formular
 Requires at least: 4.8
 Tested up to: 5.2
-Stable tag: 1.5.2
+Stable tag: 1.5.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -58,12 +58,14 @@ The backend's structure is simple. Even less technical users can quickly underst
 
 **Plus features:**
 
-*   **Up to 10 steps**- You can now divide your formular in up to 10 Steps
+*   **Up to 10 steps**- You can now divide your form in up to 10 Steps
 *   **Save form data**- The forms will now be saved in the backend. Easily make some evaluations.
 *   **Conditional fields**- You want to bring more variety to your forms. Use conditional fields.
 *   **Export as CSV-List**- You want to use the form data in e.g. Excel. Export your forms as CSV.
 
 **[UPGRADE NOW](https://mondula.com/en/shop/ "Multi Step Form Plus")**
+
+[](http://coderisk.com/wp/plugin/multi-step-form/RIPS-P7idkfxMt1)
 
 == Installation ==
 Installing the plugin can be done either by searching for "Multi Step Form" via the "Plugins > Add New" screen in your WordPress dashboard, or by using the following steps:
@@ -81,6 +83,16 @@ A.  **[Find them here](https://mondula.com/en/multi-step-form-faqs/ "Multi Step 
 2. Use our customizable and animated progress bar to guide your users through your forms. Change the colors to match your CI.
 
 == Changelog ==
+
+= 1.5.3 =
+* Custom Reply-To email from input
+* JSON Quote Bugfix
+* Removed limitation on element count
+* Better code quality
+* Higher compatibility with caching plugins
+* Gutenberg Bugfix
+* Select Bugfix
+* Upgraded vendor scripts
 
 = 1.5.2 =
 * JS Media Bugfix
