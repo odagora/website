@@ -145,13 +145,14 @@ add_action( 'wp_ajax_cf7_populate_values', 'ajax_cf7_populate_values' );
 add_action( 'wp_ajax_nopriv_cf7_populate_values', 'ajax_cf7_populate_values' );
 
 /* Contact Form 7 Event Handler */
-add_action( 'wp_footer', 'mycustom_wp_footer' );
+add_action( 'wp_footer', 'cf7_fields_formatting' );
  
-function mycustom_wp_footer() {
+function cf7_fields_formatting() {
 ?>
 <script type="text/javascript">
 var wpcf7Elm = document.querySelector( '.wpcf7' );
- wpcf7Elm.addEventListener( 'keyup', function( event ) {
+if(wpcf7Elm){
+  wpcf7Elm.addEventListener( 'keyup', function( event ) {
   jQuery(function($){
     $.fn.capitalize = function() {
       $(this).val($(this).val().replace(/\w\S*/g, function(txt){
@@ -177,6 +178,7 @@ var wpcf7Elm = document.querySelector( '.wpcf7' );
     $('.senderLicense input').uppercase();
   });
  }, false );
+}
 </script>
 <?php
 }
