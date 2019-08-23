@@ -393,7 +393,7 @@ a:active,a:hover{color:#111}.postbox .hndle,.stuffbox .hndle{border-bottom:0 !im
 .fw-collapsediv{font-size:16px;float:left;width:27px;height:30px;padding-top:14px;padding-left:5px;text-align:center}
 .fw-trashdiv{font-size:16px;float:right;width:27px;height:30px;padding-top:10px;margin-right:10px;text-align:center;cursor:pointer}
 .fw-step-controls{float:right;width:100px;text-align:center;top:5px;right:5px;position:relative}
-.fw-step-controls>i{height:30px;line-height:30px;display:inline-block;color:white;float:right;width:30px;margin-left:2px;color:#555;font-size:18px}
+.fw-step-controls>i{height:30px;line-height:30px;display:block;color:white;float:right;width:30px;margin-left:2px;color:#555;font-size:18px}
 .fw-step-controls>.fw-duplicate-step{font-size:14px}.fw-add-element{margin:0 0 30px 13px;border:0 none;padding:0;text-align:left}
 .fw-add-element .fw-add-element-button{visibility:hidden}.fw-add-element:hover .fw-add-element-button{visibility:visible}
 i.fa-caret-up,i.fa-caret-right,i.fa-remove,i.fa-files-o{cursor:pointer}i.fa-caret-up.fw-icon-rotated::before,i.fa-caret-right.fw-icon-rotated::before,i.fa-remove.fw-icon-rotated::before,i.fa-files-o.fw-icon-rotated::before{transform:rotate(180deg)}

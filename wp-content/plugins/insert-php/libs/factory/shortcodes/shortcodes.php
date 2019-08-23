@@ -14,7 +14,7 @@
 		exit;
 	}
 
-	if( !class_exists('Wbcr_FactoryShortcodes324') ) {
+	if( !class_exists('Wbcr_FactoryShortcodes329') ) {
 		/**
 		 * A helper class to register new shortcodes.
 		 *
@@ -22,7 +22,7 @@
 		 *
 		 * @since 1.0.0
 		 */
-		class Wbcr_FactoryShortcodes324 {
+		class Wbcr_FactoryShortcodes329 {
 
 			private static $manager = false;
 
@@ -35,14 +35,14 @@
 			public static function register($class_name, $plugin)
 			{
 				if( !self::$manager ) {
-					self::$manager = new Wbcr_FactoryShortcodes324_ShortcodeManager();
+					self::$manager = new Wbcr_FactoryShortcodes329_ShortcodeManager();
 				}
 				self::$manager->register($class_name, $plugin);
 			}
 		}
 	}
 
-	if( !class_exists('Wbcr_FactoryShortcodes324_ShortcodeManager') ) {
+	if( !class_exists('Wbcr_FactoryShortcodes329_ShortcodeManager') ) {
 		/**
 		 * Factory Shortcode Manager
 		 *
@@ -50,13 +50,13 @@
 		 * - creating aninstance of Factory Shortcode per every call of the shortcode.
 		 * - tracking shortcodes in post content.
 		 */
-		class Wbcr_FactoryShortcodes324_ShortcodeManager {
+		class Wbcr_FactoryShortcodes329_ShortcodeManager {
 
 			/**
 			 * A set of registered shortcodes.
 			 *
 			 * @since 1.0.0
-			 * @var FactoryShortcodes324_Shortcode[]
+			 * @var FactoryShortcodes329_Shortcode[]
 			 */
 			private $shortcodes = array();
 
@@ -64,7 +64,7 @@
 			 * Keeps links between "class name" => "plugin"
 			 *
 			 * @since 3.2.0
-			 * @var Wbcr_FactoryShortcodes324_Shortcode[]
+			 * @var Wbcr_FactoryShortcodes329_Shortcode[]
 			 */
 			private $class_to_plugin = array();
 
@@ -85,7 +85,6 @@
 			 */
 			public function __call($name, $arguments)
 			{
-
 				list($prefix, $type) = explode('_', $name, 2);
 				
 				if( $prefix !== 'shortcode' ) {
@@ -94,7 +93,7 @@
 
 				$blank = new $type($this->class_to_plugin[$type]);
 
-				return $blank->render($arguments[0], $arguments[1]);
+				return $blank->render($arguments[0], $arguments[1], $arguments[2]);
 			}
 
 			/**

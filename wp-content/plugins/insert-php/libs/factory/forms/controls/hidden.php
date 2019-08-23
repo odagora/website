@@ -20,9 +20,9 @@
 		exit;
 	}
 
-	if( !class_exists('Wbcr_FactoryForms405_HiddenControl') ) {
+	if( !class_exists('Wbcr_FactoryForms417_HiddenControl') ) {
 
-		class Wbcr_FactoryForms405_HiddenControl extends Wbcr_FactoryForms405_Control {
+		class Wbcr_FactoryForms417_HiddenControl extends Wbcr_FactoryForms417_Control {
 
 			public $type = 'hidden';
 

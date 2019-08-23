@@ -1,223 +1,251 @@
 <?php
-	/**
-	 * PHP snippets plugin base
-	 * @author Webcraftic <wordpress.webraftic@gmail.com>
-	 * @copyright (c) 19.02.2018, Webcraftic
-	 * @version 1.0
-	 */
+/**
+ * PHP snippets plugin base
+ *
+ * @author        Webcraftic <wordpress.webraftic@gmail.com>
+ * @copyright (c) 19.02.2018, Webcraftic
+ * @version       1.0
+ */
 
-	// Exit if accessed directly
-	if( !defined('ABSPATH') ) {
-		exit;
-	}
+// Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
-	if( !class_exists('WINP_Plugin') ) {
+if ( ! class_exists( 'WINP_Plugin' ) ) {
 
-		class WINP_Plugin extends Wbcr_Factory404_Plugin {
+	class WINP_Plugin extends Wbcr_Factory419_Plugin {
 
-			/**
-			 * @var Wbcr_Factory404_Plugin
-			 */
-			private static $app;
+		/**
+		 * @var Wbcr_Factory419_Plugin
+		 */
+		private static $app;
 
-			/**
-			 * @param string $plugin_path
-			 * @param array $data
-			 * @throws Exception
-			 */
-			public function __construct($plugin_path, $data)
-			{
-				parent::__construct($plugin_path, $data);
+		/**
+		 * @param string $plugin_path
+		 * @param array  $data
+		 *
+		 * @throws Exception
+		 */
+		public function __construct( $plugin_path, $data ) {
+			parent::__construct( $plugin_path, $data );
 
-				self::$app = $this;
+			self::$app = $this;
 
-				$this->setTextDomain();
-				$this->setModules();
+			$this->load_global();
 
-				$this->globalScripts();
+			if ( is_admin() ) {
+				$this->initActivation();
 
-				if( is_admin() ) {
-					$this->adminScripts();
-				}
-			}
-
-			/**
-			 * @return WINP_Plugin
-			 */
-			public static function app()
-			{
-				return self::$app;
-			}
-
-			/**
-			 * @return bool
-			 */
-			public function currentUserCan()
-			{
-				return current_user_can('manage_options');
-			}
-
-			protected function setTextDomain()
-			{
-
-				load_plugin_textdomain('insert-php', false, dirname(WINP_PLUGIN_BASE) . '/languages/');
-			}
-			
-			protected function setModules()
-			{
-
-				$this->load(array(
-					array('libs/factory/bootstrap', 'factory_bootstrap_404', 'admin'),
-					array('libs/factory/forms', 'factory_forms_405', 'admin'),
-					array('libs/factory/pages', 'factory_pages_405', 'admin'),
-					array('libs/factory/types', 'factory_types_404'),
-					array('libs/factory/taxonomies', 'factory_taxonomies_324'),
-					array('libs/factory/metaboxes', 'factory_metaboxes_403', 'admin'),
-					array('libs/factory/viewtables', 'factory_viewtables_403', 'admin'),
-					array('libs/factory/shortcodes', 'factory_shortcodes_324', 'all'),
-					array('libs/factory/notices', 'factory_notices_403', 'admin'),
-
-				));
-			}
-
-			private function registerPages()
-			{
-				$this->registerPage('WINP_ExportPage', WINP_PLUGIN_DIR . '/admin/pages/export.php');
-				$this->registerPage('WINP_SettingsPage', WINP_PLUGIN_DIR . '/admin/pages/settings.php');
-			}
-
-			private function registerTypes()
-			{
-				$this->registerType('WSC_TasksItemType', WINP_PLUGIN_DIR . '/admin/types/snippets-post-types.php');
-
-				require_once(WINP_PLUGIN_DIR . '/admin/types/snippets-taxonomy.php');
-				Wbcr_FactoryTaxonomies324::register('WINP_SnippetsTaxonomy', $this);
-			}
-
-			private function registerShortcodes()
-			{
-				require_once(WINP_PLUGIN_DIR . '/includes/shortcodes.php');
-				Wbcr_FactoryShortcodes324::register('WINP_SnippetShortcode', $this);
-			}
-
-			private function adminScripts()
-			{
-				require_once(WINP_PLUGIN_DIR . '/admin/includes/class.snippets.viewtable.php');
-				require_once(WINP_PLUGIN_DIR . '/admin/boot.php');
-
-				$this->registerTypes();
-				$this->registerPages();
-			}
-			
-			private function globalScripts()
-			{
-				$this->registerShortcodes();
-
-				add_action('plugins_loaded', array($this, 'executeActiveSnippets'), 1);
-			}
-
-			/**
-			 *  Execute the snippets once the plugins are loaded
-			 */
-			public function executeActiveSnippets()
-			{
-				global $wpdb;
-
-				$save_mode = false;
-
-				if( isset($_REQUEST['wbcr-php-snippets-safe-mode']) && !isset($_COOKIE['wbcr-php-snippets-safe-mode']) && $this->currentUserCan() ) {
-					$save_mode = true;
-					setcookie("wbcr-php-snippets-safe-mode", 1, time() + 3600);
+				if ( WINP_Helper::doing_ajax() ) {
+					require( WINP_PLUGIN_DIR . '/admin/ajax/ajax.php' );
+					require( WINP_PLUGIN_DIR . '/admin/ajax/check-license.php' );
+					require( WINP_PLUGIN_DIR . '/admin/ajax/snippet-library.php' );
 				}
 
-				$snippets = $wpdb->get_results("SELECT {$wpdb->posts}.ID FROM {$wpdb->posts} INNER JOIN {$wpdb->postmeta} ON ( {$wpdb->posts}.ID = {$wpdb->postmeta}.post_id ) WHERE (
-				( {$wpdb->postmeta}.meta_key = '" . $this->getPrefix() . "snippet_scope' AND {$wpdb->postmeta}.meta_value = 'evrywhere' )
-) AND {$wpdb->posts}.post_type = '" . WINP_SNIPPETS_POST_TYPE . "' AND (({$wpdb->posts}.post_status = 'publish'))");
-
-				if( empty($snippets) ) {
-					return;
-				}
-
-				foreach((array)$snippets as $snippet) {
-					$id = (int)$snippet->ID;
-
-					$is_active = (int)WINP_Helper::getMetaOption($id, 'snippet_activate', 0);
-					$code = WINP_Helper::getMetaOption($id, 'snippet_code');
-
-					if( $is_active ) {
-						if( isset($_POST['wbcr_inp_snippet_scope']) && isset($_POST['post_ID']) && (int)$_POST['post_ID'] === $id && $this->currentUserCan() ) {
-							return;
-						}
-
-						if( ($save_mode || isset($_COOKIE['wbcr-php-snippets-safe-mode'])) && $this->currentUserCan() ) {
-							return;
-						}
-
-						$this->executeSnippet($code, $id);
-					}
-				}
-			}
-
-			/**
-			 * Execute a snippet
-			 *
-			 * Code must NOT be escaped, as
-			 * it will be executed directly
-			 *
-			 * @param string $code The snippet code to execute
-			 * @param int $id The snippet ID
-			 * @param bool $catch_output Whether to attempt to suppress the output of execution using buffers
-			 *
-			 * @return mixed        The result of the code execution
-			 */
-			public function executeSnippet($code, $id = 0, $catch_output = true)
-			{
-
-				if( empty($code) ) {
-					return false;
-				}
-
-				if( $catch_output ) {
-					ob_start();
-				}
-
-				$result = eval($code);
-
-				if( $catch_output ) {
-					ob_end_clean();
-				}
-
-				return $result;
-			}
-
-			/**
-			 * Retrieve the first error in a snippet's code
-			 *
-			 * @param int $snippet_id
-			 *
-			 * @return array|bool
-			 */
-			public function getSnippetError($snippet_id)
-			{
-				if( !intval($snippet_id) ) {
-					return false;
-				}
-
-				$snippet_code = WINP_Helper::getMetaOption($snippet_id, 'snippet_code');
-
-				$result = $this->executeSnippet($snippet_code, $snippet_id);
-
-				if( false !== $result ) {
-					return false;
-				}
-
-				$error = error_get_last();
-
-				if( is_null($error) ) {
-					return false;
-				}
-
-				return $error;
+				$this->load_backend();
 			}
 		}
+
+		/**
+		 * @return WINP_Plugin
+		 */
+		public static function app() {
+			return self::$app;
+		}
+
+		/**
+		 * @return bool
+		 */
+		public function currentUserCan() {
+			return current_user_can( 'manage_options' );
+		}
+
+		/**
+		 * Get Execute_Snippet object
+		 *
+		 * @return WINP_Execute_Snippet
+		 */
+		public function getExecuteObject() {
+			require_once( WINP_PLUGIN_DIR . '/includes/class.execute.snippet.php' );
+
+			return new WINP_Execute_Snippet();
+		}
+
+		/**
+		 * Get WINP_Api object
+		 *
+		 * @return WINP_Api
+		 */
+		public function get_api_object() {
+			require_once( WINP_PLUGIN_DIR . '/admin/includes/class.api.php' );
+
+			return new WINP_Api();
+		}
+
+		/**
+		 * Get WINP_Common_Snippet object
+		 *
+		 * @return WINP_Common_Snippet
+		 */
+		public function get_common_object() {
+			require_once( WINP_PLUGIN_DIR . '/admin/includes/class.common.snippet.php' );
+
+			return new WINP_Common_Snippet();
+		}
+
+		/**
+		 * @author Alexander Kovalev <alex.kovalevv@gmail.com>
+		 * @since  2.2.0
+		 * @throws \Exception
+		 */
+		/*public function plugins_loaded() {
+			$this->register_pages();
+		}*/
+
+		protected function initActivation() {
+			include_once( WINP_PLUGIN_DIR . '/admin/activation.php' );
+			$this->registerActivation( 'WINP_Activation' );
+		}
+
+		/**
+		 * @author  Alexander Kovalev <alex.kovalevv@gmail.com>
+		 * @since   2.2.0
+		 * @throws \Exception
+		 */
+		public function register_pages() {
+			require_once( WINP_PLUGIN_DIR . '/admin/pages/page.php' );
+
+			$this->registerPage( 'WINP_NewItemPage', WINP_PLUGIN_DIR . '/admin/pages/new-item.php' );
+			$this->registerPage( 'WINP_SettingsPage', WINP_PLUGIN_DIR . '/admin/pages/settings.php' );
+			$this->registerPage( 'WINP_SnippetLibraryPage', WINP_PLUGIN_DIR . '/admin/pages/snippet-library.php' );
+			$this->registerPage( 'WINP_License_Page', WINP_PLUGIN_DIR . '/admin/pages/license.php' );
+			$this->registerPage( 'WINP_AboutPage', WINP_PLUGIN_DIR . '/admin/pages/about.php' );
+		}
+
+		/**
+		 * @author  Alexander Kovalev <alex.kovalevv@gmail.com>
+		 * @since   2.2.0
+		 * @throws \Exception
+		 */
+		public function register_depence_pages() {
+			require_once( WINP_PLUGIN_DIR . '/admin/pages/page.php' );
+
+			if ( ! ( defined( 'WASP_PLUGIN_ACTIVE' ) && WASP_PLUGIN_ACTIVE ) ) {
+				$this->registerPage( 'WINP_ImportPage', WINP_PLUGIN_DIR . '/admin/pages/import.php' );
+			}
+		}
+
+		/**
+		 * @author  Alexander Kovalev <alex.kovalevv@gmail.com>
+		 * @since   2.2.0
+		 * @throws \Exception
+		 */
+		private function register_types() {
+			require_once( WINP_PLUGIN_DIR . '/admin/types/snippets-post-types.php' );
+			Wbcr_FactoryTypes410::register( 'WINP_SnippetsType', $this );
+
+			require_once( WINP_PLUGIN_DIR . '/admin/types/snippets-taxonomy.php' );
+			Wbcr_FactoryTaxonomies330::register( 'WINP_SnippetsTaxonomy', $this );
+		}
+
+		/**
+		 * @author Alexander Kovalev <alex.kovalevv@gmail.com>
+		 * @since  2.2.0
+		 */
+		private function register_shortcodes() {
+			$is_cron = WINP_Helper::doing_cron();
+			$is_rest = WINP_Helper::doing_rest_api();
+
+			$action = WINP_Plugin::app()->request->get( 'action', '' );
+			if ( ! ( 'edit' == $action && is_admin() ) && ! $is_cron && ! $is_rest ) {
+				if ( WINP_Plugin::app()->getOption( 'support_old_shortcodes' ) ) {
+					// todo: Deprecated
+					require_once( WINP_PLUGIN_DIR . '/includes/shortcodes/shortcode-insert-php.php' );
+				}
+
+				require_once( WINP_PLUGIN_DIR . '/includes/shortcodes/shortcodes.php' );
+				require_once( WINP_PLUGIN_DIR . '/includes/shortcodes/shortcode-php.php' );
+				require_once( WINP_PLUGIN_DIR . '/includes/shortcodes/shortcode-text.php' );
+				require_once( WINP_PLUGIN_DIR . '/includes/shortcodes/shortcode-universal.php' );
+				require_once( WINP_PLUGIN_DIR . '/includes/shortcodes/shortcode-css.php' );
+				require_once( WINP_PLUGIN_DIR . '/includes/shortcodes/shortcode-js.php' );
+				require_once( WINP_PLUGIN_DIR . '/includes/shortcodes/shortcode-html.php' );
+
+				WINP_Helper::register_shortcode( 'WINP_SnippetShortcodePhp', $this );
+				WINP_Helper::register_shortcode( 'WINP_SnippetShortcodeText', $this );
+				WINP_Helper::register_shortcode( 'WINP_SnippetShortcodeUniversal', $this );
+				WINP_Helper::register_shortcode( 'WINP_SnippetShortcodeCss', $this );
+				WINP_Helper::register_shortcode( 'WINP_SnippetShortcodeJs', $this );
+				WINP_Helper::register_shortcode( 'WINP_SnippetShortcodeHtml', $this );
+			}
+		}
+
+		/**
+		 * Initialization and require files for backend and frontend.
+		 *
+		 * @author Alexander Kovalev <alex.kovalevv@gmail.com>
+		 * @since  2.2.0
+		 */
+		private function load_global() {
+			require_once( WINP_PLUGIN_DIR . '/admin/includes/class.gutenberg.snippet.php' );
+			new WINP_Gutenberg_Snippet();
+
+			$this->getExecuteObject()->registerHooks();
+			$this->register_shortcodes();
+
+			/**
+			 * Enables/Disable safe mode, in which the php code will not be executed.
+			 */
+			add_action( 'plugins_loaded', function () {
+				if ( isset( $_GET['wbcr-php-snippets-safe-mode'] ) ) {
+					WINP_Helper::enable_safe_mode();
+					wp_safe_redirect( remove_query_arg( [ 'wbcr-php-snippets-safe-mode' ] ) );
+					die();
+				}
+
+				if ( isset( $_GET['wbcr-php-snippets-disable-safe-mode'] ) ) {
+					WINP_Helper::disable_safe_mode();
+					wp_safe_redirect( remove_query_arg( [ 'wbcr-php-snippets-disable-safe-mode' ] ) );
+					die();
+				}
+			}, - 1 );
+		}
+
+		/**
+		 * Initialization and require files for backend.
+		 *
+		 * @author Alexander Kovalev <alex.kovalevv@gmail.com>
+		 * @since  2.2.0
+		 * @throws \Exception
+		 */
+		private function load_backend() {
+			require_once( WINP_PLUGIN_DIR . '/admin/includes/class.snippets.viewtable.php' );
+			require_once( WINP_PLUGIN_DIR . '/admin/includes/class.filter.snippet.php' );
+			require_once( WINP_PLUGIN_DIR . '/admin/includes/class.actions.snippet.php' );
+			require_once( WINP_PLUGIN_DIR . '/admin/includes/class.import.snippet.php' );
+			require_once( WINP_PLUGIN_DIR . '/admin/includes/class.notices.php' );
+			require_once( WINP_PLUGIN_DIR . '/admin/includes/class.request.php' );
+			require_once( WINP_PLUGIN_DIR . '/admin/includes/class.dashboard.widget.php' );
+			require_once( WINP_PLUGIN_DIR . '/admin/metaboxes/metabox.php' );
+			require_once( WINP_PLUGIN_DIR . '/admin/boot.php' );
+
+			$this->get_common_object()->registerHooks();
+
+			$this->register_types();
+
+			new WINP_Filter_List();
+			new WINP_Export_Snippet();
+			new WINP_Import_Snippet();
+			new WINP_WarningNotices();
+			new WINP_Dashboard_Widget();
+
+			# Required for i18n to be loaded properly
+			add_action( 'plugins_loaded', [ $this, 'register_pages' ] );
+
+			# Required for compatibility with the premium plugin.
+			# We set the priority to 30 to wait for the premium plugin to load.
+			add_action( 'plugins_loaded', [ $this, 'register_depence_pages' ], 30 );
+		}
 	}
+}

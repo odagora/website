@@ -14,13 +14,13 @@
 		exit;
 	}
 
-	if( !class_exists('Wbcr_FactoryForms405_CustomElement') ) {
+	if( !class_exists('Wbcr_FactoryForms417_CustomElement') ) {
 		/**
 		 * The base class for all controls.
 		 *
 		 * @since 1.0.0
 		 */
-		abstract class Wbcr_FactoryForms405_CustomElement extends Wbcr_FactoryForms405_FormElement {
+		abstract class Wbcr_FactoryForms417_CustomElement extends Wbcr_FactoryForms417_FormElement {
 
 			/**
 			 * Is this element a custom form element?
