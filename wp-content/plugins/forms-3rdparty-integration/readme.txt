@@ -3,7 +3,7 @@ Contributors: zaus, atlanticbt, spkane
 Donate link: http://drzaus.com/donate
 Tags: contact form, form, contact form 7, CF7, gravity forms, GF, CRM, mapping, 3rd-party service, services, remote request
 Requires at least: 3.0
-Tested up to: 4.9.6
+Tested up to: 5.2.3
 Stable tag: trunk
 License: GPLv2 or later
 
@@ -234,6 +234,14 @@ __Please note these screenshots are from the previous plugin incarnation, but ar
 
 == Changelog ==
 
+= 1.8 =
+* copy service button
+* Ninja Forms are back!  Can use Ninja Forms plugin v3.0+ again.
+
+= 1.7.9 =
+* debug message truncation with configure hooks
+* use hook `...debug_truncation` to set field length limits for each section
+
 = 1.7.8 =
 * adding per-service delimiter, supports newlines
 * 'add new service' button after metaboxes
@@ -418,6 +426,9 @@ base version, just directly submits values
 
 
 == Upgrade Notice ==
+
+= 1.8 =
+Now that Ninja Forms works again with this plugin there may be conflicts with the related sub-plugin "Forms 3rdparty File Attachments".  Please deactivate the "File Attachments" plugin if you are unable to submit your contact form.
 
 = 1.6.1 =
 Due to the new common form extension base, the way forms are identified in the settings has been changed.
