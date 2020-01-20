@@ -1641,6 +1641,12 @@ Contact Form 7
 Testimonial
  */
 
+@media only screen and (max-width: 630px) {
+	#testimonial {
+		height: 420px !important;
+	}	
+}
+ 
 #testimonial {
 	height: 500px;
 }
