@@ -1636,3 +1636,11 @@ Contact Form 7
 #quoteForm ul:not(.form_list) {
 	display: block;
 }
+
+/*
+Testimonial
+ */
+
+#testimonial {
+	height: 500px;
+}
