@@ -1650,3 +1650,10 @@ Testimonial
 #testimonial {
 	height: 500px;
 }
+
+/*	
+CTA Blog List
+ */
+article .blog_grid_con .welcome_banner {
+	display: none;
+}
