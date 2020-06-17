@@ -1657,3 +1657,41 @@ CTA Blog List
 article .blog_grid_con .welcome_banner {
 	display: none;
 }
+
+/*
+CTA Footer Banner
+ */
+.cta_banner_fixed {
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 1000;
+}
+
+.banner_btn {
+	margin: 12px 0 10px 0
+}
+
+.r-btn {
+	padding-right: 82px !important;
+	padding-left: 0 !important;
+}
+
+.footer_btn {
+	padding: 7px 8.5px !important;
+}
+
+@media (max-width: 480px) {
+	.cta_banner_fixed {
+		background: #989898;
+		text-align: center;
+		height: 50px;
+	}
+}
+
+@media (min-width:480px) {
+	.banner_md_none {
+		display: none !important;
+	}
+}
