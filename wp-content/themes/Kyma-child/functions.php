@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Theme core functions
+ */
+require get_stylesheet_directory() . '/functions/shortcodes/shortcodes.php';
+
 /*Styles*/ 
 function dequeue_kyma_unnecessary_styles(){
 	wp_dequeue_style('responsive');

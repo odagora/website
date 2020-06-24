@@ -37,12 +37,12 @@ $col = 12 / (int)$kyma_theme_options['footer_layout'];
         <div class="container clearfix">
             <div class="row">
                 <div class="col-xs-5 banner_btn l_btn">
-                    <a id="main_button" class="footer_btn" href="<?php echo esc_url(home_url('/cotizaciones')); ?>">
+                    <a id="cta1_button" class="footer_btn" href="<?php echo esc_url(home_url('/cotizaciones')); ?>">
                         <i class="fa fa-file-text" aria-hidden="true"></i> COTIZAR
                     </a>
                 </div>
                 <div class="col-xs-7 banner_btn r-btn">
-                    <a id="main_button" class="footer_btn" href="https://www.instagram.com/servitalleres/">
+                    <a id="cta2_button" class="footer_btn" href="https://www.instagram.com/servitalleres/">
                         <i class="fa fa-instagram" aria-hidden="true"></i> TRABAJOS
                     </a>
                 </div>

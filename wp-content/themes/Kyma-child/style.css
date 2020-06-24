@@ -94,6 +94,8 @@
 }
 
 #main_button,
+#cta1_button,
+#cta2_button,
 .landing_button {
 	border-color: #2e3092;
 	background: #2e3092;
@@ -231,7 +233,9 @@
 }
 
 @media only screen and (max-width: 480px) {
-	#main_button {
+	#main_button,
+	#cta1_button,
+	#cta2_button {
 		padding: 4px 8.5px;
 		font-size: 16px;
 	}
