@@ -625,9 +625,9 @@
     }
 
     .owl_text_c > span {
-        font-size: 17px !important;
-        line-height: 26px !important;
-        padding: 9px 16px !important; 
+        font-size: 17px;
+        line-height: 26px;
+        padding: 9px 16px; 
     }
 
     #enar_owl_slider .btn_a {
@@ -669,17 +669,6 @@
         top: -40px;
     }
 
-    .owl_text_b > span {
-        font-size: 16px !important;
-        padding: 6px 12px !important;
-    }
-
-    .owl_text_c > span {
-        font-size: 13px !important;
-        line-height: 22px !important;
-        padding: 5px 12px !important;
-    }
-
     .owl_text_a > span {
         font-size: 12px;
         padding: 7px 37px 7px 12px;
@@ -690,47 +679,9 @@
         line-height: 34px;
         padding: 0 4px;
     }
-
-    #enar_owl_slider .btn_a {
-        margin: 8px 0 0 !important;
-        font-size: 12px !important;
-    }
-
-    #enar_owl_slider .btn_a > span > span {
-        left: 40px;
-    }
-
-    #enar_owl_slider .btn_a > span {
-        padding-right: 30px;
-    }
-
-    #enar_owl_slider .btn_a i.in_left, #enar_owl_slider .btn_a i.in_right {
-        font-size: 12px;
-        line-height: 35px;
-        width: 30px;
-    }
-
-    #enar_owl_slider .btn_a > span > span {
-        left: 30px;
-        padding: 7px 9px !important;
-        font-size: 12px !important;
-    }
-
-/*    #enar_owl_slider .btn_a i.in_right {
-        right: -30px;
-    }*/
 }
 
 @media only screen and (max-width: 480px) {
-    .owl_text_c {
-        display: none !important;
-    }
-
-    .owl_text_b > span {
-        font-size: 15px !important;
-        padding: 5px 10px !important;
-    }
-
     .owl_text_a > span {
         font-size: 12px;
         padding: 5px 34px 5px 10px;
@@ -742,63 +693,64 @@
         padding: 0 3px;
     }
 
-    #enar_owl_slider .owl-prev, #enar_owl_slider .owl-next {
-        height: 40px;
-        top: -21px;
-        width: 40px;
+    /* #enar_owl_slider .owl-prev, #enar_owl_slider .owl-next {
+        height: 40px !important;
+        top: -21px !important;
+        width: 40px !important;
     }
 
     #enar_owl_slider .enar_owl_n > span::after {
-        height: 4px;
-        left: -4px;
-        top: -4px;
-        width: 4px;
+        height: 4px !important;
+        left: -4px !important;
+        top: -4px !important;
+        width: 4px !important;
     }
 
     #enar_owl_slider .enar_owl_n > span {
-        left: 17px;
-        top: 15px;
+        left: 17px !important;
+        top: 15px !important;
     }
 
     #enar_owl_slider .enar_owl_p > span, #enar_owl_slider .enar_owl_n > span {
-        height: 4px;
-        width: 4px;
+        height: 4px !important;
+        width: 4px !important;
     }
 
     #enar_owl_slider .enar_owl_n > span::before {
-        height: 4px;
-        left: -4px;
-        top: 4px;
-        width: 4px;
+        height: 4px !important;
+        left: -4px !important;
+        top: 4px !important;
+        width: 4px !important;
     }
 
     #enar_owl_slider .enar_owl_p > span::before {
-        height: 4px;
-        right: -4px;
-        top: 4px;
-        width: 4px;
+        height: 4px !important;
+        right: -4px !important;
+        top: 4px !important;
+        width: 4px !important;
     }
 
     #enar_owl_slider .enar_owl_p > span::after {
-        height: 4px;
-        right: -4px;
-        top: -4px;
-        width: 4px;
+        height: 4px !important;
+        right: -4px !important;
+        top: -4px !important;
+        width: 4px !important;
     }
 
     #enar_owl_slider .enar_owl_p > span {
-        left: 12px;
-        top: 15px;
-    }
+        left: 12px !important;
+        top: 15px !important;
+    } */
 }
 
-@media only screen and (max-width: 320px) {
-    .owl_slider_con .owl_text_d {
-        display: none;
-    }
-
+@media only screen and (max-width: 380px) {
     .owl_text_b > span {
         font-size: 14px !important;
+    }
+
+    .owl_text_c > span {
+        font-size: 12px !important;
+        line-height: 1.5 !important;
     }
 }
 

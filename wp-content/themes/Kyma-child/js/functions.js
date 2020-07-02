@@ -422,8 +422,8 @@
                 stopOnHover: true,
                 navigation: true,
                 navigationText: [
-                    "<span class='enar_owl_p'><span></span></span>",
-                    "<span class='enar_owl_n'><span></span></span>"
+                    "<span class='enar_owl_p'><i class='ico-angle-left'></i></span>",
+                    "<span class='enar_owl_n'><i class='ico-angle-right'></i></span>"
                 ],
                 pagination: true,
                 transitionStyle: "fadeUp" //fade - fadeUp - backSlide - goDown
@@ -445,8 +445,8 @@
                 stopOnHover: true,
                 navigation: true,
                 navigationText: [
-                    "<span class='enar_owl_p'><span></span></span>",
-                    "<span class='enar_owl_n'><span></span></span>"
+                    "<span class='enar_owl_p'><i class='ico-angle-left'></i></span>",
+                    "<span class='enar_owl_n'><i class='ico-angle-right'></i></span>"
                 ],
                 pagination: true,
             });

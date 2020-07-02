@@ -4,6 +4,7 @@
  * Theme core functions
  */
 require get_stylesheet_directory() . '/functions/shortcodes/shortcodes.php';
+require get_stylesheet_directory() . '/functions/custom/image_crop.php';
 
 /*Styles*/ 
 function dequeue_kyma_unnecessary_styles(){

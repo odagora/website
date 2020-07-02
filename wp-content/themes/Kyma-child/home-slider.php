@@ -421,10 +421,21 @@ switch ($kyma_theme_options['slider_type']) {
                     <div class="item">
                     <?php
                     if (has_post_thumbnail()):
-                        $url = wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()), 'home_slider_image');?>
-                        <img class="img-responsive" src="<?php echo esc_url($url[0]); ?>"/><?php
+                        $url = wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()), 'home_slider_image');
+                        $url_mobile = wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()), 'home_slider_image_mobile');?>
+                        <img class="img-responsive" src="<?php echo esc_url($url[0]); ?>"/>
+                        <img class="img-responsive-mobile" src="<?php echo esc_url($url_mobile[0]); ?>"/><?php
                     endif;?>
                     <div class="owl_slider_con">
+                        <?php
+                        if(get_the_title()):?>
+                            <span class="owl_text_a">
+                            <span>
+                                <span><?php the_title(); ?></span>
+                            </span>
+                        </span>
+                        <?php
+                        endif?>
                         <span
                             class="owl_text_b"><span><?php echo esc_attr(get_post_meta(get_the_ID(), 'slider_subtitle', true)); ?></span></span>
                         <span
