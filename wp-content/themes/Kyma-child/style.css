@@ -613,7 +613,9 @@
 }
 
 .normal_text_slider .enar_owl_p:hover,
-.normal_text_slider .enar_owl_n:hover {
+.normal_text_slider .enar_owl_n:hover,
+.our_client_slider .enar_owl_p:hover,
+.our_client_slider .enar_owl_n:hover {
 	color: #2e3092;
 	border-color: #2e3092;
 }
@@ -1751,3 +1753,11 @@ CTA Footer Banner
 		display: none !important;
 	}
 }
+
+/*
+WP Social Chat Plugin
+*/
+#qlwapp.qlwapp-bottom-right.qlwapp-bubble .qlwapp-toggle {
+	margin-right: 10px !important;
+}
+
