@@ -414,11 +414,11 @@
     	left: -1px !important;
 	}
 	
-	.img-responsive-mobile {
+	#enar_owl_slider .img-responsive-mobile {
 		display: block;
 	}
 
-	.img-responsive {
+	#enar_owl_slider .img-responsive {
 		display: none !important;
 	}
 }
