@@ -1,9 +1,9 @@
 === Social Media Feather | social media sharing ===
-Contributors: socialmediafeather
+Contributors: socialmediafeather, scottstorebloom
 Tags: social media, social sharing, social buttons, Facebook, Share, Like, twitter, google, Reddit, youtube, instagram, pinterest, social media buttons, button, shortcode, sidebar, sharing buttons, follow buttons
 Requires at least: 3.1
-Tested up to: 5.2.2
-Stable tag: 1.9.4
+Tested up to: 5.4.1
+Stable tag: 2.0.0
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -190,6 +190,11 @@ margin-left: 10px;
 7. This shows the available social sharing and following widgets and their settings
 
 == Changelog ==
+
+= 2.0.0 =
+* Fixed missing index error.
+* Added review us dismissable popup.
+* Tested WP 5.4.1 compatability.
 
 = 1.9.4 =
 * Removed deprecated function "create_function".

@@ -44,6 +44,8 @@
 	$currenttemplate->sliderdelay ="";
 	$currenttemplate->sliderheight ="";
 	$currenttemplate->template_misc ="";
+	$currenttemplate->read_more ="";
+	$currenttemplate->read_more_text ="read more";
 	
 	//echo $this->_token;
 	//if token = wp-google-reviews then using free version
@@ -96,6 +98,9 @@
 		
 		$createslider = htmlentities($_POST['wpfbr_t_createslider']);
 		$numslides = htmlentities($_POST['wpfbr_t_numslides']);
+		
+		$read_more = sanitize_text_field($_POST['wprevpro_t_read_more']);
+		$read_more_text = sanitize_text_field($_POST['wprevpro_t_read_more_text']);
 		
 
 		
@@ -163,7 +168,9 @@
 				'sliderdelay' => "$sliderdelay",
 				'sliderheight' => "$sliderheight",
 				'showreviewsbyid' => "$showreviewsbyid",
-				'template_misc' => "$templatemiscjson"
+				'template_misc' => "$templatemiscjson",
+				'read_more' => "$read_more",
+				'read_more_text' => "$read_more_text"
 				);
 			$format = array( 
 					'%s',
@@ -187,6 +194,8 @@
 					'%s',
 					'%s',
 					'%d',
+					'%s',
+					'%s',
 					'%s',
 					'%s'
 				); 
@@ -516,6 +525,31 @@ echo $dbmsg;
 					</div>
 					<p class="description">
 					<?php _e('Allows you to create a slide show with your reviews.', 'wp-google-reviews'); ?></p>
+				</td>
+			</tr>
+			
+						<?php
+			if(!isset($currenttemplate->read_more)){
+				$currenttemplate->read_more='';
+				$currenttemplate->read_more_text='';
+			}
+			
+			?>
+			<tr class="wprevpro_row">
+				<th scope="row">
+					<?php _e('Add Read More Link:', 'wp-review-slider-pro'); ?>
+				</th>
+				<td><div class="divtemplatestyles">
+					<label for="wprevpro_t_read_more"><?php _e('', 'wp-review-slider-pro'); ?></label>
+					<select name="wprevpro_t_read_more" id="wprevpro_t_read_more" class="mt2">
+						<option value="no" <?php if($currenttemplate->read_more=='no' || $currenttemplate->read_more==''){echo "selected";} ?>>No</option>
+						<option value="yes" <?php if($currenttemplate->read_more=='yes'){echo "selected";} ?>>Yes</option>
+					</select>
+					<label for="wprevpro_t_read_more_text">&nbsp;&nbsp;<?php _e('Read More Text:', 'wp-review-slider-pro'); ?></label>
+					<input id="wprevpro_t_read_more_text" type="text" name="wprevpro_t_read_more_text" placeholder="read more" value="<?php if($currenttemplate->read_more_text!=''){echo $currenttemplate->read_more_text;} else {echo "read more";}?>" style="width: 6em">
+					</div>
+					<p class="description">
+					<?php _e('Allows you to cut off long reviews and add a read more link that will show the rest of the review when clicked.', 'wp-review-slider-pro'); ?></p>
 				</td>
 			</tr>
 

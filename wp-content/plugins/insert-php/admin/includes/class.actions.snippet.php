@@ -185,7 +185,7 @@ class WINP_Export_Snippet {
 	 * Set up the current page to act like a downloadable file instead of being shown in the browser
 	 *
 	 * @param string $format
-	 * @param array  $ids
+	 * @param array $ids
 	 * @param string $mime_type
 	 *
 	 * @return array
@@ -205,6 +205,7 @@ class WINP_Export_Snippet {
 					'filters'         => $this->getMeta( $id, 'snippet_filters' ),
 					'changed_filters' => $this->getMeta( $id, 'changed_filters' ),
 					'scope'           => $this->getMeta( $id, 'snippet_scope' ),
+					'priority'        => $this->getMeta( $id, 'snippet_priority' ),
 					'description'     => $this->getMeta( $id, 'snippet_description' ),
 					'attributes'      => $this->getMeta( $id, 'snippet_tags' ),
 					'tags'            => $this->getTaxonomyTags( $id )
@@ -347,7 +348,7 @@ class WINP_Export_Snippet {
 				$snippet_scope = WINP_Helper::getMetaOption( $id, 'snippet_scope' );
 				$snippet_type  = WINP_Helper::get_snippet_type( $id );
 
-				if ( ( $snippet_scope == 'evrywhere' || $snippet_scope == 'auto' ) && ! $is_activate && $snippet_type != WINP_SNIPPET_TYPE_TEXT && WINP_Plugin::app()->getExecuteObject()->getSnippetError( $id ) ) {
+				if ( ( $snippet_scope == 'evrywhere' || $snippet_scope == 'auto' ) && ! $is_activate && $snippet_type != WINP_SNIPPET_TYPE_TEXT && $snippet_type != WINP_SNIPPET_TYPE_AD && WINP_Plugin::app()->getExecuteObject()->getSnippetError( $id ) ) {
 					continue;
 				}
 

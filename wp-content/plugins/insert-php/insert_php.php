@@ -4,7 +4,7 @@
  * Plugin URI: http://woody-ad-snippets.webcraftic.com/
  * Description: Executes PHP code, uses conditional logic to insert ads, text, media content and external service’s code. Ensures no content duplication.
  * Author: Will Bontrager Software, LLC <will@willmaster.com>, Webcraftic <wordpress.webraftic@gmail.com>
- * Version: 2.3.1
+ * Version: 2.3.5
  * Text Domain: insert-php
  * Domain Path: /languages/
  * Author URI: http://webcraftic.com
@@ -136,23 +136,24 @@ $plugin_info = array(
 
 	// FRAMEWORK MODULES
 	'load_factory_modules' => array(
-		array( 'libs/factory/bootstrap', 'factory_bootstrap_423', 'admin' ),
-		array( 'libs/factory/forms', 'factory_forms_420', 'admin' ),
-		array( 'libs/factory/pages', 'factory_pages_422', 'admin' ),
+		array( 'libs/factory/bootstrap', 'factory_bootstrap_430', 'admin' ),
+		array( 'libs/factory/forms', 'factory_forms_427', 'admin' ),
+		array( 'libs/factory/pages', 'factory_pages_429', 'admin' ),
 		array( 'libs/factory/types', 'factory_types_410' ),
 		array( 'libs/factory/taxonomies', 'factory_taxonomies_330' ),
 		array( 'libs/factory/metaboxes', 'factory_metaboxes_409', 'admin' ),
 		array( 'libs/factory/viewtables', 'factory_viewtables_410', 'admin' ),
 		array( 'libs/factory/shortcodes', 'factory_shortcodes_329', 'all' ),
-		array( 'libs/factory/freemius', 'factory_freemius_110', 'all' ),
-		array( 'libs/factory/adverts', 'factory_adverts_104', 'admin')
+		array( 'libs/factory/freemius', 'factory_freemius_117', 'all' ),
+		array( 'libs/factory/adverts', 'factory_adverts_109', 'admin'),
+		array( 'libs/factory/feedback', 'factory_feedback_104', 'admin')
 	),
 );
 
 /**
  * Checks compatibility with WordPress, php and other plugins.
  */
-$wbcr_compatibility = new Wbcr_Factory422_Requirements( __FILE__, array_merge( $plugin_info, array(
+$wbcr_compatibility = new Wbcr_Factory429_Requirements( __FILE__, array_merge( $plugin_info, array(
 	'plugin_already_activate' => defined( 'WINP_PLUGIN_ACTIVE' ),
 	'required_php_version'    => '5.4',
 	'required_wp_version'     => '4.2.0',
@@ -196,6 +197,7 @@ define( 'WINP_SNIPPET_TYPE_UNIVERSAL', 'universal' );
 define( 'WINP_SNIPPET_TYPE_CSS', 'css' );
 define( 'WINP_SNIPPET_TYPE_JS', 'js' );
 define( 'WINP_SNIPPET_TYPE_HTML', 'html' );
+define( 'WINP_SNIPPET_TYPE_AD', 'advert' );
 
 // The snippet automatic insertion locations
 define( 'WINP_SNIPPET_AUTO_HEADER', 'header' );

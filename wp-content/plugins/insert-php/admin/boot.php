@@ -66,7 +66,7 @@ add_action( 'admin_init', function () {
 			if ( WINP_Helper::is_need_show_about_page() ) {
 				try {
 					$redirect_url = '';
-					if ( class_exists( 'Wbcr_FactoryPages422' ) ) {
+					if ( class_exists( 'Wbcr_FactoryPages429' ) ) {
 						$redirect_url = WINP_Plugin::app()->getPluginPageUrl( 'about', [ 'wbcr_inp_about_page_viewed' => 1 ] );
 					}
 					if ( $redirect_url ) {

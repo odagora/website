@@ -175,8 +175,7 @@ function openpopup(title, body, body2){
 				//console.log(autocomplete);
 				var autocomplete = new google.maps.places.Autocomplete(input[index]);
 				//var autocomplete = new google.maps.places.SearchBox(input[index]);
-
-				
+				//console.log(autocomplete);
 				//Handle type select field
 				
 				$(types).on('change', function () {
@@ -206,6 +205,7 @@ function openpopup(title, body, body2){
 		function add_autocomplete_listener(autocomplete, input) {
 			google.maps.event.addListener(autocomplete, 'place_changed', function () {
 				var place = autocomplete.getPlace();
+				//console.log(place);
 				if (!place.place_id) {
 					//alert('No place reference found for this location.');
 					return false;

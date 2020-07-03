@@ -69,7 +69,7 @@ class WP_Google_Reviews {
 	public function __construct() {
 
 		$this->_token = 'wp-google-reviews';
-		$this->version = '6.4';
+		$this->version = '6.8';
 		//using this for development
 		//$this->version = time();
 
@@ -123,6 +123,45 @@ class WP_Google_Reviews {
 
 			require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
 			dbDelta( $sql );
+			
+			//create template posts table in dbDelta 
+			$table_name = $wpdb->prefix . 'wpfb_post_templates';
+			
+			$sql = "CREATE TABLE $table_name (
+				id mediumint(9) NOT NULL AUTO_INCREMENT,
+				title varchar(200) DEFAULT '' NOT NULL,
+				template_type varchar(7) DEFAULT '' NOT NULL,
+				style int(2) NOT NULL,
+				created_time_stamp int(12) NOT NULL,
+				display_num int(2) NOT NULL,
+				display_num_rows int(3) NOT NULL,
+				display_order varchar(6) DEFAULT '' NOT NULL,
+				hide_no_text varchar(3) DEFAULT '' NOT NULL,
+				template_css text NOT NULL,
+				min_rating int(2) NOT NULL,
+				min_words int(4) NOT NULL,
+				max_words int(4) NOT NULL,
+				rtype varchar(20) DEFAULT '' NOT NULL,
+				rpage varchar(200) DEFAULT '' NOT NULL,
+				createslider varchar(3) DEFAULT '' NOT NULL,
+				numslides int(2) NOT NULL,
+				sliderautoplay varchar(3) DEFAULT '' NOT NULL,
+				sliderdirection varchar(3) DEFAULT '' NOT NULL,
+				sliderarrows varchar(3) DEFAULT '' NOT NULL,
+				sliderdots varchar(3) DEFAULT '' NOT NULL,
+				sliderdelay int(2) NOT NULL,
+				sliderheight varchar(3) DEFAULT '' NOT NULL,
+				showreviewsbyid varchar(600) DEFAULT '' NOT NULL,
+				template_misc varchar(200) DEFAULT '' NOT NULL,
+				read_more varchar(3) DEFAULT '' NOT NULL,
+				read_more_num int(4) NOT NULL,
+				read_more_text varchar(50) DEFAULT '' NOT NULL,
+				UNIQUE KEY id (id)
+			) $charset_collate;";
+			
+			dbDelta( $sql );
+			
+			
 		}
 		
 		update_option( $this->_token . '_current_db_version', $this->version );

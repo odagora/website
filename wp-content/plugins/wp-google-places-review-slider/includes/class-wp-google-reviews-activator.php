@@ -113,6 +113,9 @@ class WP_Google_Reviews_Activator {
 			sliderheight varchar(3) DEFAULT '' NOT NULL,
 			showreviewsbyid varchar(600) DEFAULT '' NOT NULL,
 			template_misc varchar(200) DEFAULT '' NOT NULL,
+			read_more varchar(3) DEFAULT '' NOT NULL,
+			read_more_num int(4) NOT NULL,
+			read_more_text varchar(50) DEFAULT '' NOT NULL,
 			UNIQUE KEY id (id)
 		) $charset_collate;";
 		

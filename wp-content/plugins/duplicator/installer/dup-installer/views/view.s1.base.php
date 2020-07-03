@@ -40,7 +40,6 @@ $datetime1	= $GLOBALS['DUPX_AC']->created;
 $datetime2	= date("Y-m-d H:i:s");
 $fulldays	= round(abs(strtotime($datetime1) - strtotime($datetime2))/86400);
 $root_path	= DupLiteSnapLibIOU::safePath($GLOBALS['DUPX_ROOT'], true);
-$archive_path	= DupLiteSnapLibIOU::safePath($GLOBALS['FW_PACKAGE_PATH'], true);
 $wpconf_path	= "{$root_path}/wp-config.php";
 $max_time_zero	= ($GLOBALS['DUPX_ENFORCE_PHP_INI']) ? false : @set_time_limit(0);
 $max_time_size	= 314572800;  //300MB
@@ -95,14 +94,12 @@ $zip_archive_enabled = class_exists('ZipArchive') ? 'Enabled' : 'Not Enabled';
 $archive_config  = DUPX_ArchiveConfig::getInstance();
 ?>
 
-<form id="s1-input-form" method="post" class="content-form">
+<form id="s1-input-form" method="post" class="content-form" autocomplete="off">
 <input type="hidden" name="view" value="step1" />
 <input type="hidden" name="csrf_token" value="<?php echo DUPX_CSRF::generate('step1'); ?>"> 
 <input type="hidden" name="ctrl_action" value="ctrl-step1" />
 <input type="hidden" name="ctrl_csrf_token" value="<?php echo DUPX_U::esc_attr(DUPX_CSRF::generate('ctrl-step1')); ?>"> 
 <input type="hidden" name="secure-pass" value="<?php echo DUPX_U::esc_html($_POST['secure-pass']); ?>" />
-<input type="hidden" name="bootloader" value="<?php echo DUPX_U::esc_attr($GLOBALS['BOOTLOADER_NAME']); ?>" />
-<input type="hidden" name="archive" value="<?php echo DUPX_U::esc_attr($GLOBALS['FW_PACKAGE_PATH']); ?>" />
 <input type="hidden" id="s1-input-form-extra-data" name="extra_data" />
 
 <div class="hdr-main">
@@ -713,13 +710,11 @@ OPTIONS
 <!-- =========================================
 VIEW: STEP 1 - DB QUICK TEST
 ========================================= -->
-<form id="s1-dbtest-form" method="post" target="_blank">
+<form id="s1-dbtest-form" method="post" target="_blank" autocomplete="off">
 	<input type="hidden" name="dbonlytest" value="1" />
 	<input type="hidden" name="view" value="step2" />
 	<input type="hidden" name="csrf_token" value="<?php echo DUPX_CSRF::generate('step2'); ?>">
 	<input type="hidden" name="secure-pass" value="<?php echo DUPX_U::esc_attr($_POST['secure-pass']); ?>" />
-	<input type="hidden" name="bootloader" value="<?php echo DUPX_U::esc_attr($GLOBALS['BOOTLOADER_NAME']); ?>" />
-	<input type="hidden" name="archive" value="<?php echo DUPX_U::esc_attr($GLOBALS['FW_PACKAGE_PATH']); ?>" />
 </form>
 
 
@@ -727,7 +722,7 @@ VIEW: STEP 1 - DB QUICK TEST
 VIEW: STEP 1 - AJAX RESULT
 Auto Posts to view.step2.php
 ========================================= -->
-<form id='s1-result-form' method="post" class="content-form" style="display:none">
+<form id='s1-result-form' method="post" class="content-form" style="display:none" autocomplete="off">
 
     <div class="dupx-logfile-link"><?php DUPX_View_Funcs::installerLogLink(); ?></div>
     <div class="hdr-main">
@@ -741,8 +736,6 @@ Auto Posts to view.step2.php
         <input type="hidden" name="view" value="step2" />
 		<input type="hidden" name="csrf_token" value="<?php echo DUPX_CSRF::generate('step2'); ?>">
 		<input type="hidden" name="secure-pass" value="<?php echo DUPX_U::esc_attr($_POST['secure-pass']); ?>" />
-		<input type="hidden" name="bootloader" value="<?php echo DUPX_U::esc_attr($GLOBALS['BOOTLOADER_NAME']); ?>" />
-		<input type="hidden" name="archive" value="<?php echo DUPX_U::esc_attr($GLOBALS['FW_PACKAGE_PATH']); ?>" />
 		<input type="hidden" name="logging" id="ajax-logging"  />
         <input type="hidden" name="config_mode" id="ajax-config-mode" />
         <input type="hidden" name="exe_safe_mode" id="exe-safe-mode"  value="0" />
@@ -1061,16 +1054,11 @@ DUPX.kickOffDupArchiveExtract = function ()
 	var isClientSideKickoff = DUPX.isClientSideKickoff();
 
 	request.action = "start_expand";
-	request.archive_filepath = '<?php echo DUPX_U::esc_js($archive_path); ?>';
 	request.restore_directory = '<?php echo DUPX_U::esc_js($root_path); ?>';
 	request.worker_time = DUPX.DAWS.KickoffWorkerTimeInSec;
 	request.client_driven = isClientSideKickoff ? 1 : 0;
 	request.throttle_delay = DUPX.throttleDelay;
 	request.filtered_directories = ['dup-installer'];
-
-    if(!DUPX.areConfigFilesPreserved()) {
-        request.file_renames = {".htaccess":"htaccess.orig"};
-    }
 
 	var requestString = JSON.stringify(request);
 

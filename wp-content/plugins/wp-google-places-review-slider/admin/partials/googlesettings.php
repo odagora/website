@@ -36,8 +36,9 @@
 include("tabmenu.php");
 ?>	
 	
-	<div>
+	<div><br>
 	<b>Important Notes:</b><br>
+	- Google recently changed their Places API and now your business <b>must have a physical location</b> for this plugin to work. The pro version will still work for all locations.<br>
 	- Google only allows a max 5 reviews to be downloaded. Use the "Auto Fetch Reviews" setting to slowly build up your database.<br>
 	- The Pro version allows you to grab all your reviews not just your 5 Most Helpful using our new Review Funnel feature! You can also retrieve reviews for multiple places.<br>
 	- If you run in to any trouble please feel free to contact me using the plugin forum <a href="https://wordpress.org/support/plugin/wp-google-places-review-slider/" target="_blank">here</a> or the contact form on the bottom of this <a href="https://ljapps.com/wp-review-slider-pro/" target="_blank">page</a>.

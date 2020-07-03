@@ -45,60 +45,60 @@ function synved_connect_version_string()
 function synved_connect_object()
 {
 	global $synved_connect;
-	
+
 	return $synved_connect;
 }
 
 function synved_connect_server_get()
 {
 	global $synved_connect;
-	
+
 	if (isset($synved_connect['server']))
 	{
 		return $synved_connect['server'];
 	}
-	
+
 	return null;
 }
 
 function synved_connect_server_set($server)
 {
 	global $synved_connect;
-	
+
 	$synved_connect['server'] = $server;
 }
 
 function synved_connect_path_uri($path = null)
 {
 	$uri = plugins_url('/synved-wp-connect') . '/synved-connect';
-	
+
 	if (function_exists('synved_plugout_module_uri_get'))
 	{
 		$mod_uri = synved_plugout_module_uri_get('synved-connect');
-		
+
 		if ($mod_uri != null)
 		{
 			$uri = $mod_uri;
 		}
 	}
-	
+
 	if ($path != null)
 	{
 		if (substr($uri, -1) != '/' && $path[0] != '/')
 		{
 			$uri .= '/';
 		}
-		
+
 		$uri .= $path;
 	}
-	
+
 	return $uri;
 }
 
 function synved_connect_id_get($component = null, $part = null)
 {
 	$option_key = null;
-	
+
 	if ($component != null)
 	{
 		$option_key = 'component_' . $component;
@@ -107,7 +107,7 @@ function synved_connect_id_get($component = null, $part = null)
 	{
 		$option_key = 'default';
 	}
-	
+
 	$id = get_option('synved_connect_id_' . $option_key);
 
 	return $id;
@@ -116,7 +116,7 @@ function synved_connect_id_get($component = null, $part = null)
 function synved_connect_id_set($component = null, $sponsor_id)
 {
 	$option_key = null;
-	
+
 	if ($component != null)
 	{
 		$option_key = 'component_' . $component;
@@ -125,7 +125,7 @@ function synved_connect_id_set($component = null, $sponsor_id)
 	{
 		$option_key = 'default';
 	}
-	
+
 	return update_option('synved_connect_id_' . $option_key, $sponsor_id);
 }
 
@@ -133,9 +133,9 @@ function synved_connect_id_set($component = null, $sponsor_id)
 function synved_connect_enqueue_scripts()
 {
 	$uri = synved_connect_path_uri();
-	
+
 	wp_register_style('synved-connect-admin', $uri . '/style/admin.css', false, '1.0');
-	
+
 	wp_enqueue_style('synved-connect-admin');
 
 	if ( version_compare( get_bloginfo( 'version' ), SYNVED_WP_MODERN_VERSION, 'lt' ) ) {
@@ -178,3 +178,11 @@ function synved_connect_upgrade( $version ) {
 
 add_action( 'init', 'synved_connect_init', 9 );
 add_action( 'admin_enqueue_scripts', 'synved_connect_enqueue_scripts' );
+add_action('wp_ajax_smf_ajax_hide_review', 'smfHideReview');
+
+function smfHideReview()
+{
+	update_option('smf-hide-review', true);
+
+	wp_send_json_success('hidden');
+}

@@ -51,6 +51,7 @@ class WP_Google_Reviews_Public {
 
 		$this->_token = $plugintoken;
 		$this->version = $version;
+		//$this->version = time();
 		
 		
 	}
@@ -118,7 +119,7 @@ class WP_Google_Reviews_Public {
 		//wp_enqueue_script( $this->_token."_unslider-min", plugin_dir_url( __FILE__ ) . 'js/wprs-unslider-min.js', array( 'jquery' ), $this->version, false );
 		
 		//combine the js files
-		wp_enqueue_script( $this->_token."_plublic_comb", plugin_dir_url( __FILE__ ) . 'js/wprev-public-com-min.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->_token."_plublic_comb", plugin_dir_url( __FILE__ ) . 'js/wprev-public-com-min.js', array( 'jquery' ), $this->version, true );
 
 	}
 	

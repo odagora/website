@@ -58,6 +58,24 @@ for ($x = 0; $x < count($rowarray); $x++) {
 		if($review->review_text !=""){
 			$reviewtext = $review->review_text;
 		}
+		
+		//if read more is turned on then divide then add read more span links
+		if($currentform[0]->read_more_text==''){
+			$currentform[0]->read_more_text = 'read more';
+		}
+		if(	$currentform[0]->read_more=="yes"){
+			$readmorenum = 30;
+			$countwords = str_word_count($reviewtext);
+			
+			if($countwords>$readmorenum){
+				//split in to array
+				$pieces = explode(" ", $reviewtext);
+				//slice the array in to two
+				$part1 = array_slice($pieces, 0, $readmorenum);
+				$part2 = array_slice($pieces, $readmorenum);
+				$reviewtext = implode(" ",$part1)."<a class='wprs_rd_more'>... ".$currentform[0]->read_more_text."</a><span class='wprs_rd_more_text' style='display:none;'> ".implode(" ",$part2)."</span>";
+			}
+		}
 
 		//per a row
 		if($currentform[0]->display_num>0){

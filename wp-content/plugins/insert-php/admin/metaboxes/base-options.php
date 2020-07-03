@@ -30,7 +30,7 @@ class WINP_BaseOptionsMetaBox extends Wbcr_FactoryMetaboxes409_FormMetabox {
 	 */
 	public $priority = 'core';
 
-	public $css_class = 'factory-bootstrap-423 factory-fontawesome-000';
+	public $css_class = 'factory-bootstrap-430 factory-fontawesome-000';
 
 	protected $errors = [];
 	protected $source_channel;
@@ -42,13 +42,21 @@ class WINP_BaseOptionsMetaBox extends Wbcr_FactoryMetaboxes409_FormMetabox {
 
 		$this->title = __( 'Base options', 'insert-php' );
 
-		add_action( 'admin_head', [ $this, 'removeMediaButton' ] );
 		add_action( 'admin_footer', [ $this, 'adminFooter' ] );
 		add_action( 'admin_enqueue_scripts', [ $this, 'deregisterDefaultEditorResourses' ] );
 
 		$snippet_type = WINP_Helper::get_snippet_type();
 
-		if ( $snippet_type !== WINP_SNIPPET_TYPE_TEXT ) {
+		if ( $snippet_type !== WINP_SNIPPET_TYPE_AD ) {
+			add_action( 'admin_head', [ $this, 'removeMediaButton' ] );
+		} else {
+			// Установим HTML (текстовый) редактор, редактором по умолчанию
+			add_filter( 'wp_default_editor', function ( $type ) {
+				return 'html';
+			} );
+		}
+
+		if ( $snippet_type !== WINP_SNIPPET_TYPE_TEXT && $snippet_type !== WINP_SNIPPET_TYPE_AD ) {
 			add_action( 'admin_footer-post.php', [ $this, 'printCodeEditorScripts' ], 99 );
 			add_action( 'admin_footer-post-new.php', [ $this, 'printCodeEditorScripts' ], 99 );
 			add_action( 'edit_form_after_editor', [ $this, 'php_editor_markup' ], 10, 1 );
@@ -57,6 +65,7 @@ class WINP_BaseOptionsMetaBox extends Wbcr_FactoryMetaboxes409_FormMetabox {
 		add_action( 'admin_body_class', [ $this, 'admin_body_class' ] );
 		add_action( 'edit_form_top', [ $this, 'editFormTop' ] );
 		add_action( 'post_submitbox_misc_actions', [ $this, 'post_submitbox_misc_actions' ] );
+		add_action( 'post_submitbox_misc_actions', [ $this, 'post_submitbox_show_shortcode' ] );
 		add_action( 'edit_form_after_title', [ $this, 'keep_html_entities' ] );
 
 		add_filter( 'pre_post_content', [ $this, 'stop_post_filters' ] );
@@ -66,18 +75,19 @@ class WINP_BaseOptionsMetaBox extends Wbcr_FactoryMetaboxes409_FormMetabox {
 	/**
 	 * Configures a metabox.
 	 *
-	 * @since 1.0.0
+	 * @param Wbcr_Factory429_StyleList $styles A set of style to include.
 	 *
-	 * @param Wbcr_Factory422_StyleList  $styles    A set of style to include.
-	 *
-	 * @param Wbcr_Factory422_ScriptList $scripts   A set of scripts to include.
+	 * @param Wbcr_Factory429_ScriptList $scripts A set of scripts to include.
 	 *
 	 * @return void
+	 * @since 1.0.0
+	 *
 	 */
 	public function configure( $scripts, $styles ) {
 		//method must be overriden in the derived classed.
 		$styles->add( WINP_PLUGIN_URL . '/admin/assets/dist/css/ccm.min.css' );
 		$styles->add( WINP_PLUGIN_URL . '/admin/assets/css/code-editor-style.css' );
+		$styles->add( WINP_PLUGIN_URL . '/admin/assets/css/snippet-edit.css' );
 
 		$code_editor_theme = $this->plugin->getPopulateOption( 'code_editor_theme' );
 
@@ -104,12 +114,12 @@ class WINP_BaseOptionsMetaBox extends Wbcr_FactoryMetaboxes409_FormMetabox {
 	/**
 	 * Disable post filtering. Snippets code cannot be filtered, otherwise it will cause errors.
 	 *
-	 * @author Alexander Kovalev <alex.kovalevv@gmail.com>
-	 * @since  2.2.3
-	 *
 	 * @param $value
 	 *
 	 * @return mixed
+	 * @author Alexander Kovalev <alex.kovalevv@gmail.com>
+	 * @since  2.2.3
+	 *
 	 */
 	public function stop_post_filters( $value ) {
 		global $wbcr__has_kses, $wbcr__has_targeted_link_rel_filters;
@@ -121,7 +131,7 @@ class WINP_BaseOptionsMetaBox extends Wbcr_FactoryMetaboxes409_FormMetabox {
 
 		$snippet_type = WINP_Helper::get_snippet_type();
 
-		if ( $snippet_type !== WINP_SNIPPET_TYPE_TEXT ) {
+		if ( $snippet_type !== WINP_SNIPPET_TYPE_TEXT && $snippet_type !== WINP_SNIPPET_TYPE_AD ) {
 			// Prevent content filters from corrupting JSON in post_content.
 			$wbcr__has_kses = ( false !== has_filter( 'content_save_pre', 'wp_filter_post_kses' ) );
 			if ( $wbcr__has_kses ) {
@@ -139,12 +149,12 @@ class WINP_BaseOptionsMetaBox extends Wbcr_FactoryMetaboxes409_FormMetabox {
 	/**
 	 * Enable post filtering.
 	 *
-	 * @author Alexander Kovalev <alex.kovalevv@gmail.com>
-	 * @since  2.2.3
-	 *
 	 * @param $value
 	 *
 	 * @return mixed
+	 * @author Alexander Kovalev <alex.kovalevv@gmail.com>
+	 * @since  2.2.3
+	 *
 	 */
 	public function init_post_filters( $value ) {
 		global $wbcr__has_kses, $wbcr__has_targeted_link_rel_filters;
@@ -231,8 +241,9 @@ class WINP_BaseOptionsMetaBox extends Wbcr_FactoryMetaboxes409_FormMetabox {
 			$button_nonce = ' data-nonce="' . wp_create_nonce( "wbcr_inp_save_snippet_{$snippet_id}_as_template" ) . '"';
 
 			?>
-            <div class="factory-bootstrap-423 factory-fontawesome-000">
-                <div class="modal fade" id="winp-sync-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            <div class="factory-bootstrap-430 factory-fontawesome-000">
+                <div class="modal fade" id="winp-sync-modal" tabindex="-1" role="dialog"
+                     aria-labelledby="exampleModalLabel"
                      aria-hidden="true" style="display: none">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
@@ -260,7 +271,8 @@ class WINP_BaseOptionsMetaBox extends Wbcr_FactoryMetaboxes409_FormMetabox {
 								<?php if ( $is_key ) : ?>
                                     <input type="text" id="winp-sync-snippet-name" required
                                            placeholder="<?php _e( 'Enter template name', 'insert-php' ); ?>">
-                                    <button type="button" class="btn btn-secondary" id="winp-sync-save-button"<?php echo $button_nonce; ?>>
+                                    <button type="button" class="btn btn-secondary"
+                                            id="winp-sync-save-button"<?php echo $button_nonce; ?>>
                                         <span style="width: 40px"><?php _e( 'Save', 'insert-php' ); ?></span>
                                     </button>
                                     <div class="winp-modal-error">
@@ -315,65 +327,65 @@ class WINP_BaseOptionsMetaBox extends Wbcr_FactoryMetaboxes409_FormMetabox {
 		$code_editor_theme = $this->plugin->getPopulateOption( 'code_editor_theme' );
 		?>
         <script>
-			/* Loads CodeMirror on the snippet editor */
-			(function() {
+            /* Loads CodeMirror on the snippet editor */
+            (function () {
 
-				var atts = [];
+                var atts = [];
 
-				atts['mode'] = '<?php echo $code_editor_mode ?>';
+                atts['mode'] = '<?php echo $code_editor_mode ?>';
 
-				atts['matchBrackets'] = true;
-				atts['styleActiveLine'] = true;
-				atts['continueComments'] = true;
-				atts['autoCloseTags'] = true;
-				atts['viewportMargin'] = Infinity;
+                atts['matchBrackets'] = true;
+                atts['styleActiveLine'] = true;
+                atts['continueComments'] = true;
+                atts['autoCloseTags'] = true;
+                atts['viewportMargin'] = Infinity;
 
-				atts['inputStyle'] = 'contenteditable';
-				atts['direction'] = 'ltr';
-				atts['lint'] = true;
-				atts['gutters'] = ["CodeMirror-lint-markers"];
+                atts['inputStyle'] = 'contenteditable';
+                atts['direction'] = 'ltr';
+                atts['lint'] = true;
+                atts['gutters'] = ["CodeMirror-lint-markers"];
 
-				atts['matchTags'] = {
-					'bothTags': true
-				};
+                atts['matchTags'] = {
+                    'bothTags': true
+                };
 
-				atts['extraKeys'] = {
-					'Ctrl-Enter': function(cm) {
-						document.getElementById('post_content').submit();
-					},
-					'Ctrl-Space': 'autocomplete',
-					'Ctrl-/': 'toggleComment',
-					'Cmd-/': 'toggleComment',
-					'Alt-F': 'findPersistent',
-					'Ctrl-F': 'findPersistent',
-					'Cmd-F': 'findPersistent'
-				};
+                atts['extraKeys'] = {
+                    'Ctrl-Enter': function (cm) {
+                        document.getElementById('post_content').submit();
+                    },
+                    'Ctrl-Space': 'autocomplete',
+                    'Ctrl-/': 'toggleComment',
+                    'Cmd-/': 'toggleComment',
+                    'Alt-F': 'findPersistent',
+                    'Ctrl-F': 'findPersistent',
+                    'Cmd-F': 'findPersistent'
+                };
 
-				atts['indentWithTabs'] = <?php $this->printBool( $this->plugin->getPopulateOption( 'code_editor_indent_with_tabs', true ) ) ?>;
-				atts['tabSize'] = <?php echo (int) $this->plugin->getPopulateOption( 'code_editor_tab_size', 4 ) ?>;
-				atts['indentUnit'] = <?php echo (int) $this->plugin->getPopulateOption( 'code_editor_indent_unit', 4 ) ?>;
-				atts['lineNumbers'] = <?php $this->printBool( $this->plugin->getPopulateOption( 'code_editor_line_numbers', true ) ) ?>;
-				atts['lineWrapping'] = <?php $this->printBool( $this->plugin->getPopulateOption( 'code_editor_wrap_lines', true ) ) ?>;
-				atts['autoCloseBrackets'] = <?php $this->printBool( $this->plugin->getPopulateOption( 'code_editor_auto_close_brackets', true ) ) ?>;
+                atts['indentWithTabs'] = <?php $this->printBool( $this->plugin->getPopulateOption( 'code_editor_indent_with_tabs', true ) ) ?>;
+                atts['tabSize'] = <?php echo (int) $this->plugin->getPopulateOption( 'code_editor_tab_size', 4 ) ?>;
+                atts['indentUnit'] = <?php echo (int) $this->plugin->getPopulateOption( 'code_editor_indent_unit', 4 ) ?>;
+                atts['lineNumbers'] = <?php $this->printBool( $this->plugin->getPopulateOption( 'code_editor_line_numbers', true ) ) ?>;
+                atts['lineWrapping'] = <?php $this->printBool( $this->plugin->getPopulateOption( 'code_editor_wrap_lines', true ) ) ?>;
+                atts['autoCloseBrackets'] = <?php $this->printBool( $this->plugin->getPopulateOption( 'code_editor_auto_close_brackets', true ) ) ?>;
 				<?php if ($this->plugin->getPopulateOption( 'code_editor_highlight_selection_matches', true )) { ?>
-				atts['highlightSelectionMatches'] = {
-					showToken: true,
-					style: 'winp-matchhighlight'
-				};
+                atts['highlightSelectionMatches'] = {
+                    showToken: true,
+                    style: 'winp-matchhighlight'
+                };
 				<?php } else { ?>
-				atts['highlightSelectionMatches'] = false;
+                atts['highlightSelectionMatches'] = false;
 				<?php } ?>
 
 				<?php if(! empty( $code_editor_theme ) && $code_editor_theme != 'default'): ?>
-				atts['theme'] = '<?php echo esc_attr( $code_editor_theme ) ?>';
+                atts['theme'] = '<?php echo esc_attr( $code_editor_theme ) ?>';
 				<?php endif; ?>
 
-				Woody_CodeMirror.fromTextArea(document.getElementById('post_content'), atts);
-			})();
+                Woody_CodeMirror.fromTextArea(document.getElementById('post_content'), atts);
+            })();
 
-			jQuery(document).ready(function($) {
-				$('.wp-editor-tabs').remove();
-			});
+            jQuery(document).ready(function ($) {
+                $('.wp-editor-tabs').remove();
+            });
         </script>
 		<?php
 	}
@@ -381,7 +393,7 @@ class WINP_BaseOptionsMetaBox extends Wbcr_FactoryMetaboxes409_FormMetabox {
 	/**
 	 * Markup PHP snippet editor.
 	 *
-	 * @param Wp_Post $post   Post Object.
+	 * @param Wp_Post $post Post Object.
 	 */
 	function php_editor_markup( $post ) {
 
@@ -402,7 +414,7 @@ class WINP_BaseOptionsMetaBox extends Wbcr_FactoryMetaboxes409_FormMetabox {
 	/**
 	 * Adds one or more classes to the body tag in the dashboard.
 	 *
-	 * @param string $classes   Current body classes.
+	 * @param string $classes Current body classes.
 	 *
 	 * @return string Altered body classes.
 	 */
@@ -414,7 +426,7 @@ class WINP_BaseOptionsMetaBox extends Wbcr_FactoryMetaboxes409_FormMetabox {
 
 			$new_classes = "wbcr-inp-snippet-type-" . esc_attr( $snippet_type );
 
-			if ( $snippet_type !== WINP_SNIPPET_TYPE_TEXT ) {
+			if ( $snippet_type !== WINP_SNIPPET_TYPE_TEXT && $snippet_type !== WINP_SNIPPET_TYPE_AD ) {
 				$new_classes .= " winp-snippet-enabled";
 			}
 
@@ -477,6 +489,39 @@ class WINP_BaseOptionsMetaBox extends Wbcr_FactoryMetaboxes409_FormMetabox {
 	}
 
 	/**
+	 * Add button "Save as template" on post edit page
+	 *
+	 * @param WP_Post $post
+	 */
+	public function post_submitbox_show_shortcode( $post ) {
+		if ( empty( $post ) || ( $post->post_type != WINP_SNIPPETS_POST_TYPE ) ) {
+			return;
+		}
+
+		if ( WINP_Helper::getMetaOption( $post->ID, 'snippet_draft', false ) ) {
+			return;
+		}
+
+		$snippet_scope = WINP_Helper::getMetaOption( $post->ID, 'snippet_scope' );
+		$value         = "";
+		$shortcode     = "";
+
+		if ( $snippet_scope == 'shortcode' ) {
+			$shortcode = WINP_Helper::get_where_use_text( $post );
+		} else {
+			$value     = WINP_Helper::get_where_use_text( $post );
+			$shortcode = WINP_Helper::get_shortcode_text( $post );
+		}
+		echo "<div class='wbcr_inp_shortcode_input_container'><label for='wbcr_inp_shortcode_input'>" . __( 'Shortcode:', 'insert-php' ) . "</label>";
+		echo "<input type='text' name='wbcr_inp_shortcode_input' class='wbcr_inp_shortcode_input' value='{$shortcode}' readonly='readonly' onclick='this.setSelectionRange(0, this.value.length)'>";
+		echo "</div>";
+
+		echo "<div class='wbcr_inp_whereuse_input_container'><label for='wbcr_inp_shortcode_input'>" . __( 'Where use:', 'insert-php' ) . "</label>";
+		echo "<input type='text' name='wbcr_inp_shortcode_input' class='wbcr_inp_shortcode_input' value='{$value}' readonly='readonly'>";
+		echo "</div>";
+	}
+
+	/**
 	 * @param bool $bool_val
 	 */
 	protected function printBool( $bool_val ) {
@@ -486,11 +531,11 @@ class WINP_BaseOptionsMetaBox extends Wbcr_FactoryMetaboxes409_FormMetabox {
 	/**
 	 * Configures a form that will be inside the metabox.
 	 *
-	 * @since 1.0.0
-	 *
-	 * @param Wbcr_FactoryForms420_Form $form   A form object to configure.
+	 * @param Wbcr_FactoryForms427_Form $form A form object to configure.
 	 *
 	 * @return void
+	 * @since 1.0.0
+	 *
 	 * @see   Wbcr_FactoryMetaboxes409_FormMetabox
 	 */
 	public function form( $form ) {
@@ -505,14 +550,16 @@ class WINP_BaseOptionsMetaBox extends Wbcr_FactoryMetaboxes409_FormMetabox {
 
 			$events = [
 				'evrywhere' => [
-					'hide' => '.factory-control-snippet_custom_name',
+					'show' => '.wbcr_inp_whereuse_input_container',
+					'hide' => '.factory-control-snippet_custom_name, .wbcr_inp_shortcode_input_container',
 				],
 				'shortcode' => [
-					'show' => '.factory-control-snippet_custom_name',
+					'show' => '.factory-control-snippet_custom_name, .wbcr_inp_shortcode_input_container',
+					'hide' => '.wbcr_inp_whereuse_input_container',
 				],
 			];
 		} else {
-			if ( $snippet_type === WINP_SNIPPET_TYPE_TEXT ) {
+			if ( $snippet_type === WINP_SNIPPET_TYPE_TEXT || $snippet_type === WINP_SNIPPET_TYPE_AD ) {
 				$hint = __( 'If you want to place some content into your snippet from the shortcode just wrap it inside [wbcr_text_snippet id="xxx"]content[/wbcr_text_snippet]. To use this content inside the snippet use {{SNIPPET_CONTENT}} variable.', 'insert-php' );
 			} else {
 				$_type = $snippet_type === WINP_SNIPPET_TYPE_UNIVERSAL ? '' : '_' . $snippet_type;
@@ -527,12 +574,12 @@ class WINP_BaseOptionsMetaBox extends Wbcr_FactoryMetaboxes409_FormMetabox {
 
 			$events = [
 				'auto'      => [
-					'show' => '.factory-control-snippet_location',
-					'hide' => '.factory-control-snippet_custom_name',
+					'show' => '.factory-control-snippet_location, .wbcr_inp_whereuse_input_container',
+					'hide' => '.factory-control-snippet_custom_name, .wbcr_inp_shortcode_input_container',
 				],
 				'shortcode' => [
-					'hide' => '.factory-control-snippet_location,.factory-control-snippet_p_number',
-					'show' => '.factory-control-snippet_custom_name',
+					'hide' => '.factory-control-snippet_location,.factory-control-snippet_p_number, .wbcr_inp_whereuse_input_container',
+					'show' => '.factory-control-snippet_custom_name, .wbcr_inp_shortcode_input_container',
 				],
 			];
 		}
@@ -648,7 +695,7 @@ class WINP_BaseOptionsMetaBox extends Wbcr_FactoryMetaboxes409_FormMetabox {
 				],
 			];
 
-			if ( $snippet_type === WINP_SNIPPET_TYPE_TEXT ) {
+			if ( $snippet_type === WINP_SNIPPET_TYPE_TEXT || $snippet_type === WINP_SNIPPET_TYPE_AD ) {
 				unset( $data[0] );
 				$data = array_values( $data );
 			}
@@ -739,7 +786,7 @@ class WINP_BaseOptionsMetaBox extends Wbcr_FactoryMetaboxes409_FormMetabox {
 			'default' => '',
 		];
 
-		if ( $snippet_type !== WINP_SNIPPET_TYPE_TEXT ) {
+		if ( $snippet_type !== WINP_SNIPPET_TYPE_TEXT && $snippet_type !== WINP_SNIPPET_TYPE_AD ) {
 			$shorcode_name = $snippet_type === WINP_SNIPPET_TYPE_UNIVERSAL ? 'wbcr_snippet' : 'wbcr_' . $snippet_type . '_snippet';
 			$items[]       = [
 				'type'        => 'textbox',
@@ -868,6 +915,9 @@ class WINP_BaseOptionsMetaBox extends Wbcr_FactoryMetaboxes409_FormMetabox {
 		$linking = WINP_Plugin::app()->request->post( WINP_Plugin::app()->getPrefix() . 'snippet_linking', '', true );
 		WINP_Helper::updateMetaOption( $post_id, 'snippet_linking', $linking );
 
+		$priority = WINP_Helper::get_next_snippet_priority();
+		WINP_Helper::updateMetaOption( $post_id, 'snippet_priority', $priority );
+
 		// Save Conditional execution logic for the snippet
 		$filters = WINP_Plugin::app()->request->post( WINP_Plugin::app()->getPrefix() . 'snippet_filters', '' );
 		$filters = ! empty( $filters ) ? json_decode( stripslashes( $filters ) ) : '';
@@ -895,7 +945,7 @@ class WINP_BaseOptionsMetaBox extends Wbcr_FactoryMetaboxes409_FormMetabox {
 		$snippet_type        = WINP_Helper::get_snippet_type( $post_id );
 		$post_content        = get_post_field( 'post_content', $post_id );
 
-		if ( $snippet_type != WINP_SNIPPET_TYPE_TEXT ) {
+		if ( $snippet_type != WINP_SNIPPET_TYPE_TEXT && $snippet_type != WINP_SNIPPET_TYPE_AD ) {
 			$snippet_content = ! empty( $post_content ) ? WINP_Plugin::app()->getExecuteObject()->prepareCode( $post_content, $post_id ) : '';
 		} else {
 			$snippet_content = $post_content;
@@ -906,7 +956,7 @@ class WINP_BaseOptionsMetaBox extends Wbcr_FactoryMetaboxes409_FormMetabox {
 		$validate = true;
 
 		if ( $snippet_scope == 'evrywhere' || $snippet_scope == 'auto' ) {
-			if ( $snippet_type != WINP_SNIPPET_TYPE_TEXT && $snippet_type != WINP_SNIPPET_TYPE_CSS && $snippet_type != WINP_SNIPPET_TYPE_JS && $snippet_type != WINP_SNIPPET_TYPE_HTML ) {
+			if ( $snippet_type != WINP_SNIPPET_TYPE_TEXT && $snippet_type != WINP_SNIPPET_TYPE_AD && $snippet_type != WINP_SNIPPET_TYPE_CSS && $snippet_type != WINP_SNIPPET_TYPE_JS && $snippet_type != WINP_SNIPPET_TYPE_HTML ) {
 				$validate = $this->validateCode( $snippet_content, $snippet_type );
 			} else {
 				$validate = true;

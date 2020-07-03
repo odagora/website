@@ -62,11 +62,11 @@ if (!class_exists('rsssl_multisite')) {
             add_action("rsssl_show_network_tab_settings", array($this, 'settings_tab'));
 
             //If WP version is 5.1 or higher, use wp_insert_site hook for multisite SSL activation in new blogs
-            //if(version_compare(get_bloginfo('version'),'5.1', '>=') ) {
-            //    add_action('wp_insert_site', array($this, 'maybe_activate_ssl_in_new_blog'), 20, 1);
-            //} else {
+            if(version_compare(get_bloginfo('version'),'5.1', '>=') ) {
+	            add_action('wp_insert_site', array($this, 'maybe_activate_ssl_in_new_blog'), 20, 1);
+            } else {
                 add_action('wpmu_new_blog', array($this, 'maybe_activate_ssl_in_new_blog_deprecated'), 10, 6);
-            //}
+            }
             //Listen for run_ssl_process hook switch
             add_action('admin_init', array($this, 'listen_for_ssl_conversion_hook_switch'), 40);
 
@@ -103,15 +103,15 @@ if (!class_exists('rsssl_multisite')) {
          * @return void
          */
 
-//        public function maybe_activate_ssl_in_new_blog($site)
-//        {
-//
-//            if ($this->ssl_enabled_networkwide) {
-//                $this->switch_to_blog_bw_compatible($site);
-//                RSSSL()->really_simple_ssl->activate_ssl();
-//                restore_current_blog(); //switches back to previous blog, not current, so we have to do it each loop
-//            }
-//        }
+        public function maybe_activate_ssl_in_new_blog($site)
+        {
+
+            if ($this->ssl_enabled_networkwide) {
+                $this->switch_to_blog_bw_compatible($site);
+                RSSSL()->really_simple_ssl->activate_ssl();
+                restore_current_blog(); //switches back to previous blog, not current, so we have to do it each loop
+            }
+        }
 
 
         public function networkwide_choice_notice()
@@ -335,6 +335,11 @@ if (!class_exists('rsssl_multisite')) {
             <?php if (RSSSL()->really_simple_ssl->site_has_ssl) {
             if (is_main_site(get_current_blog_id()) && RSSSL()->really_simple_ssl->wpconfig_ok()) {
                 ?>
+                <style>
+                    #message.updated.notice.activate-ssl {
+                        padding-top: 10px;
+                    }
+                </style>
                 <div id="message" class="updated notice activate-ssl">
                     <h1><?php _e("Choose your preferred setup", "really-simple-ssl"); ?></h1>
                     <?php _e("Some things can't be done automatically. Before you migrate, please check for: ", 'really-simple-ssl'); ?>
@@ -477,6 +482,14 @@ if (!class_exists('rsssl_multisite')) {
 
         }
 
+        public function redirect_to_network_settings_page_after_activation() {
+	        $url = add_query_arg( array(
+		        "page" => "really-simple-ssl",
+	        ), network_admin_url( "settings.php" ) );
+	        wp_safe_redirect( $url );
+	        exit;
+        }
+
         public function get_process_completed_percentage(){
             $complete_count = get_site_option('rsssl_siteprocessing_progress');
 
@@ -530,7 +543,8 @@ if (!class_exists('rsssl_multisite')) {
 
         public function activate_ssl_networkwide()
         {
-            //run chunked
+
+	        //run chunked
             $nr_of_sites = 200;
             $current_offset = get_site_option('rsssl_siteprocessing_progress');
 
@@ -548,8 +562,7 @@ if (!class_exists('rsssl_multisite')) {
                     update_site_option('rsssl_siteprocessing_progress', $current_offset+$nr_of_sites);
                 }
             }
-
-
+	        $this->redirect_to_network_settings_page_after_activation();
         }
 
 

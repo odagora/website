@@ -16,7 +16,7 @@
  * Plugin Name:       WP Google Review Slider
  * Plugin URI:        http://ljapps.com/wp-review-slider-pro/
  * Description:       Allows you to easily display your Google Places business reviews in your Posts, Pages, and Widget areas!
- * Version:           6.4
+ * Version:           6.8
  * Author:            LJ Apps
  * Author URI:        http://ljapps.com/
  * License:           GPL-2.0+

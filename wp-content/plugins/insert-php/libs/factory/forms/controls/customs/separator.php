@@ -14,8 +14,8 @@
 		exit;
 	}
 
-	if( !class_exists('Wbcr_FactoryForms420_Separator') ) {
-		class Wbcr_FactoryForms420_Separator extends Wbcr_FactoryForms420_CustomElement {
+	if( !class_exists('Wbcr_FactoryForms427_Separator') ) {
+		class Wbcr_FactoryForms427_Separator extends Wbcr_FactoryForms427_CustomElement {
 
 			public $type = 'separator';
 

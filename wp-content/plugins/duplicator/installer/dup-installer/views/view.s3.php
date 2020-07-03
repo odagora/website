@@ -62,7 +62,7 @@ defined('ABSPATH') || defined('DUPXABSPATH') || exit;
 
 <!-- =========================================
 VIEW: STEP 3- INPUT -->
-<form id='s3-input-form' method="post" class="content-form">
+<form id='s3-input-form' method="post" class="content-form" autocomplete="off">
 
 	<div class="logfile-link">
 		<?php DUPX_View_Funcs::installerLogLink(); ?>
@@ -86,8 +86,6 @@ VIEW: STEP 3- INPUT -->
 		<input type="hidden" name="view"		  value="step3" />
 		<input type="hidden" name="csrf_token" value="<?php echo DUPX_CSRF::generate('step3'); ?>">
 		<input type="hidden" name="secure-pass"   value="<?php echo DUPX_U::esc_attr($_POST['secure-pass']); ?>" />
-		<input type="hidden" name="bootloader" value="<?php echo DUPX_U::esc_attr($GLOBALS['BOOTLOADER_NAME']); ?>" />
-		<input type="hidden" name="archive" value="<?php echo DUPX_U::esc_attr($GLOBALS['FW_PACKAGE_PATH']); ?>" />
 		<input type="hidden" name="logging"		  value="<?php echo DUPX_U::esc_attr($_POST['logging']); ?>" />
 		<input type="hidden" name="dbhost"		  value="<?php echo DUPX_U::esc_attr($_POST['dbhost']); ?>" />
 		<input type="hidden" name="dbuser" 		  value="<?php echo DUPX_U::esc_attr($_POST['dbuser']); ?>" />
@@ -371,7 +369,7 @@ VIEW: STEP 3- INPUT -->
 
 <!-- =========================================
 VIEW: STEP 3 - AJAX RESULT  -->
-<form id='s3-result-form' method="post" class="content-form" style="display:none">
+<form id='s3-result-form' method="post" class="content-form" style="display:none" autocomplete="off">
 
 	<div class="logfile-link"><?php DUPX_View_Funcs::installerLogLink(); ?></div>
 	<div class="hdr-main">
@@ -385,8 +383,6 @@ VIEW: STEP 3 - AJAX RESULT  -->
 		<input type="hidden" name="view"  value="step4" />
 		<input type="hidden" name="csrf_token" value="<?php echo DUPX_CSRF::generate('step4'); ?>">
 		<input type="hidden" name="secure-pass" value="<?php echo DUPX_U::esc_attr($_POST['secure-pass']); ?>" />
-		<input type="hidden" name="bootloader" value="<?php echo DUPX_U::esc_attr($GLOBALS['BOOTLOADER_NAME']); ?>" />
-	<input type="hidden" name="archive" value="<?php echo DUPX_U::esc_attr($GLOBALS['FW_PACKAGE_PATH']); ?>" />
 		<input type="hidden" name="logging" id="logging" value="<?php echo DUPX_U::esc_attr($_POST['logging']); ?>" />
 		<input type="hidden" name="url_new" id="ajax-url_new"  />
 		<input type="hidden" name="exe_safe_mode" id="ajax-exe-safe-mode" />

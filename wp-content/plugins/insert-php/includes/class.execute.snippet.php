@@ -146,11 +146,11 @@ class WINP_Execute_Snippet {
 	/**
 	 * Handle posts content
 	 *
-	 * @param string  $content
-	 * @param string  $snippet_content
+	 * @param string $content
+	 * @param string $snippet_content
 	 * @param integer $post_number
-	 * @param string  $type
-	 * @param object  $query
+	 * @param string $type
+	 * @param object $query
 	 *
 	 * @return mixed
 	 */
@@ -292,21 +292,36 @@ class WINP_Execute_Snippet {
 	 * @param string $scope
 	 * @param string $auto
 	 * @param string $content
-	 * @param array  $custom_params
+	 * @param array $custom_params
 	 *
 	 * @return string
 	 */
 	public function executeActiveSnippets( $scope = 'evrywhere', $auto = '', $content = '', $custom_params = [] ) {
 		global $wpdb;
 
-		$snippets = $wpdb->get_results( "SELECT {$wpdb->posts}.ID, {$wpdb->posts}.post_content
+		if ( $scope == 'evrywhere' ) {
+			$sort = 'DESC';
+		} else {
+			$sort = 'ASC';
+		}
+		$snippets = $wpdb->get_results( "SELECT {$wpdb->posts}.ID, {$wpdb->posts}.post_content, p2.meta_value as priority
  					FROM {$wpdb->posts}
- 					INNER JOIN {$wpdb->postmeta} ON ({$wpdb->posts}.ID = {$wpdb->postmeta}.post_id)
- 					WHERE (( {$wpdb->postmeta}.meta_key = '" . WINP_Plugin::app()->getPrefix() . "snippet_scope' 
- 					AND {$wpdb->postmeta}.meta_value = '{$scope}')) 
+ 					INNER JOIN {$wpdb->postmeta} p1 ON ({$wpdb->posts}.ID = p1.post_id)
+ 					INNER JOIN {$wpdb->postmeta} p2 ON ({$wpdb->posts}.ID = p2.post_id)
+					WHERE (( p1.meta_key = '" . WINP_Plugin::app()->getPrefix() . "snippet_scope'
+					        AND p1.meta_value = '{$scope}')
+						AND p2.meta_key = '" . WINP_Plugin::app()->getPrefix() . "snippet_priority' ) 
  					AND {$wpdb->posts}.post_type = '" . WINP_SNIPPETS_POST_TYPE . "' 
- 					AND (({$wpdb->posts}.post_status = 'publish'))" );
+ 					AND ({$wpdb->posts}.post_status = 'publish')
+ 					ORDER BY CAST(priority AS UNSIGNED) {$sort}" );
 
+//		$snippets = $wpdb->get_results( "SELECT {$wpdb->posts}.ID, {$wpdb->posts}.post_content
+// 					FROM {$wpdb->posts}
+// 					INNER JOIN {$wpdb->postmeta} ON ({$wpdb->posts}.ID = {$wpdb->postmeta}.post_id)
+// 					WHERE (( {$wpdb->postmeta}.meta_key = '" . WINP_Plugin::app()->getPrefix() . "snippet_scope'
+// 					AND {$wpdb->postmeta}.meta_value = '{$scope}'))
+// 					AND {$wpdb->posts}.post_type = '" . WINP_SNIPPETS_POST_TYPE . "'
+// 					AND (({$wpdb->posts}.post_status = 'publish'))" );
 
 		if ( empty( $snippets ) ) {
 			return $content;
@@ -335,7 +350,7 @@ class WINP_Execute_Snippet {
 
 				$snippet_code = WINP_Helper::get_snippet_code( $snippet );
 
-				if ( $snippet_type === WINP_SNIPPET_TYPE_TEXT ) {
+				if ( $snippet_type === WINP_SNIPPET_TYPE_TEXT || $snippet_type === WINP_SNIPPET_TYPE_AD ) {
 					$snippet_content = '<div class="winp-text-snippet-contanier">' . $snippet_code . '</div>';
 				} else if ( $snippet_type === WINP_SNIPPET_TYPE_CSS || $snippet_type === WINP_SNIPPET_TYPE_JS ) {
 					$snippet_content = self::getJsCssSnippetData( $id );
@@ -427,9 +442,9 @@ class WINP_Execute_Snippet {
 	 * Code must NOT be escaped, as
 	 * it will be executed directly
 	 *
-	 * @param string $code           The snippet code to execute
-	 * @param int    $id             The snippet ID
-	 * @param bool   $catch_output   Whether to attempt to suppress the output of execution using buffers
+	 * @param string $code The snippet code to execute
+	 * @param int $id The snippet ID
+	 * @param bool $catch_output Whether to attempt to suppress the output of execution using buffers
 	 *
 	 * @return mixed        The result of the code execution
 	 */
@@ -591,7 +606,7 @@ class WINP_Execute_Snippet {
 	/**
 	 * Prepare the code by removing php tags from beginning and end
 	 *
-	 * @param string  $code
+	 * @param string $code
 	 * @param integer $snippet_id
 	 *
 	 * @return string
@@ -652,9 +667,17 @@ class WINP_Execute_Snippet {
 	public function checkByOperator( $operation, $first, $second, $third = false ) {
 		switch ( $operation ) {
 			case 'equals':
-				return $first === $second;
+				if ( is_array( $second ) ) {
+					return in_array( $first, $second );
+				} else {
+					return $first === $second;
+				}
 			case 'notequal':
-				return $first !== $second;
+				if ( is_array( $second ) ) {
+					return ! in_array( $first, $second );
+				} else {
+					return $first !== $second;
+				}
 			case 'less':
 			case 'older':
 				return $first > $second;
@@ -934,15 +957,15 @@ class WINP_Execute_Snippet {
 	}
 
 	/**
-	 * A taxonomy of the current page
-	 *
-	 * @since 2.2.8 The bug is fixed, the condition was not checked
-	 *              for tachonomies, only posts.
+	 * A taxonomy page
 	 *
 	 * @param $operator
 	 * @param $value
 	 *
 	 * @return boolean
+	 * @since 2.2.8 The bug is fixed, the condition was not checked
+	 *              for tachonomies, only posts.
+	 *
 	 */
 	private function location_taxonomy( $operator, $value ) {
 		$term_id = null;
@@ -958,4 +981,31 @@ class WINP_Execute_Snippet {
 		return false;
 	}
 
+	/**
+	 * A taxonomy of the current page
+	 *
+	 * @param $operator
+	 * @param $value
+	 *
+	 * @return boolean
+	 * @since 2.4.0
+	 */
+	private function page_taxonomy( $operator, $value ) {
+		$term_id = null;
+
+		if ( is_singular() ) {
+			$post_cat = get_the_category( get_the_ID() );
+			if ( is_array( $post_cat ) ) {
+				foreach ( $post_cat as $item ) {
+					$term_id[] = $item->term_id;
+				}
+			}
+		}
+
+		if ( $term_id ) {
+			return $this->checkByOperator( $operator, intval( $value ), $term_id );
+		}
+
+		return false;
+	}
 }

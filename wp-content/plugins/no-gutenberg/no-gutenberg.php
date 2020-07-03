@@ -1,9 +1,9 @@
 <?php
 /**
- * Plugin Name: No Gutenberg - Disable Gutenberg Block Editor
+ * Plugin Name: No Gutenberg - Disable Block Editor - Back to Classic Editor
  * Plugin URI: https://servicios.ayudawp.com/
  * Description: Don't you want the new Gutenberg Block editor bundled with WordPress 5.x for compatibility reasons? Simply get rid of it! Install this plugin prior update to WordPress 5.x, activate and … That's all!
- * Version: 1.0.6
+ * Version: 1.0.7
  * Author: Fernando Tellado
  * Author URI: https://tellado.es/
  *

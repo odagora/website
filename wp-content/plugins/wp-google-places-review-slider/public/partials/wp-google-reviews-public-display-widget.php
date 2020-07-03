@@ -177,9 +177,14 @@
 				echo "<script type='text/javascript'>
 						function wprs_defer(method) {
 							if (window.jQuery) {
-								method();
+								if(jQuery.fn.wprs_unslider){
+									method();
+								} else {
+									setTimeout(function() { wprs_defer(method) }, 500);
+									console.log('waiting for wppro_rev_slider js...');									
+								}
 							} else {
-								setTimeout(function() { wprs_defer(method) }, 50);
+								setTimeout(function() { wprs_defer(method) }, 100);
 							}
 						}
 						wprs_defer(function () {

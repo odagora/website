@@ -26,7 +26,7 @@ include("tabmenu.php");
 ?>
 <div class="wpfbr_margin10">
 <div class="w3-col m8 welcomediv">
-
+<p style="color:red;"><b>Google recently changed their Places API and now your business must have a physical location for this plugin to work. The Pro version will still work for all locations. </b></p>
 	<h3>Welcome! </h3>
 	<p>Thank you for being an awesome WP Review Slider customer! If you have trouble, please don't hesitate to contact me. </p>
 	<h3>Getting Started: </h3>

@@ -681,7 +681,11 @@ class WP_Google_Reviews_Admin {
 			//get reviewer id from author url so we can display on front end
 			$intreviewer_id = filter_var($item['author_url'], FILTER_SANITIZE_NUMBER_INT);
 			
-			$reviewlength = mb_substr_count($item['text'], ' ');
+			if (extension_loaded('mbstring')) {
+				$reviewlength = mb_substr_count($item['text'], ' ');
+			} else {
+				$reviewlength = substr_count($item['text'], ' ');
+			}
 						
 			//check to see if row is in db already
 			$checkrow = $wpdb->get_var( "SELECT id FROM ".$table_name." WHERE created_time_stamp = '".$item['time']."' " );

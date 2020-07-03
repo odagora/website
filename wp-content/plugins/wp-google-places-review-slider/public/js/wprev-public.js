@@ -31,6 +31,18 @@
 	//document ready
 	$(function(){
 	 
+	 		$( ".wprs_rd_more" ).click(function() {
+			$(this ).hide();
+			$(this ).next("span").show();
+			
+			//change height of wprev-slider-widget
+			$(this ).closest( ".wprev-slider-widget" ).css( "height", "auto" );
+			
+			//change height of wprev-slider
+			$(this ).closest( ".wprev-slider" ).css( "height", "auto" );
+			
+			
+		});
 
 		
 	});

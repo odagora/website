@@ -3,8 +3,8 @@ Contributors: jgwhite33
 Donate link: http://ljapps.com/
 Tags: Google, reviews, slider, testimonials, Google Places reviews
 Requires at least: 3.0.1
-Tested up to: 5.3
-Stable tag: 6.4
+Tested up to: 5.4
+Stable tag: 6.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,7 +12,9 @@ Easily create a slider to display your Google Places business reviews in your Po
 
 == Description ==
 
-A great way to boost your customer confidence and increase SEO! You work hard for your 5 star business Google reviews, now you can easily display them on your WordPress site! Put your Google reviews in a slider (or responsive grid) in your widget areas or directly on the post! Google limits the number of reviews you can pull from them to 5, but unlike similar plugins, this one can automatically check for new Google reviews every day and add them! 
+A great way to boost your customer confidence and increase SEO! You work hard for your 5 star business Google reviews, now you can easily display them on your WordPress site! Put your Google reviews in a slider (or responsive grid) in your widget areas or directly on the post! Google limits the number of reviews you can pull from them to 5, but unlike similar plugins, this one can automatically check for new Google reviews every day and add them!
+
+Note: Google recently changed their Places API and now your business must have a physical location for this plugin to work. The pro version will still work for all locations.
 
 Feature List:
 
@@ -87,6 +89,18 @@ We are always looking for features to add. Just post on the support forum or con
 5. Create as many templates as you like.
 
 == Changelog ==
+= 6.8 =
+* added read more option.
+
+= 6.7 =
+* Small bug fix when user does not have php mbstring extension.
+
+= 6.6 =
+* Google Places API Warning.
+
+= 6.5 =
+* Small bug fix when uninstalling it will now check for de-activated pro version.
+
 = 6.4 =
 * Checks for mbstring now. Also removed template selection from Edit Post page.
 

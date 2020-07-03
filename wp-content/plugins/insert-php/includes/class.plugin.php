@@ -14,10 +14,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 if ( ! class_exists( 'WINP_Plugin' ) ) {
 
-	class WINP_Plugin extends Wbcr_Factory422_Plugin {
+	class WINP_Plugin extends Wbcr_Factory429_Plugin {
 
 		/**
-		 * @var Wbcr_Factory422_Plugin
+		 * @var Wbcr_Factory429_Plugin
 		 */
 		private static $app;
 
@@ -171,6 +171,7 @@ if ( ! class_exists( 'WINP_Plugin' ) ) {
 				require_once( WINP_PLUGIN_DIR . '/includes/shortcodes/shortcode-css.php' );
 				require_once( WINP_PLUGIN_DIR . '/includes/shortcodes/shortcode-js.php' );
 				require_once( WINP_PLUGIN_DIR . '/includes/shortcodes/shortcode-html.php' );
+				require_once( WINP_PLUGIN_DIR . '/includes/shortcodes/shortcode-ad.php' );
 
 				WINP_Helper::register_shortcode( 'WINP_SnippetShortcodePhp', $this );
 				WINP_Helper::register_shortcode( 'WINP_SnippetShortcodeText', $this );
@@ -178,6 +179,7 @@ if ( ! class_exists( 'WINP_Plugin' ) ) {
 				WINP_Helper::register_shortcode( 'WINP_SnippetShortcodeCss', $this );
 				WINP_Helper::register_shortcode( 'WINP_SnippetShortcodeJs', $this );
 				WINP_Helper::register_shortcode( 'WINP_SnippetShortcodeHtml', $this );
+				WINP_Helper::register_shortcode( 'WINP_SnippetShortcodeAdvert', $this );
 			}
 		}
 

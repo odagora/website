@@ -3,7 +3,7 @@ Contributors: WillBontrager, webcraftic, creativemotion, alexkovalevv
 Donate link: http://www.willmaster.com/plugindonate.php
 Tags: adsense, ads, Header, Footer, code snippets, run PHP, insert PHP, use PHP, PHP plugin, ads, ad rotation, shortcoder, ad inserter, Header, Footer, ad manager, amp ads, amazon, ad blocking detection, header code, banner, banners, advert, adverts, sticky fixed widgets
 Requires at least: 4.7
-Tested up to: 5.3
+Tested up to: 5.4
 Requires PHP: 5.4
 Stable tag: trunk
 License: GPLv2 or later
@@ -212,6 +212,26 @@ We will definitely add multisite support in the future. You can speed up this pr
 6. Adding a snippet shortcode to a text widget
 
 == Changelog ==
+= 2.3.5 =
+* Fixed "Warning: filter_var()". The attributes of the snippets work
+
+= 2.3.4 =
+* Fixed snippet attributes
+* Fixed any bugs
+
+= 2.3.3 =
+* Fixed bugs
+
+= 2.3.2 =
+* Fixed: compatibility with PHP 7.4.
+* Added: JS snippets support attributes
+* Added: Filter by type of the snippet.
+* Added: Priority of snippets execution.
+* Added: Sorting by priority.
+* Added: Sorting by name.
+* Added: New Advertisement snippet type.
+* Added: Conditional logic for current page taxonomies
+
 = 2.3.1 (26.11.2019) =
 * Fixed: Bug with images on the about page.
 

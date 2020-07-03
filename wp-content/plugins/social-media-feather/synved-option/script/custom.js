@@ -8,14 +8,14 @@
 var synvedOptionmediaUploadInput = null;
 
 var SynvedOption = {
-	
-	performRequest: function (action, params) 
+
+	performRequest: function (action, params)
 	{
-		if (params == undefined || params == null) 
+		if (params == undefined || params == null)
 		{
 			params = {}
 		}
-		
+
 		jQuery.ajax(
 			SynvedOptionVars.ajaxurl,
 			{
@@ -35,25 +35,24 @@ var SynvedOption = {
 			}
 		);
 	},
-	
-	actionStarted: function (action, params, response, request) 
+
+	actionStarted: function (action, params, response, request)
 	{
-		
+
 	},
-	
-	actionFailed: function (action, params, error, request) 
+
+	actionFailed: function (action, params, error, request)
 	{
-		
+
 	},
-	
+
 	handleOverlay: function (markup)
 	{
-	
+
 	}
 };
 
 jQuery(document).ready(function() {
-
 	jQuery('.synved-option-upload-button').click(function() {
 	 var formfield = jQuery(this).prevAll('input[type="text"]');
 	 var type = jQuery(this).prevAll('input[type="hidden"]').attr('value');
@@ -61,32 +60,32 @@ jQuery(document).ready(function() {
 	 tb_show('', 'media-upload.php?type=' + type + '&amp;TB_iframe=true');
 	 return false;
 	});
-	
+
 	var oldSendToEditor = null;
-	
+
 	if (window.send_to_editor)
 	{
 		oldSendToEditor = window.send_to_editor;
 	}
-	
+
 	window.send_to_editor = function(html) {
 		if (oldSendToEditor != null)
 		{
 			oldSendToEditor(html);
 		}
-		
+
 	 imgurl = jQuery('img',html).attr('src');
 	 jQuery(synvedOptionmediaUploadInput).val(imgurl);
 	 tb_remove();
 	}
-	
+
   jQuery('.synved-option-color-input-picker').each(function () {
   	var it = jQuery(this);
   	var input = it.prev('input.color-input');
 	  it.farbtastic(input);
-	  
+
 	  it.stop().css({opacity: 0, display: 'none'});
-	  
+
 	  input.focus(function (){
 	  	jQuery(it).stop().css({display: 'block'}).animate({opacity: 1});
 	  })
@@ -94,31 +93,43 @@ jQuery(document).ready(function() {
 	  	jQuery(it).stop().animate({opacity: 0}).css({display: 'none'});
 	  });
   });
-	
+
 	jQuery('.synved-option-tag-selector').suggest(ajaxurl + '?action=ajax-tag-search&tax=post_tag', {multiple: true, multipleSep: ','});
-	
+
 	jQuery('.synved-option-reset-button').click(function (e) {
 		var jthis = jQuery(this);
 		var input = jthis.parentsUntil('tr').find('input, textarea');
-		
+
 		if (input.size() > 0)
 		{
 			var placeholder = input.attr('placeholder');
-			
+
 			if (placeholder != null)
 			{
 				input.val(placeholder);
 			}
 		}
-		
+
 		e.preventDefault();
-		
+
 		return false;
 	});
 });
 
 
-(function ($) {
+(function ($, wp) {
+
+  $(document).ready(function() {
+    // Close review us.
+    $( 'body' ).on( 'click', '#close-review-us', function () {
+      wp.ajax.post( 'smf_ajax_hide_review', {
+        nonce: ''
+      } ).always( function ( results ) {
+        $( '.smf-review-us' ).fadeOut();
+      } );
+    } );
+  });
+
     /**
      * Handles "disable all features" switch button
      * @type {{init: synved_switcher.init}}
@@ -153,4 +164,4 @@ jQuery(document).ready(function() {
             });
         }
     };
-})(jQuery);
+})( window.jQuery, window.wp );

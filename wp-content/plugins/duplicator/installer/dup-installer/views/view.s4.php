@@ -67,7 +67,7 @@ if ($json_decode == NULL || $json_decode == FALSE) {
 
 <!-- =========================================
 VIEW: STEP 4- INPUT -->
-<form id='s4-input-form' method="post" class="content-form" style="line-height:20px">
+<form id='s4-input-form' method="post" class="content-form" style="line-height:20px" autocomplete="off">
 	<input type="hidden" name="url_new" id="url_new" value="<?php echo DUPX_U::esc_attr($url_new_rtrim); ?>" />
 	<div class="logfile-link"><?php DUPX_View_Funcs::installerLogLink(); ?></div>
 
@@ -103,11 +103,11 @@ VIEW: STEP 4- INPUT -->
 			</td>
 		</tr>
 	</table>
-	<i style="color:maroon; font-size:12px">
-		<b><i class="fa fa-exclamation-triangle fa-sm"></i> IMPORTANT FINAL STEPS:</b> Login into the WordPress Admin to remove all <?php 
-        DUPX_View_Funcs::helpLink('step4', 'installation files'); ?> and finalize the install process.
-        This install is NOT complete until all installer files are removed.  Leaving the installer files on this server can lead to security issues.
-	</i>
+	<div style="border: 1px solid #cdcdcd;border-radius: 5px;padding: 15px;color:maroon;font-size:12px;font-style:italic;">
+		<b><i class="fa fa-exclamation-triangle"></i> IMPORTANT FINAL STEPS:</b> Login into the WordPress Admin to remove all <?php 
+        DUPX_View_Funcs::helpLink('step4', 'installation files'); ?> and finalize the install process.  This install is <u>NOT</u> complete until all installer files have been completely removed.
+		Leaving any of the installer files on this server can lead to security issues.
+	</div>
 	<br/><br/><br/>
 
     <?php
