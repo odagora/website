@@ -734,19 +734,148 @@ iframe {
 }
 
 /*
-whatshelp whatsapp and scroll to top customization
+WPBot chat and scroll to top customization
  */
 .hm_go_top {
 	bottom: 100px;
 }
 
-@media only screen and (min-width: 814px){
-	#wh-widget-send-button {
-		display: none;
-	}
+@media only screen and (max-width: 354px){
 	.hm_go_top {
-		bottom: 20px;
-	}	
+		bottom: 130px;
+	}
+}
+
+.wp-chatbot-content {
+	background: white !important;
+}
+
+ul.wp-chatbot-messages-container > li.wp-chatbot-msg .wp-chatbot-paragraph, .wp-chatbot-agent-profile .wp-chatbot-bubble {
+	background-color: #989898 !important;
+}
+
+.wp-chatbot-tab-nav ul li.wp-chatbot-operation-active a:before, .wp-chatbot-tab-nav ul li:hover a:before {
+	border: 2px solid #2e3092 !important;
+}
+
+.wp-chatbot-tab-nav ul li a[data-option="chat"]:after {
+	border: 3px solid #2e3092 !important;
+}
+
+.wp-chatbot-animation-active .wp-chatbot-ball-animation-switch,
+.wp-chatbot-animation-active .wp-chatbot-ball-animation-switch:before,
+.wp-chatbot-animation-active .wp-chatbot-ball-animation-switch:after {
+	border-top-color: #2e3092 !important;
+}
+
+span.qcld-chatbot-product-category, span.qcld-chatbot-support-items, span.qcld-chatbot-wildcard, span.qcld-chatbot-suggest-email, span.qcld-chatbot-suggest-phone, span.qcld-chatbot-reset-btn, #wp-chatbot-loadmore, .wp-chatbot-loadmore {
+	background-color: #f2f6f9 !important;
+}
+
+span.qcld-chatbot-product-category:hover, span.qcld-chatbot-support-items:hover, span.qcld-chatbot-wildcard:hover, span.qcld-chatbot-suggest-email:hover, span.qcld-chatbot-reset-btn:hover, #wp-chatbot-loadmore:hover, .wp-chatbot-loadmore:hover {
+	background-color: #a1c4fd !important;
+}
+
+ul.wp-chatbot-messages-container > li:before {
+	background: #2e3092 !important;
+	box-shadow: -38px 0 #2e3092, -28px 8px #989898, -14px 35px #2e3092, -4px 28px #989898, 30px 32px #2e3092, 28px 22px #989898, 43px 0px #2e3092, 35px -5px #989898, 20px -30px #2e3092, 10px -22px #989898, -18px -30px #2e3092, -14px -22px #989898 !important;
+}
+
+/* WPBot call to action */
+#wp-chatbot-integration-container,
+#wp-chatbot-ball-container {
+	float: left;
+}
+
+#wp-chatbot-ball {
+	float: right;
+}
+
+#wpb-call-to-action {
+	float: left;
+	padding-right: 10px;
+	height: 60px;
+	margin-top: 10px;
+}
+
+.wpb-call-to-action-btn {
+	width: 12px;
+	height: 12px;
+	top: 5%;
+	border-radius: 100px;
+	background-color: black;
+	cursor: pointer;
+	position: relative;
+}
+
+.wpb-call-to-action-btn svg {
+	position: absolute;
+}
+
+#wp-chatbot-chat-container div#wp-chatbot-ball-container div#wpb-call-to-action div.wpb-call-to-action-btn svg {
+	display: block;
+}
+
+@media only screen and (min-width: 342px) and (max-width: 480px) {
+	.wpb-call-to-action-content {
+		top: auto !important;
+	}
+}
+
+@media only screen and (max-width: 354px) {
+	#wp-chatbot-integration-container {
+		max-width: 80%;
+	}
+	#wp-chatbot-ball .wp-chatbot-ball {
+		margin-top: 50px;
+	}
+}
+
+@media only screen and (min-width: 355px) and (max-width: 480px) {
+	#wpb-call-to-action {
+		margin: 0;
+	}
+	#wp-chatbot-ball .wp-chatbot-ball {
+		margin-top: 20px;
+	}
+}
+
+@media only screen and (max-width: 480px) {
+	.wpb-call-to-action-content:before,
+	.wpb-call-to-action-content:after {
+		width: 9px !important;
+		height: 9px !important;
+		top: 69% !important;
+		transform: rotate(-40deg) !important;
+	}
+}
+
+.wpb-call-to-action-content:before,
+.wpb-call-to-action-content:after {
+	content: '';
+	position: absolute;
+	background: white;
+	border-bottom: 1px solid #e2e2e2;
+	border-right: 1px solid #e2e2e2;
+	right: -5px;
+	top: 50%;
+	margin-top: -4px;
+	width: 8px;
+	height: 8px;
+	z-index: 1;	
+	transform: rotate(-45deg);
+}
+
+.wpb-call-to-action-content {
+	padding: 5px;
+	float: left;
+	margin: 0 10px 0 15px;
+	position: relative;
+	/* top: 15px; */
+	box-shadow: 0 0 15px #ccc;
+	border: 1px solid #e2e2e2;
+	border-radius: 5px;
+	background: white;
 }
 
 /*------------------------------------------------------*/

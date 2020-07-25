@@ -43,6 +43,23 @@ function ddd_menus(){
 }
 add_action('wp_footer', 'ddd_menus');
 
+function cta_wpbot_plugin(){
+  wp_enqueue_script('cta-wpbot-plugin', get_template_directory_uri() . '/../Kyma-child/js/cta-wpbot-plugin.js');
+  wp_localize_script('cta-wpbot-plugin', 'ajax_object', array('templateUrl' => get_stylesheet_directory_uri()));
+}
+add_action('wp_footer', 'cta_wpbot_plugin');
+
+function dequeue_modified_scripts_wp_chatbot_plugin(){
+  wp_dequeue_script('qcld-wp-chatbot-plugin');
+  wp_deregister_script('qcld-wp-chatbot-plugin');
+}
+add_action('wp_print_scripts', 'dequeue_modified_scripts_wp_chatbot_plugin');
+
+function enqueue_modified_scripts_wp_chatbot_plugin(){
+  wp_enqueue_script('qcld-wp-chatbot-plugin', get_template_directory_uri() . '/../Kyma-child/js/qcld-wp-chatbot-plugin.js');
+}
+add_action('wp_footer', 'enqueue_modified_scripts_wp_chatbot_plugin');
+
 /*Allow parse php code to text widgets*/
 add_filter('widget_text','execute_php',100);
 function execute_php($html){
@@ -187,5 +204,17 @@ if(wpcf7Elm){
 }
 </script>
 <?php
+}
+
+/* Change Dialogflow default reply in wp-chatbot plugin  */
+$option = 'qlcd_wp_chatbot_dialogflow_defualt_reply';
+$value = 'Lo siento, no te entendí. Puedes seleccionar:';
+if (get_option($option)) {
+  $sites = get_sites(['public' => 1, 'orderby' => 'id']);
+  foreach ($sites as $site) {
+    switch_to_blog($site->blog_id);
+    update_option($option, $value);
+    restore_current_blog();
+  }
 }
 ?>
