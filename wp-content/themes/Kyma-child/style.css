@@ -772,7 +772,7 @@ span.qcld-chatbot-product-category, span.qcld-chatbot-support-items, span.qcld-c
 	background-color: #f2f6f9 !important;
 }
 
-span.qcld-chatbot-product-category:hover, span.qcld-chatbot-support-items:hover, span.qcld-chatbot-wildcard:hover, span.qcld-chatbot-suggest-email:hover, span.qcld-chatbot-reset-btn:hover, #wp-chatbot-loadmore:hover, .wp-chatbot-loadmore:hover {
+span.qcld-chatbot-suggest-phone:hover, span.qcld-chatbot-product-category:hover, span.qcld-chatbot-support-items:hover, span.qcld-chatbot-wildcard:hover, span.qcld-chatbot-suggest-email:hover, span.qcld-chatbot-reset-btn:hover, #wp-chatbot-loadmore:hover, .wp-chatbot-loadmore:hover {
 	background-color: #a1c4fd !important;
 }
 
