@@ -431,6 +431,10 @@
 }
 
 @media screen and (max-width: 480px) {
+	.owl_text_a > span {
+		font-size: 14px;
+	}
+	
 	.owl_slider_con {
 		text-align: center;
 	}
