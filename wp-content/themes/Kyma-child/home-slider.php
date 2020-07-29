@@ -430,10 +430,8 @@ switch ($kyma_theme_options['slider_type']) {
                         <?php
                         if(get_the_title()):?>
                             <span class="owl_text_a">
-                            <span>
                                 <span><?php the_title(); ?></span>
                             </span>
-                        </span>
                         <?php
                         endif?>
                         <span
