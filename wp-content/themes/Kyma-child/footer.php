@@ -14,7 +14,7 @@ $col = 12 / (int)$kyma_theme_options['footer_layout'];
                     'before_title' => '<h6 class="footer_title">',
                     'after_title' => '</h6>',
                 );
-                the_widget('kyma_footer_contact_widget', null, $args);
+                the_widget('kyma_footer_contact_widget_modified', null, $args);
                 the_widget('kyma_footer_recent_posts', null, $args);
                 the_widget('kyma_footer_flicker_widget', null, $args);
                 the_widget('WP_Widget_Archives', null, $args);

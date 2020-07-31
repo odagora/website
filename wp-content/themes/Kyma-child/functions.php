@@ -5,6 +5,19 @@
  */
 require get_stylesheet_directory() . '/functions/shortcodes/shortcodes.php';
 require get_stylesheet_directory() . '/functions/custom/image_crop.php';
+require get_stylesheet_directory() . '/functions/custom/contact-widgets.php';
+
+/*Translation files*/
+function my_child_theme_locale() {
+  load_child_theme_textdomain( 'kyma-child', get_stylesheet_directory() . '/lang' );
+}
+add_action( 'after_setup_theme', 'my_child_theme_locale' );
+
+/*Footer Widgets*/
+function unregister_kyma_footer_widget(){
+  unregister_widget('kyma_footer_contact_widget');
+}
+add_action('widgets_init', 'unregister_kyma_footer_widget', 11);
 
 /*Styles*/ 
 function dequeue_kyma_unnecessary_styles(){
