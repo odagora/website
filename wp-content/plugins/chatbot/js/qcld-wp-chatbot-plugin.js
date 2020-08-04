@@ -577,7 +577,7 @@
 								}else{
 									var shopperName=globalwpw.hasNameCookie;
 								}
-								var askEmail='Hello '+shopperName+'! '+ wpwKits.randomMsg(globalwpw.settings.obj.asking_phone);
+								var askEmail='Hola '+shopperName+'! '+ wpwKits.randomMsg(globalwpw.settings.obj.asking_phone);
 								wpwMsg.single(askEmail);
 								//Now updating the support part as .
 								globalwpw.supportStep='phone';
@@ -593,7 +593,7 @@
 								}else{
 									var shopperName=globalwpw.hasNameCookie;
 								}
-								var askEmail='Hello '+shopperName+'! '+ wpwKits.randomMsg(globalwpw.settings.obj.asking_email);
+								var askEmail='Hola '+shopperName+'! '+ wpwKits.randomMsg(globalwpw.settings.obj.asking_email);
 								wpwMsg.single(askEmail);
 								//Now updating the support part as .
 								globalwpw.supportStep='email';
@@ -1147,7 +1147,7 @@
 					}else{
 						var shopperName=globalwpw.hasNameCookie;
 					}
-					var askEmail='Hello '+shopperName+'! '+ wpwKits.randomMsg(globalwpw.settings.obj.asking_email);
+					var askEmail='Hola '+shopperName+'! '+ wpwKits.randomMsg(globalwpw.settings.obj.asking_email);
 					wpwMsg.single(askEmail);
 					//Now updating the support part as .
 					globalwpw.supportStep='email';
@@ -1768,7 +1768,7 @@
             }else{
                 var shopperName=globalwpw.hasNameCookie;
             }
-            var askEmail='Hello '+shopperName+'! '+ wpwKits.randomMsg(globalwpw.settings.obj.asking_email);
+            var askEmail='Hola '+shopperName+'! '+ wpwKits.randomMsg(globalwpw.settings.obj.asking_email);
             wpwMsg.single(askEmail);
             //Now updating the support part as .
             globalwpw.supportStep='email';
@@ -1788,7 +1788,7 @@
             }else{
                 var shopperName=globalwpw.hasNameCookie;
             }
-            var askEmail='Hello '+shopperName+'! '+ 'Please enter your keyword for searching';
+            var askEmail='Hola '+shopperName+'! '+ 'Please enter your keyword for searching';
             wpwMsg.single(askEmail);
             //Now updating the support part as .
             globalwpw.supportStep='search';
@@ -1810,7 +1810,7 @@
             }else{
                 var shopperName=globalwpw.hasNameCookie;
             }
-            var askEmail='Hello '+shopperName+'! '+ wpwKits.randomMsg(globalwpw.settings.obj.asking_phone);
+            var askEmail='Hola '+shopperName+'! '+ wpwKits.randomMsg(globalwpw.settings.obj.asking_phone);
             wpwMsg.single(askEmail);
             //Now updating the support part as .
             globalwpw.supportStep='phone';

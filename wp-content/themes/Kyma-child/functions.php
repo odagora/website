@@ -62,17 +62,6 @@ function cta_wpbot_plugin(){
 }
 add_action('wp_footer', 'cta_wpbot_plugin');
 
-function dequeue_modified_scripts_wp_chatbot_plugin(){
-  wp_dequeue_script('qcld-wp-chatbot-plugin');
-  wp_deregister_script('qcld-wp-chatbot-plugin');
-}
-add_action('wp_print_scripts', 'dequeue_modified_scripts_wp_chatbot_plugin');
-
-function enqueue_modified_scripts_wp_chatbot_plugin(){
-  wp_enqueue_script('qcld-wp-chatbot-plugin', get_template_directory_uri() . '/../Kyma-child/js/qcld-wp-chatbot-plugin.js');
-}
-add_action('wp_footer', 'enqueue_modified_scripts_wp_chatbot_plugin');
-
 /*Allow parse php code to text widgets*/
 add_filter('widget_text','execute_php',100);
 function execute_php($html){

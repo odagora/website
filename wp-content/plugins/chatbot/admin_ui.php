@@ -47,12 +47,12 @@ if ( ! defined( 'ABSPATH' ) ) {
                                     </span>
                                     <span class="wpwbot-admin-tab-name"> <?php _e('FAQ Builder', 'wpchatbot'); ?></span>
                                 </a></li>
-                            <!--<li tab-data="notification"><a href="<?php echo esc_attr($action); ?>&tab=notification">
+                            <li tab-data="notification"><a href="<?php echo esc_attr($action); ?>&tab=notification">
                                     <span class="wpwbot-admin-tab-icon">
                                     <i class="fa fa-bell-o"></i>
                                     </span>
                                     <span class="wpwbot-admin-tab-name"><?php _e('Notification Builder', 'wpchatbot'); ?></span>
-                                </a></li>-->
+                                </a></li>
                             <li tab-data="language"><a href="<?php echo esc_attr($action); ?>&tab=language">
                                     <span class="wpwbot-admin-tab-icon">
                                     <i class="fa fa-language"></i>
@@ -67,35 +67,35 @@ if ( ! defined( 'ABSPATH' ) ) {
                                     <span class="wpwbot-admin-tab-name"><?php echo esc_html__('Start Menu', 'wpchatbot'); ?></span>
                                 </a></li>
 							
-                            <!--<li tab-data="hours"><a href="<?php echo esc_attr($action); ?>&tab=hours">
+                            <li tab-data="hours"><a href="<?php echo esc_attr($action); ?>&tab=hours">
                                     <span class="wpwbot-admin-tab-icon">
                                     <i class="fa fa-calendar"></i>
                                     </span>
                                     <span class="wpwbot-admin-tab-name"><?php _e('Bot Activity Hour', 'wpchatbot'); ?></span>
-                                </a></li>-->
+                                </a></li>
                             <li tab-data="ai"><a href="<?php echo esc_attr($action); ?>&tab=ai">
                                     <span class="wpwbot-admin-tab-icon">
                                     <i class="fa fa-500px"></i>
                                     </span>
                                     <span class="wpwbot-admin-tab-name"><?php _e('Dialogflow', 'wpchatbot'); ?></span>
                                 </a></li>
-                            <!--<li tab-data="app"><a href="<?php echo esc_attr($action); ?>&tab=app">
+                            <li tab-data="app"><a href="<?php echo esc_attr($action); ?>&tab=app">
                                     <span class="wpwbot-admin-tab-icon">
                                     <i class="fa fa-mobile"></i>
                                     </span>
                                     <span class="wpwbot-admin-tab-name"><?php _e('MOBILE APP', 'wpchatbot'); ?></span>
+                                </a></li>
+                            <li tab-data="addons"><a href="<?php echo esc_attr($action); ?>&tab=addons">
+                                    <span class="wpwbot-admin-tab-icon">
+                                    <i class="fa fa-puzzle-piece" aria-hidden="true"></i>
+                                    </span>
+                                    <span class="wpwbot-admin-tab-name"><?php echo esc_html__('Addons', 'wpchatbot'); ?> </span>
                                 </a></li>
                             <li tab-data="custom"><a href="<?php echo esc_attr($action); ?>&tab=custom">
                                     <span class="wpwbot-admin-tab-icon">
                                     <i class="fa fa-code"></i>
                                     </span>
                                     <span class="wpwbot-admin-tab-name"><?php _e('Custom CSS', 'wpchatbot'); ?> </span>
-                                </a></li>-->
-								<li tab-data="addons"><a href="<?php echo esc_attr($action); ?>&tab=addons">
-                                    <span class="wpwbot-admin-tab-icon">
-                                    <i class="fa fa-puzzle-piece" aria-hidden="true"></i>
-                                    </span>
-                                    <span class="wpwbot-admin-tab-name"><?php echo esc_html__('Addons', 'wpchatbot'); ?> </span>
                                 </a></li>
                         </ul>
 						<a class="wpbot_free_messenger_adds" href="https://wordpress.org/plugins/conversational-forms/" target="_blank">Try our new Conversational Form Addon for WPBot</a>
@@ -128,6 +128,18 @@ if ( ! defined( 'ABSPATH' ) ) {
                                 </div>
                                 <div class="row">
                                     <div class="col-xs-12">
+                                        <div class="cxsc-settings-blocks">
+                                            <div class="form-group">
+                                                <h4 class="qc-opt-title"><?php echo esc_html__('Whatsapp Messages Will be Sent to', 'wpchatbot'); ?></h4>
+                                                <input type="text" class="form-control qc-opt-dcs-font"
+                                                       name="qlcd_wp_chatbot_whats_num"
+                                                       value="<?php echo(get_option('qlcd_wp_chatbot_whats_num') != '' ? get_option('qlcd_wp_chatbot_whats_num') : '123456789'); ?>">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> 
+                                <div class="row">
+                                    <div class="col-xs-12">
                                         <h4 class="qc-opt-title"> <?php _e('Disable WPBot', 'wpchatbot'); ?> </h4>
                                         <div class="cxsc-settings-blocks">
                                             <input value="1" id="disable_wp_chatbot" type="checkbox"
@@ -146,7 +158,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                         </div>
                                     </div>
                                 </div>
-                                <!--<div class="row">
+                                <div class="row">
                                     <div class="col-xs-12">
                                         <h4 class="qc-opt-title"> <?php _e('Sound on Page Load', 'wpchatbot'); ?> </h4>
                                         <div class="form-group">
@@ -155,10 +167,10 @@ if ( ! defined( 'ABSPATH' ) ) {
                                             <label for="enable_wp_chatbot_sound_initial"><?php _e('Enable to play sound on initial page load', 'wpchatbot'); ?> </label>
                                         </div>
                                     </div>
-                                </div>-->
+                                </div>
 
                                 <!-- row-->
-                                <!--<div class="row">
+                                <div class="row">
                                     <div class="col-xs-12">
                                         <h4 class="qc-opt-title"> <?php _e('Disable WpBot Icon Animation', 'wpchatbot'); ?> </h4>
                                         <div class="cxsc-settings-blocks">
@@ -167,11 +179,11 @@ if ( ! defined( 'ABSPATH' ) ) {
                                             <label for="disable_wp_chatbot_icon_animation"><?php _e('Disable WpBot icon border animation', 'wpchatbot'); ?> </label>
                                         </div>
                                     </div>
-                                </div>-->
+                                </div>
                                 
                                 
                                 
-                                <!--<div class="row">
+                                <div class="row">
                                     <div class="col-xs-12">
                                         <h4 class="qc-opt-title"><?php _e('Disable WpBot Opening Notification', 'wpchatbot'); ?>  </h4>
                                         <div class="cxsc-settings-blocks">
@@ -180,7 +192,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                             <label for="disable_wp_chatbot_notification"><?php _e('Disable WpBot Opening notification messages', 'wpchatbot'); ?> </label>
                                         </div>
                                     </div>
-                                </div>-->
+                                </div>
                                 <div class="row">
                                     <div class="col-xs-12">
                                         <h4 class="qc-opt-title"><?php _e('Enable RTL', 'wpchatbot'); ?>  </h4>
@@ -203,7 +215,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                     </div>
                                 </div>
 								
-								<!--<div class="row">
+								<div class="row">
                                     <div class="col-xs-12">
                                         <h4 class="qc-opt-title"><?php _e('Disable Call Me', 'wpchatbot'); ?>  </h4>
 										<div class="cxsc-settings-blocks">
@@ -212,7 +224,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 											<label for="disable_wp_chatbot_call_sup"><?php _e('Disable Call Me button', 'wpchatbot'); ?> </label>
 										</div>
                                     </div>
-                                </div>-->
+                                </div>
                                 
                                 <!-- row-->
 								<div class="row">
@@ -365,7 +377,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                         <h4 class="qc-opt-title"><?php _e('WPBot Icon', 'wpchatbot'); ?></h4>
                                         <div class="cxsc-settings-blocks">
                                             <ul class="radio-list">
-                                                <!--<li><label for="wp_chatbot_icon_0" class="qc-opt-dcs-font"><img src="<?php echo QCLD_wpCHATBOT_IMG_URL; ?>/icon-0.png"
+                                                <li><label for="wp_chatbot_icon_0" class="qc-opt-dcs-font"><img src="<?php echo QCLD_wpCHATBOT_IMG_URL; ?>/icon-0.png"
                                                          alt=""> <input id="wp_chatbot_icon_0" type="radio"
                                                                         name="wp_chatbot_icon" <?php echo(get_option('wp_chatbot_icon') == 'icon-0.png' ? 'checked' : ''); ?>
                                                                         value="icon-0.png">
@@ -376,7 +388,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                         name="wp_chatbot_icon" <?php echo(get_option('wp_chatbot_icon') == 'icon-1.png' ? 'checked' : ''); ?>
                                                                         value="icon-1.png">
                                                     <?php _e('Icon - 1', 'wpchatbot'); ?></label>
-                                                </li>-->
+                                                </li>
                                                 <li><label for="wp_chatbot_icon_2" class="qc-opt-dcs-font"><img src="<?php echo QCLD_wpCHATBOT_IMG_URL; ?>/icon-2.png"
                                                          alt=""> <input id="wp_chatbot_icon_2" type="radio"
                                                                         name="wp_chatbot_icon" <?php echo(get_option('wp_chatbot_icon') == 'icon-2.png' ? 'checked' : ''); ?>
@@ -566,7 +578,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                     
                                 </div>
                             </div>
-                            <!--<hr>
+                            <hr>
                             <div id="top-section">
                                 <div class="row">
                                     <div class="col-sm-12">
@@ -605,7 +617,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                              alt="Custom Background">
                                     </div>
                                 </div>
-                            </div>-->
+                            </div>
                         </section>
                         <section id="section-flip-3">
                             <div class="row">
@@ -703,7 +715,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                 </div>
                             </div>
                         </section>
-                        <!--<section id="section-flip-4">
+                        <section id="section-flip-4">
                             <div class="top-section">
                                 <div class="notification-block-inner">
                                     <div class="row">
@@ -786,8 +798,8 @@ if ( ! defined( 'ABSPATH' ) ) {
                                 
                             </div>
                             
-                        </section>-->
-                        <section id="section-flip-4">
+                        </section>
+                        <section id="section-flip-5">
                             <div class="wp-chatbot-language-center-summmery">
                                 
                             </div>
@@ -1163,7 +1175,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                         </section>
 
 						
-					<section id="section-flip-5">
+					<section id="section-flip-6">
                         <?php 
                         wp_enqueue_style('qcld-wp-chatbot-common-style', plugins_url(basename(plugin_dir_path(__FILE__)) . '/css/common-style.css', basename(__FILE__)), '', QCLD_wpCHATBOT_VERSION, 'screen');
                         ?>
@@ -1225,6 +1237,24 @@ if ( ! defined( 'ABSPATH' ) ) {
 														<input type="text" class="form-control qc-opt-dcs-font"
                                                            name="qlcd_wp_chatbot_wildcard_support"
                                                            value="<?php echo(get_option('qlcd_wp_chatbot_wildcard_support') != '' ? get_option('qlcd_wp_chatbot_wildcard_support') : 'FAQ'); ?>">
+													</div>
+                                                    <div class="row">
+														<div class="col-xs-12">
+															<h4 class="qc-opt-title"><?php _e('Whatsapp', 'wpchatbot'); ?>  </h4>
+															<div class="cxsc-settings-blocks">
+																<input value="1" id="enable_wp_chatbot_whats" type="checkbox"
+																	   name="enable_wp_chatbot_whats" <?php echo(get_option('enable_wp_chatbot_whats') == 1 ? 'checked' : ''); ?>>
+																<label for="enable_wp_chatbot_whats"><?php _e('Enable Whatsapp feature and button on Start Menu', 'wpchatbot'); ?> </label>
+															</div>
+														</div>
+													</div>
+													<div class="form-group" style="margin-bottom:0px">
+                                                        <?php
+                                                            $agent_join_options = unserialize(get_option('qlcd_wp_chatbot_whats_label'));
+                                                            $agent_join_option = 'qlcd_wp_chatbot_whats_label';
+                                                            $agent_join_text = __('Chat with Us on WhatsApp', 'wpchatbot');
+                                                            $this->qcld_wb_chatbot_dynamic_multi_option($agent_join_options, $agent_join_option, $agent_join_text);
+                                                        ?>
 													</div>
 													
 													
@@ -1379,7 +1409,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                             </div>
                         </section>
                         
-                        <!--<section id="section-flip-8">
+                        <section id="section-flip-7">
                             <div class="top-section">
                                 <div class="wp-chatbot-language-center-summmery">
                                     <p><?php _e('WPBot will be opened based on the following settings', 'wpchatbot'); ?> </p>
@@ -1521,8 +1551,8 @@ if ( ! defined( 'ABSPATH' ) ) {
                                 </div>
                             </div>
                             
-                        </section>-->
-                        <section id="section-flip-6">
+                        </section>
+                        <section id="section-flip-8">
                             <div class="top-section">
                                 <div class="wp-chatbot-language-center-summmery">
                                     <p><?php _e('DialogFlow as Artificial Intelligences Engine for wpwBot', 'wpchatbot'); ?> </p>
@@ -1684,7 +1714,7 @@ $placeholderPrivatekey = '{
                             </div>
                             
                         </section>
-                        <!--<section id="section-flip-10">
+                        <section id="section-flip-9">
                             <div class="wp-chatbot-language-center-summmery">
                                 <p><?php _e('Enable the Mobile App feature ONLY if you bought ', 'wpchatbot'); ?> <a target="_blank" href="https://www.quantumcloud.com/products/wpcommerce-chatbot-wpwbot/#app"><?php _e(' the Mobile App Addon.', 'wpchatbot'); ?></a>
                             </div>
@@ -1713,10 +1743,10 @@ $placeholderPrivatekey = '{
                                 </div>
                             </div>
                             
-                        </section>-->
+                        </section>
 
 						
-                        <section id="section-flip-7">
+                        <section id="section-flip-10">
                             <div class="top-section">
                                 <div class="row">
                                     <div class="col-xs-12">
