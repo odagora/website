@@ -7,6 +7,11 @@
 (function($) {
 
     /*
+     * Whatsapp status array passed by admin
+     */
+    var wpChatBotWhatsapp = whatsapp_status;
+
+    /*
      * Global variable as object will beused to handle
      * wpwbot chatting initialize, tree change transfer,
      * changing tree steps and cookies etc.
@@ -1513,14 +1518,18 @@
                 var win = window.open(url, '_blank');
                 win.focus();
             }
-            if(wildcardData=='whatsapp'){
+            if(wildcardData=='whatsapp' && wpChatBotWhatsapp=='enabled'){
                 var url='https://api.whatsapp.com/send?phone='+globalwpw.settings.obj.whats_num;
                 var win = window.open(url, '_blank');
                 win.focus();
+            }else{
+                var base_url=globalwpw.settings.obj.site_url;
+                var url = base_url+'/landing/'+globalwpw.settings.obj.whats_off_page;
+                var win = window.open(url, '_blank');
+                win.focus();
             }
-
         });
-		
+
 		$(document).on('click','.qcld-chatbot-form',function(e){
             e.preventDefault();
             var formid=$(this).attr('data-form');

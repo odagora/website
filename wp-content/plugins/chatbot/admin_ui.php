@@ -113,8 +113,10 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                 $url = get_site_url();
                                                 $url = parse_url($url);
                                                 $domain = $url['host'];
-                                                
+                                                $path = $url['path'];
+                                                $path = ltrim($path, '/');
                                                 $admin_email = get_option('admin_email');
+                                                
                                                 ?>
                                                 <h4 class="qc-opt-title"><?php echo esc_html__('Emails Will be Sent to', 'wpchatbot'); ?></h4>
                                                 <input type="text" class="form-control qc-opt-dcs-font"
@@ -137,7 +139,19 @@ if ( ! defined( 'ABSPATH' ) ) {
                                             </div>
                                         </div>
                                     </div>
-                                </div> 
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="cxsc-settings-blocks">
+                                            <div class="form-group">
+                                                <h4 class="qc-opt-title"><?php echo esc_html__('Whatsapp Offline Link Will be Redirected to (Page Name)', 'wpchatbot'); ?></h4>
+                                                <input type="text" class="form-control qc-opt-dcs-font"
+                                                       name="qlcd_wp_chatbot_whats_off_page"
+                                                       value="<?php echo(get_option('qlcd_wp_chatbot_whats_off_page') != '' ? get_option('qlcd_wp_chatbot_whats_off_page') : $path); ?>">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="row">
                                     <div class="col-xs-12">
                                         <h4 class="qc-opt-title"> <?php _e('Disable WPBot', 'wpchatbot'); ?> </h4>
@@ -1268,7 +1282,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 											<br>
 											
                                                 <div class="qc_menu_area">
-                                                    <h4>Acitve Menu</h4>
+                                                    <h4>Active Menu</h4>
                                                                                                       
                                                     <div class="qc_menu_area_container" id="qc_menu_area">
 
