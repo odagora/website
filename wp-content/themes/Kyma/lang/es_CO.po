@@ -7801,3 +7801,11 @@ msgstr "Archivos de Categoría: %s"
 #:wp-content/themes/kyma/functions.php:137
 msgid "Category "
 msgstr "Categoría "
+
+#:wp-content/themes/kyma/functions/phpmailer/sendemail.php:35
+msgid "Your message has been successfully sent, We will send you a reply as soon as possible."
+msgstr "Tu mensaje ha sido enviado con éxito. Nos contactaremos contigo lo más pronto posible."
+
+#:wp-content/themes/kyma/functions/phpmailer/sendemail.php:38
+msgid "Email could not be sent due to some Unexpected Error. Please Try Again later"
+msgstr "El correo no pudo ser enviado debido a algún error inesperado. Por favor intenta más tarde"
