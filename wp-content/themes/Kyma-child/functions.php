@@ -6,6 +6,14 @@
 require get_stylesheet_directory() . '/functions/shortcodes/shortcodes.php';
 require get_stylesheet_directory() . '/functions/custom/image_crop.php';
 require get_stylesheet_directory() . '/functions/custom/contact-widgets.php';
+require_once dirname(__FILE__) . '/../kyma/default_options.php';
+require get_stylesheet_directory() . '/inc/theme-option/framework.php';
+require get_stylesheet_directory() . '/inc/theme-option/option-panel.php';
+require_once dirname(__FILE__) . '/inc/theme-option/options/css/reduxCss.php';
+if (!class_exists('Kirki')) {
+  include_once dirname(__FILE__) . '/inc/kirki/kirki.php';
+}
+require get_stylesheet_directory() . '/customizer.php';
 
 /*Translation files*/
 function my_child_theme_locale() {

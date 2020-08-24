@@ -20,8 +20,12 @@ require get_template_directory() . '/functions/custom/cpts.php';
 require get_template_directory() . '/functions/custom/metabox.php';
 require get_template_directory() . '/functions/shortcodes/shortcodes.php';
 require get_template_directory() . '/inc/theme-option/framework.php';
-require get_template_directory() . '/inc/theme-option/option-panel.php';
-require_once dirname(__FILE__) . '/inc/theme-option/options/css/reduxCss.php';
+if (!class_exists('Redux_Framework_Kyma_config')){
+    require get_template_directory() . '/inc/theme-option/option-panel.php';
+}
+if (!function_exists('kyma_custom_css')){
+    require_once dirname(__FILE__) . '/inc/theme-option/options/css/reduxCss.php';
+}
 if (!class_exists('Kirki')) {
     include_once dirname(__FILE__) . '/inc/kirki/kirki.php';
 }

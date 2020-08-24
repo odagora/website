@@ -1235,6 +1235,11 @@ ol.list_privacy ol li ol li:last-child p {
 	}
 }
 
+.form_row .hm_input_text {
+	font-weight: 100;
+}
+
+
 /*Discounts and coupons page customization*/
 .promo_title {
 	text-align: center;
@@ -1687,9 +1692,47 @@ span.wpcf7-list-item {
 }
 
 @media only screen and (max-width: 992px) {
-.promo-title {
-	text-align: center;
+	.row_spacer .title5 {
+		text-align: center;
+		margin: -20px 0 10px;
+	}
+	.content_spacer .landing_spacer {
+		padding: 20px 0;
+		text-align: justify;
+	}
+	.landing_spacer .landing_content {
+		width: 80%;
+		margin: 0 auto;
+	}
+	.landing_spacer .landing_form {
+		padding-top: 40px;
+	}
+
 }
+
+.title5 {
+	text-align: center;
+	margin: -20px 0 45px;
+}
+
+.landing_spacer {
+	padding: 30px;
+}
+
+.landing_form {
+	padding-top: 20px;
+}
+
+.landing_content {
+	width: 100%;
+}
+
+.landing_content ul,
+.landing_content ol {
+	display: inline-block;
+	list-style: disc;
+	margin: 0 0 1.75em 1.25em;
+	line-height: 24px;
 }
 
 #promo-text {
