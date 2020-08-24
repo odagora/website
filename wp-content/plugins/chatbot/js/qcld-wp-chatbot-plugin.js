@@ -1518,15 +1518,17 @@
                 var win = window.open(url, '_blank');
                 win.focus();
             }
-            if(wildcardData=='whatsapp' && wpChatBotWhatsapp=='enabled'){
-                var url='https://api.whatsapp.com/send?phone='+globalwpw.settings.obj.whats_num;
-                var win = window.open(url, '_blank');
-                win.focus();
-            }else{
-                var base_url=globalwpw.settings.obj.site_url;
-                var url = base_url+'/landing/'+globalwpw.settings.obj.whats_off_page;
-                var win = window.open(url, '_blank');
-                win.focus();
+            if(wildcardData=='whatsapp'){
+                if(wpChatBotWhatsapp=='enabled'){
+                    var url='https://api.whatsapp.com/send?phone='+globalwpw.settings.obj.whats_num;
+                    var win = window.open(url, '_blank');
+                    win.focus();
+                }else{
+                    var base_url=globalwpw.settings.obj.site_url;
+                    var url = base_url+'/landing/'+globalwpw.settings.obj.whats_off_page;
+                    var win = window.open(url, '_blank');
+                    win.focus();
+                }
             }
         });
 
