@@ -887,6 +887,67 @@ class Redux_Framework_Kyma_config
                 )
             )
         );
+        /* Landing One */
+        $this->sections[] = array(
+            'title' => 'Landing One Options',
+            'icon_class' => 'icon-large',
+            'icon' => 'el el-website',
+            'customizer' => true,
+            'fields' => array(
+                array(
+                    'id' => 'landing_one_title',
+                    'type' => 'text',
+                    'title' => __('Landing One Title', 'kyma'),
+                    'default' => __('Landing One Title', 'kyma'),
+                ),
+				array(
+                    'id' => 'landing_one_description',
+                    'type' => 'editor',
+                    'title' => __('Landing One Shortcodes', 'kyma'),
+                    'subtitle' => __('Put Your shortcodes here', 'kyma'),
+                    'full_width' => true,
+                    'args' => array(
+                        'wpautop' => false,
+                        'media_buttons' => false,
+                        'textarea_rows' => 5,
+                        'teeny' => false,
+                        'quicktags' => true,
+                    )
+                ),
+                array(
+                    'id' => 'landing_one_subtitle',
+                    'type' => 'text',
+                    'title' => __('Landing One SubTitle', 'kyma'),
+                    'default' => __('Landing One SubTitle', 'kyma'),
+                ),
+                array(
+                    'id' => 'landing_one_text',
+                    'type' => 'editor',
+                    'title' => __('Landing One Text Shortcodes', 'kyma'),
+                    'subtitle' => __('Put Your shortcodes here', 'kyma'),
+                    'full_width' => true,
+                    'args' => array(
+                        'wpautop' => false,
+                        'media_buttons' => false,
+                        'textarea_rows' => 5,
+                        'teeny' => false,
+                        'quicktags' => true,
+                    )
+                ),
+                array(
+                    'id' => 'landing_one_bg_image',
+                    'type' => 'media',
+                    'url' => true,
+                    'title' => __('Landing One Image ', 'kyma'),
+                    'default' => array(
+                        'url' => get_stylesheet_directory() . '/images/form.jpg',
+                    ),
+                    'required' => array(
+                        array('feature_style', '=', '1')
+                    )
+                )
+            )
+        );
         /* Extra */
         $this->sections[] = array(
             'title' => 'Extra Options',

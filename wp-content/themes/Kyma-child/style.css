@@ -1774,8 +1774,7 @@ span.wpcf7-list-item {
 }
 
 .landing_box {
-	margin-top: 40px;
-	margin-bottom: 60px;
+	margin: 20px 0;
 	position: relative;
 	z-index: 1;
 }
@@ -1942,5 +1941,84 @@ WP Social Chat Plugin
 */
 #qlwapp.qlwapp-bottom-right.qlwapp-bubble .qlwapp-toggle {
 	margin-right: 10px !important;
+}
+
+/*
+Follow Us Social Networks
+*/
+#follow_on_socials a.facebook {
+    color: #516ca4;
+}
+
+#follow_on_socials a.twitter {
+    color: #00baff;
+}
+
+#follow_on_socials a.googleplus {
+    color: #ed523d;
+}
+
+#follow_on_socials a.pinterest {
+    color: #ee1d19;
+}
+
+#follow_on_socials a.linkedin {
+    color: #1985bc;
+}
+
+#follow_on_socials a.email {
+    color: #16a9a9;
+}
+
+#follow_on_socials a.stumbleupon {
+    color: #ec4823;
+}
+
+#follow_on_socials a.digg {
+    color: #1b5891;
+}
+
+#follow_on_socials a.reddit {
+    color: #fc4403;
+}
+
+#follow_on_socials a.evernote {
+    color: #79d626;
+}
+
+#follow_on_socials a.delicious {
+    color: #3399fe;
+}
+
+#follow_on_socials a.tumblr {
+    color: #395875;
+}
+
+#follow_on_socials a.dribbble {
+    color: #ed659a;
+}
+
+#follow_on_socials a.github {
+    color: #4183c4;
+}
+
+#follow_on_socials a.instagram {
+    color: #406f94;
+}
+
+#follow_on_socials a.skype {
+    color: #44bbff;
+}
+
+#follow_on_socials a.vimeo {
+    color: #35bbf0;
+}
+
+#follow_on_socials a.youtube {
+    color: #f02a06;
+}
+
+#follow_on_socials a.rss {
+    color: #ff9d00;
 }
 
