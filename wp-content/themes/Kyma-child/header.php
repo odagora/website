@@ -12,6 +12,7 @@
 <!-- the "no-js" class is for Modernizr. -->
 <head>
     <!-- Google Optimize -->
+    <script src="https://www.googleoptimize.com/optimize.js?id=OPT-PPWS8HT"></script>
     <style>.async-hide { opacity: 0 !important} </style>
     <script>(function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
     h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
