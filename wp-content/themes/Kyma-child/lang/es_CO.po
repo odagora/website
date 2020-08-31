@@ -7802,15 +7802,19 @@ msgstr "Archivos de Categoría: %s"
 msgid "Category "
 msgstr "Categoría "
 
-#:wp-content/themes/kyma-child/functions/custom/contact-widgets.php:68
-#:wp-content/themes/kyma-child/functions/custom/contact-widgets.php:70
+#:wp-content/themes/kyma-child/functions/custom/contact-widgets.php:76
 msgid "Monday to Friday: "
 msgstr "Lunes a Viernes: "
 
-#:wp-content/themes/kyma-child/functions/custom/contact-widgets.php:74
-#:wp-content/themes/kyma-child/functions/custom/contact-widgets.php:76
+#:wp-content/themes/kyma-child/functions/custom/contact-widgets.php:82
 msgid "Saturday: "
 msgstr "Sábado: "
+
+#:wp-content/themes/kyma-child/functions/custom/contact-widgets.php:71
+#:wp-content/themes/kyma-child/functions/custom/contact-widgets.php:73
+msgid "to"
+msgstr "a"
+
 
 #:wp-content/themes/kyma/default_options.php:58
 msgid "Our partners"

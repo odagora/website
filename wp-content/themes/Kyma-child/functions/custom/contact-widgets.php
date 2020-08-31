@@ -7,6 +7,7 @@ function kyma_footer_widget_contact_modified()
 
 class kyma_footer_contact_widget_modified extends WP_Widget
 {
+    public $kyma_theme_options;
 
     function __construct()
     {
@@ -15,6 +16,7 @@ class kyma_footer_contact_widget_modified extends WP_Widget
             __('Kyma Footer Contact', 'kyma'), // Name
             array('description' => __('Your contact details', 'kyma'),) // Args
         );
+        $this->kyma_theme_options = kyma_theme_options();
     }
 
     public function widget($args, $instance)
@@ -59,29 +61,32 @@ class kyma_footer_contact_widget_modified extends WP_Widget
         </address>
         <?php
         /*Service Hours*/
+        global $wp_locale;
         if (!empty($title1))
         echo $args['before_title'] . $title1 . $args['after_title'];
-        // echo "<h6 class='footer_title'>Horario de Atención (Covid-19)</h6>
         ?>
             <ul>
-                <li><?php if ($time_mf) { 
-                    echo _e('Monday to Friday: ', 'kyma-child') . esc_attr($time_mf);
+                <li><?php if ($time_mf) {
+                        if ($this->kyma_theme_options['enable_covid19_status'] == 1) {
+                            echo _e(ucfirst($wp_locale->get_weekday(1)) . ' a ' . ucfirst($wp_locale->get_weekday(4)).': ', 'kyma-child') . esc_attr($time_mf);
+                        }else {
+                            echo _e(ucfirst($wp_locale->get_weekday(1)) . ' a ' . ucfirst($wp_locale->get_weekday(5)).': ', 'kyma-child') . esc_attr($time_mf);
+                        }
                     } else {
-                    echo _e('Monday to Friday: ', 'kyma-child') . '8:00AM - 5PM';
+                        echo _e('Monday to Friday: ', 'kyma-child') . '8AM - 5PM';
                     }?>
                 </li>
-                <li><?php if ($time_w) { 
-                    echo _e('Saturday: ', 'kyma-child') . esc_attr($time_w);
+                <li><?php if ($time_w) {
+                    echo _e(ucfirst($wp_locale->get_weekday(6)).': ', 'kyma-child') . esc_attr($time_w);
                     } else {
-                    echo _e('Saturday: ', 'kyma-child') . '8:00AM - 2PM';
+                    echo _e(ucfirst($wp_locale->get_weekday(6)).': ', 'kyma-child') . '8AM - 2PM';
                     }?>
                 </li>
             </ul>
-        
+
         <?php echo $args['after_widget'];
 
     }
-
     public function form($instance)
     {
         if (isset($instance['title'])) {
@@ -173,8 +178,13 @@ class kyma_footer_contact_widget_modified extends WP_Widget
                    value="<?php echo esc_attr($title1); ?>"/>
         </p>
         <p>
+            <?php if($this->kyma_theme_options['enable_covid19_status'] == 1) { ?>
+            <label
+                for="<?php echo esc_attr($this->get_field_id('time_mf')); ?>"><?php _e('Monday - Thursday:', 'kyma'); ?></label>
+            <?php } else { ?>
             <label
                 for="<?php echo esc_attr($this->get_field_id('time_mf')); ?>"><?php _e('Monday - Friday:', 'kyma'); ?></label>
+            <?php } ?>
             <input class="widefat" id="<?php echo esc_attr($this->get_field_id('time_mf')); ?>"
                    name="<?php echo esc_attr($this->get_field_name('time_mf')); ?>" type="text"
                    value="<?php echo esc_attr($time_mf); ?>"/>

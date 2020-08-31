@@ -1033,6 +1033,12 @@ class Redux_Framework_Kyma_config
                     'title' => __('Info Description', 'kyma'),
                     'default' => __('There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour of this randomised words which don\'t look even slightly believable If you are going to use a passage of Lorem Ipsum.', 'kyma'),
                 ),
+                array(
+                    'id' => 'enable_covid19_status',
+                    'type' => 'checkbox',
+                    'title' => __('Enable Covid-19 Status', 'kyma'),
+                    'default' => 0,
+                ),
             ));
         $this->sections[] = array(
             'title' => 'Typography',
