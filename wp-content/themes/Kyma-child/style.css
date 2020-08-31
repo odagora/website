@@ -361,22 +361,23 @@
 	max-width: 80%;
 }
 
-.owl_text_a > span {
+.owl_slider_con .owl_text_a > span {
 	font-size: 16px;
-	font-weight: bold;
+	font-weight: 600;
 	padding: 13px 20px 13px 20px;
 	font-style: unset;
 }
 
-.owl_text_b > span {
+.owl_slider_con .owl_text_b > span {
 	background-color: rgba(18,19,57,0.8);
 	color: #fff;
 	text-transform: none;
+	font-weight: 600;
 }
 
-.owl_text_c > span {
+.owl_slider_con .owl_text_c > span {
 	font-family: inherit;
-	font-weight: bold;
+	font-weight: 600;
 	background-color: rgba(70,70,66,0.8);
 }
 
