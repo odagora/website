@@ -64,9 +64,12 @@ function ddd_menus(){
 }
 add_action('wp_footer', 'ddd_menus');
 
+/*Load script if page template is not "contact-us.php" - where cf7 is present*/
 function cta_wpbot_plugin(){
-  wp_enqueue_script('cta-wpbot-plugin', get_template_directory_uri() . '/../Kyma-child/js/cta-wpbot-plugin.js');
-  wp_localize_script('cta-wpbot-plugin', 'ajax_object', array('templateUrl' => get_stylesheet_directory_uri()));
+  if(!is_page_template('contact-us.php')){
+    wp_enqueue_script('cta-wpbot-plugin', get_template_directory_uri() . '/../Kyma-child/js/cta-wpbot-plugin.js');
+    wp_localize_script('cta-wpbot-plugin', 'ajax_object', array('templateUrl' => get_stylesheet_directory_uri()));
+  }
 }
 add_action('wp_footer', 'cta_wpbot_plugin');
 
