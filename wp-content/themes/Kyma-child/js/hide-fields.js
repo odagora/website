@@ -14,7 +14,7 @@ jQuery(function($) {
                         $("#otherServices").hide();
                 }
 
-                if ($("#senderService").val() == "Reparación de abolladuras" || $("#senderService").val() == "Latonería y pintura general" ) {
+                if ($("#senderService").val() == "Reparación de abolladuras" || $("#senderService").val() == "Latonería y pintura" || $("#senderService").val() == "Pintura de rines") {
                         $("#photoServices").show();
                 }
                 else {
