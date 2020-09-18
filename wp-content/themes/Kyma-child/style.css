@@ -1385,6 +1385,7 @@ ol.list_privacy ol li ol li:last-child p {
 /*---2 Columns Form Styles Start---*/
 
 .blog_grid_con #quoteForm ul li,
+.blog_grid_con #contactForm ul li,
 .pum-overlay #quoteForm ul li {
 	float: none;
 	width: 100%;
@@ -1400,17 +1401,20 @@ ol.list_privacy ol li ol li:last-child p {
 }
 
 .blog_grid_con #quoteForm ul li:last-child,
+.blog_grid_con #contactForm ul li:last-child,
 .pum-overlay #quoteForm ul li:last-child {
 	margin: 0;
 }
 
 #quoteForm h5,
-#quoteForm p:not(span) {
+#quoteForm p:not(span),
+#contactForm p:not(span) {
 	text-align: center;
 	padding: 0 15px;
 }
 
-#quoteForm span {
+#quoteForm span,
+#contactForm span {
 	text-align: left;
 }
 
@@ -1435,6 +1439,7 @@ ol.list_privacy ol li ol li:last-child p {
 
 #quoteForm select,
 #quoteForm ul li input,
+#contactForm ul li input,
 .quote-clearfix select,
 .quote-clearfix input {
 	width: 100%;
@@ -1491,6 +1496,24 @@ ol.list_privacy ol li ol li:last-child p {
 	border-radius: 3px;
 }
 
+@media only screen and (max-width: 992px){
+	.content_block.f_left {
+		float: none;
+	}
+}
+
+#quoteForm label,
+#contactForm label {
+	font-weight: normal;
+}
+
+#contactForm ul {
+	list-style: none;
+}
+
+#contactForm textarea {
+	height: auto;
+}
 
 /*--- 2 Column Form Styles End ---*/
 
@@ -1500,7 +1523,6 @@ ol.list_privacy ol li ol li:last-child p {
 	max-width: 450px;
 	margin: 0 auto !important;
 	padding: 15px 0 !important;
-	background: #fbfbfb;
 }
 
 textarea {
@@ -1713,7 +1735,6 @@ span.wpcf7-list-item {
 
 .title5 {
 	text-align: center;
-	margin: -20px 0 45px;
 }
 
 .landing_spacer {
