@@ -122,6 +122,7 @@ Chevrolet,Aveo L
 Chevrolet,Aveo Ls
 Chevrolet,B 60
 Chevrolet,B 70
+Chevrolet,Beat
 Chevrolet,Blazer
 Chevrolet,Blazer 310
 Chevrolet,C 30
@@ -137,6 +138,7 @@ Chevrolet,Chevy Taxy
 Chevrolet,Cheyenne
 Chevrolet,Cheyenne C
 Chevrolet,Chr
+Chevrolet,Colorado
 Chevrolet,Corsa
 Chevrolet,Corsa Gl
 Chevrolet,Corsa Gls
@@ -156,6 +158,7 @@ Chevrolet,Grand Blazer
 Chevrolet,Grand Vitara
 Chevrolet,Hhr
 Chevrolet,Jimny
+Chevrolet,Joy
 Chevrolet,Kalos
 Chevrolet,Lacetti
 Chevrolet,Lt 500
@@ -204,6 +207,7 @@ Chevrolet,Tahoe
 Chevrolet,Taxi Power
 Chevrolet,Tracker
 Chevrolet,Trail Blazer
+Chevrolet,Traverse
 Chevrolet,Trooper
 Chevrolet,Trooper 960
 Chevrolet,Vitara
@@ -329,6 +333,7 @@ Fiat,500C
 Fiat,500L
 Fiat,Applause
 Fiat,Argenta
+Fiat,Argo
 Fiat,Barchetta
 Fiat,Brava
 Fiat,Bravo
@@ -343,6 +348,7 @@ Fiat,Freemont
 Fiat,Idea
 Fiat,Linea
 Fiat,Marea
+Fiat,Mobi
 Fiat,Multipla
 Fiat,Palio
 Fiat,Palio Edx
@@ -503,6 +509,7 @@ Hyundai,Avante Gls
 Hyundai,County
 Hyundai,Coupe
 Hyundai,Coupe Fx
+Hyundai,Creta
 Hyundai,Elantra
 Hyundai,Elantra Gl
 Hyundai,Elantra Gls
@@ -629,6 +636,7 @@ Kia,Magentis
 Kia,Magentis Lx
 Kia,Mohave Ex
 Kia,New Sportage
+Kia,Niro
 Kia,Opirus
 Kia,Optima
 Kia,Picanto
@@ -652,12 +660,14 @@ Kia,Sephia
 Kia,Sephia Gs
 Kia,Sephia Ii
 Kia,Shuma
+Kia,Soluto
 Kia,Sorento
 Kia,Sorento Ex
 Kia,Sorento Lx
 Kia,Soul
 Kia,Spectra
 Kia,Sportage
+Kia,Tonic
 Kia,Venga
 Land Rover,Defender
 Land Rover,Discovery
@@ -925,8 +935,11 @@ Peugeot,Partner
 Peugeot,Rcz
 Renault,350
 Renault,1129
+Renault, Kwid
 Renault,4Cv
 Renault,Alaskan
+Renault,Alaskan
+Renault,Captur
 Renault,Citius
 Renault,Clio
 Renault,Clio Campus
@@ -944,12 +957,13 @@ Renault,Kangoo
 Renault,Kangoo Combi
 Renault,Kangoo F76
 Renault,Koleos
-Renault, Kwid
+Renault,Kwid
 Renault,Laguna
 Renault,Logan
 Renault,Master
 Renault,Megane
 Renault,Nevada
+Renault,Oroch
 Renault,R 10
 Renault,R 12
 Renault,R 18 Gtx
@@ -991,6 +1005,7 @@ Seat,Alhambra
 Seat,Altea
 Seat,Altea
 Seat,Altea Xl
+Seat,Arona
 Seat,Arosa
 Seat,Cordoba
 Seat,Exeo
@@ -1002,6 +1017,7 @@ Seat,Malaga
 Seat,Marbella
 Seat,Mii
 Seat,Ronda
+Seat,Tarraco
 Seat,Terra
 Seat,Toledo
 Skoda,130
@@ -1042,6 +1058,7 @@ Ssangyong,Rexton
 Ssangyong,Rexton Ii
 Ssangyong,Rodius
 Ssangyong,Ssangyong
+Ssangyong,Tivoli
 Subaru,1800
 Subaru,B9 Tribeca
 Subaru,Brz
@@ -1196,21 +1213,25 @@ Volkswagen,Lt 35
 Volkswagen,Lupo
 Volkswagen,Multivan
 Volkswagen,New Beetle
+Volkswagen,Nivus
 Volkswagen,Passat
 Volkswagen,Passat Cc
 Volkswagen,Phaeton
 Volkswagen,Polo
 Volkswagen,Santana
+Volkswagen,Saveiro
 Volkswagen,Scirocco
 Volkswagen,Sharan
 Volkswagen,T5 Kombi
 Volkswagen,Taro
+Volkswagen,T-Cross
 Volkswagen,Tiguan
 Volkswagen,Touareg
 Volkswagen,Touran
 Volkswagen,Transporter
 Volkswagen,Up
 Volkswagen,Vento
+Volkswagen,Virtus
 Volkswagen,Voyage Ls
 Volkswagen,Vw Lt31
 Volvo,240
