@@ -44,9 +44,11 @@ Audi,A5
 Audi,A6
 Audi,A7
 Audi,A8
+Audi,Q2
 Audi,Q3
 Audi,Q5
 Audi,Q7
+Audi,Q8
 Audi,R8
 Audi,Rs2
 Audi,Rs3
@@ -485,6 +487,7 @@ Honda,Splendor
 Honda,Stream
 Honda,Tempra
 Honda,Twinstar
+Honda,Wrv
 Hummer,H1
 Hummer,H2
 Hummer,H3
@@ -667,6 +670,7 @@ Kia,Sorento Lx
 Kia,Soul
 Kia,Spectra
 Kia,Sportage
+Kia,Stonic
 Kia,Tonic
 Kia,Venga
 Land Rover,Defender
@@ -913,6 +917,7 @@ Peugeot,605
 Peugeot,607
 Peugeot,806
 Peugeot,807
+Peugeot,2008
 Peugeot,3008
 Peugeot,4007
 Peugeot,4008
@@ -1007,6 +1012,7 @@ Seat,Altea
 Seat,Altea Xl
 Seat,Arona
 Seat,Arosa
+Seat,Ateca
 Seat,Cordoba
 Seat,Exeo
 Seat,Ibiza
@@ -1059,6 +1065,7 @@ Ssangyong,Rexton Ii
 Ssangyong,Rodius
 Ssangyong,Ssangyong
 Ssangyong,Tivoli
+Ssangyong,Xlv
 Subaru,1800
 Subaru,B9 Tribeca
 Subaru,Brz
