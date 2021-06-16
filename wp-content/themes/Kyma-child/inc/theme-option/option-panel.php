@@ -1473,6 +1473,27 @@ class Redux_Framework_Kyma_config
                 ),
             )
         );
+        /* Newsletter Info */
+        $this->sections[] = array(
+            'title' => 'Newsletter Info',
+            'icon_class' => 'icon-large',
+            'icon' => 'el el-envelope',
+            'customizer' => true,
+            'fields' => array(
+                array(
+                    'id' => 'newsletter_form_title',
+                    'type' => 'text',
+                    'title' => __('Newsletter Form Heading', 'kyma'),
+                    'default' => __('Subscribe now', 'kyma')
+                ),
+                array(
+                    'id' => 'newsletter_form_icon',
+                    'type' => 'text',
+                    'title' => __('Newsletter Form Icon', 'kyma'),
+                    'default' => 'ico-envelope3'
+                ),
+            )
+        );
         /* Footer Option */
         $this->sections[] = array(
             'title' => 'Footer Options',
