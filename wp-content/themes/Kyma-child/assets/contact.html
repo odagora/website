@@ -1,0 +1,49 @@
+<div id="contactForm">
+    <p class="highlight_text">* Campos obligatorios</p>
+    <ul class="form_list">
+        <li>
+            <div class="quote-clearfix">
+                <div id="left">
+                    <ul>
+                        <li>
+                            <label for="contact-us-name">Nombre(s)<span class="highlight_text"> *</span></label>[text* contact-us-name id:contact-us-name class:quoteForm] 
+                        </li>
+                    </ul>
+                </div>
+                <div id="right">
+                    <ul>
+                        <li>
+                            <label for="senderLastname">Apellido(s)<span class="highlight_text"> *</span></label>[text* senderLastname id:senderLastname class:quoteForm] 
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </li>
+        <li>
+            <label for="senderPhone">Teléfono<span class="highlight_text"> *</span></label>[tel* senderPhone id:senderPhone class:quoteForm] 
+        </li>
+        <li>
+            <label for="senderEmail">Email<span class="highlight_text"> *</span></label>[email* senderEmail id:senderEmail class:quoteForm] 
+        </li>
+        <li>
+            <label for="senderService">Servicio a cotizar<span class="highlight_text"> *</span></label>[select* senderService id:senderService class:quoteForm include_blank "Cambio de aceite y filtros" "Cambio pastillas de freno" "Sincronización" "Cambio correa de repartición" "Cambio de amortiguadores" "Cambio de embrague" "Revisiones de kilometraje" "Servicio de escáner" "Peritaje" "Mecánica general" "Reparación de abolladuras" "Latonería y pintura general" "Alineación y balanceo" "Otro(s)"]
+        </li>
+        <li>
+            <div class="otherServices" id="otherServices">
+                <label for="senderExtraServices">Cuál(es) servicio(s) quieres cotizar?</label>[textarea senderExtraServices id:senderExtraServices class:quoteForm]
+            </div>
+        </li>
+        <li>
+            <div class="photoServices" id="photoServices">
+                <label for="photoServices">Subir fotos</label>[multifile photoServices id:photoServices class:quoteForm limit:1000000 filetypes:jpg|png|bmp|gif|rar|zip]
+            </div>
+        </li>
+    </ul>
+<div id="check-mark">[checkbox* checkSend id:checkSend class:quoteForm "Acepto los términos y condiciones del servicio."]<span><a href="http://servitalleres.com/terminos-y-condiciones/" target="_blank">  Ver más »</a></span></div>
+[honeypot honeypot-558]
+<input type="hidden" name="mc4wp-subscribe" value="1" />
+<input name="_mc4wp_lists[]" type="hidden" value="165e3c7684" />
+<input name="mc4wp-INTERESTS[44f0b6e19b][]" type="hidden" value="ffe31c8b86" />
+<div id="quote-form-button">[submit "Cotizar"]</div>
+</div>
